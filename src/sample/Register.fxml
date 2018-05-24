@@ -37,6 +37,7 @@
                         <Hyperlink fx:id="loginLink" alignment="CENTER_RIGHT" onAction="#loginLinkClicked"
                                    text="Login"/>
                     </children>
+                    
                 </HBox>
                 <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
             </children>
