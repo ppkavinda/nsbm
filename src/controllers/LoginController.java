@@ -1,17 +1,14 @@
-package sample;
+package controllers;
 
 import db.DBConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import sample.md5.MD5;
+import helpers.MD5;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +17,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
+    public Hyperlink registerLink;
     @FXML
     private TextField username;
     @FXML
@@ -44,15 +42,26 @@ public class LoginController implements Initializable {
             System.out.println(username.getText() + " " + password.getText());
             setError("Invalid Details!");
         } else {
-            if (!login()) {
-                // fail login. setting error message
-                setError("Unable to login.");
-                password.setText("");
-                System.out.println("Login failure");
-            } else {
-                System.out.println("Login success ");
-                // login successful. continue with app
-                // TODO
+            String errorMessage = "Unable to Login";
+            try {
+                if (!login()) {
+                    // fail login. setting error message
+                    errorMessage = "Unable to login.";
+                    password.setText("");
+                    System.out.println("Login failure");
+                } else {
+                    System.out.println("Login success ");
+                    // login successful. continue with app
+                    // TODO
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                errorMessage = "Unable to login: server Error";
+                e.printStackTrace();
+            } finally {
+                System.out.println(errorMessage);
+                setError(errorMessage);
             }
         }
     }
@@ -61,8 +70,8 @@ public class LoginController implements Initializable {
     public void registerButtonClicked() throws IOException {
 
         Scene scene = loginButton.getScene();
-        VBox root = FXMLLoader.load(getClass().getResource("Register.fxml"));
-        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+        VBox root = FXMLLoader.load(getClass().getResource("../views/Register.fxml"));
+        scene.getStylesheets().add(getClass().getResource("/assets/css/login.css").toExternalForm());
         scene.setRoot(root);
         System.out.println("Register.fxml opened");
     }
@@ -78,9 +87,8 @@ public class LoginController implements Initializable {
         return false;
     }
 
-    private boolean login() {
+    private boolean login() throws SQLException {
         DBConnection conn = new DBConnection();
-        try {
             String sql = "SELECT id FROM users WHERE username = ? and password = ?;";
             ResultSet rs = conn.loginUser(sql, username.getText(), MD5.getHash(password.getText()));
 
@@ -93,11 +101,6 @@ public class LoginController implements Initializable {
 
             // return true if logged in
             return rowcount == 1;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 
     private void setError(String msg) {

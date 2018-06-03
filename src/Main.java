@@ -1,5 +1,3 @@
-package sample;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,10 +8,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/views/Login.fxml"));
         primaryStage.setTitle("NSBM: Welcome");
         Scene scene = new Scene(root, 500, 500);
-        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/assets/css/login.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
     }
