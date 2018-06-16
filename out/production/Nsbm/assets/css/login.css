@@ -1,3 +1,9 @@
+.root {
+    -fx-font-size: 17px;
+}
+.table-column {
+    -fx-alignment: CENTER;
+}
 #loginButton, #registerButton {
    -fx-background-color: #1944ad;
     -fx-text-fill: #f4f4f4;
@@ -7,12 +13,40 @@
     -fx-font-weight: 600;
 }
 
-#loginLabel {
+#titleLabel {
     -fx-font-weight: 800;
     -fx-font-size: 34px;
 }
 
-#registerLabel {
-    -fx-font-weight: 800;
-    -fx-font-size: 34px;
+#addButton {
+    -fx-background-color: #1944ad;
+    -fx-text-fill: #f4f4f4;
+}
+
+#editButton {
+    -fx-text-fill: #f4f4f4;
+    -fx-background-color: #33af54;
+}
+
+#removeButton {
+    -fx-background-color: #ad532b;
+    -fx-text-fill: #f4f4f4;
+}
+
+#mainMenuButton {
+    -fx-background-color: black;
+    -fx-text-fill: #f4f4f4;
+}
+
+.btn {
+    -fx-font-weight: 400;
+    -fx-padding: 3px 7px;
+    -fx-font-size: 15px;
+    -fx-border-radius: 2px;
+}
+
+.btn-primary {
+    -fx-text-fill: #fff;
+    -fx-background-color: #007bff;
+    -fx-border-color: #007bff;
 }

@@ -8,7 +8,7 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" xmlns="http://javafx.com/javafx/8"
       fx:controller="controllers.RegisterController">
-    <Label alignment="CENTER" text="Register Here"/>
+    <Label fx:id="titleLabel" alignment="CENTER" text="Register Here"/>
 
     <GridPane alignment="CENTER" hgap="10.0" vgap="8">
 

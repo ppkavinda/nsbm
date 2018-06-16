@@ -4,8 +4,10 @@ import db.DBConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import helpers.MD5;
@@ -18,6 +20,7 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
     public Hyperlink registerLink;
+    public Label titleLabel;
     @FXML
     private TextField username;
     @FXML
@@ -110,5 +113,14 @@ public class LoginController implements Initializable {
 
     private void clearError() {
         error.setVisible(false);
+    }
+
+    public void test () throws IOException {
+
+        Scene scene = loginButton.getScene();
+        VBox root = FXMLLoader.load(getClass().getResource("/views/admin/Postgraduate.fxml"));
+        scene.getStylesheets().add(getClass().getResource("/assets/css/login.css").toExternalForm());
+        scene.setRoot(root);
+
     }
 }

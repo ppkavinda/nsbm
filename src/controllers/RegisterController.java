@@ -8,6 +8,8 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class RegisterController implements Initializable {
@@ -20,6 +22,7 @@ public class RegisterController implements Initializable {
     public Button registerButton;
     public TextField username;
     public Hyperlink loginLink;
+    public Label titleLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -27,7 +30,7 @@ public class RegisterController implements Initializable {
     }
 
     public void registerButtonClicked() {
-        System.out.println(dob.getValue());
+        System.out.println();
 
     }
 
