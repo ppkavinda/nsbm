@@ -5,68 +5,28 @@
     <bookmark url="file://$PROJECT_DIR$/src/controllers/LoginController.java" line="111" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="re-structured properly, added some models">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/assets/css/bootstrap.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/CourseController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/FacultyController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/InstructorController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/LabController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/LecHallController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/LectureController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/LecturerController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/PostgraduateController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/StudentController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/SubjectController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/UndergraduateController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/models/AlResult.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/models/LecHall.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/views/admin/Course.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/views/admin/Faculty.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/views/admin/Instructor.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/views/admin/Lab.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/views/admin/LecHall.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/views/admin/Lecture.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/views/admin/Lecturer.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/views/admin/Postgraduate.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/views/admin/Student.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/views/admin/Subject.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/views/admin/Test.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/views/admin/Undergraduate.fxml" />
-      <change beforePath="$PROJECT_DIR$/.idea/cssdialects.xml" afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5180721d-be34-42b1-9619-eb3ee0ac9253.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/5180721d-be34-42b1-9619-eb3ee0ac9253.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/TestController.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/Main.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/Main.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Nsbm/assets/css/login.css" afterPath="$PROJECT_DIR$/out/production/Nsbm/assets/css/login.css" />
       <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/LoginController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/LoginController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/RegisterController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/RegisterController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Course.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Course.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Faculty.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Faculty.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Instructor.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Instructor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Lab.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Lab.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Postgraduate.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Postgraduate.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Student.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Student.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Subject.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Subject.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Test.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Test.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Undergraduate.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Undergraduate.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/Login.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/Login.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/Register.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/Register.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Lecture.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Lecture.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Lecturer.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Lecturer.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Practicle.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Practicle.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Staff.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Staff.class" />
+      <change beforePath="$PROJECT_DIR$/src/assets/css/bootstrap.css" afterPath="$PROJECT_DIR$/src/assets/css/bootstrap.css" />
       <change beforePath="$PROJECT_DIR$/src/assets/css/login.css" afterPath="$PROJECT_DIR$/src/assets/css/login.css" />
       <change beforePath="$PROJECT_DIR$/src/controllers/LoginController.java" afterPath="$PROJECT_DIR$/src/controllers/LoginController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/RegisterController.java" afterPath="$PROJECT_DIR$/src/controllers/RegisterController.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Course.java" afterPath="$PROJECT_DIR$/src/models/Course.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Faculty.java" afterPath="$PROJECT_DIR$/src/models/Faculty.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Instructor.java" afterPath="$PROJECT_DIR$/src/models/Instructor.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Lab.java" afterPath="$PROJECT_DIR$/src/models/Lab.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Postgraduate.java" afterPath="$PROJECT_DIR$/src/models/Postgraduate.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Student.java" afterPath="$PROJECT_DIR$/src/models/Student.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Subject.java" afterPath="$PROJECT_DIR$/src/models/Subject.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Test.java" afterPath="$PROJECT_DIR$/src/models/Test.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Undergraduate.java" afterPath="$PROJECT_DIR$/src/models/Undergraduate.java" />
-      <change beforePath="$PROJECT_DIR$/src/views/Login.fxml" afterPath="$PROJECT_DIR$/src/views/Login.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/views/Register.fxml" afterPath="$PROJECT_DIR$/src/views/Register.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/admin/LectureController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/LectureController.java" />
+      <change beforePath="$PROJECT_DIR$/src/models/LecHall.java" afterPath="$PROJECT_DIR$/src/models/LecHall.java" />
+      <change beforePath="$PROJECT_DIR$/src/models/Lecture.java" afterPath="$PROJECT_DIR$/src/models/Lecture.java" />
+      <change beforePath="$PROJECT_DIR$/src/models/Lecturer.java" afterPath="$PROJECT_DIR$/src/models/Lecturer.java" />
+      <change beforePath="$PROJECT_DIR$/src/models/Practicle.java" afterPath="$PROJECT_DIR$/src/models/Practicle.java" />
+      <change beforePath="$PROJECT_DIR$/src/models/Staff.java" afterPath="$PROJECT_DIR$/src/models/Staff.java" />
+      <change beforePath="$PROJECT_DIR$/src/views/admin/Lecture.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Lecture.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/views/admin/Lecturer.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Lecturer.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/views/admin/Undergraduate.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Undergraduate.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -157,193 +117,132 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Student.java">
+      <file leaf-file-name="Lecture.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/Lecture.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="57" column="40" lean-forward="false" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
-              <folding>
-                <element signature="e#4210#4211#0" expanded="true" />
-                <element signature="e#4247#4248#0" expanded="true" />
-                <element signature="e#4301#4302#0" expanded="true" />
-                <element signature="e#4332#4333#0" expanded="true" />
-                <element signature="e#4380#4381#0" expanded="true" />
-                <element signature="e#4423#4424#0" expanded="true" />
-                <element signature="e#4458#4459#0" expanded="true" />
-                <element signature="e#4495#4496#0" expanded="true" />
-                <element signature="e#4549#4550#0" expanded="true" />
-                <element signature="e#4580#4581#0" expanded="true" />
-                <element signature="e#4628#4629#0" expanded="true" />
-                <element signature="e#4671#4672#0" expanded="true" />
-                <element signature="e#4705#4706#0" expanded="true" />
-                <element signature="e#4744#4745#0" expanded="true" />
-                <element signature="e#4801#4802#0" expanded="true" />
-                <element signature="e#4834#4835#0" expanded="true" />
-                <element signature="e#4883#4884#0" expanded="true" />
-                <element signature="e#4930#4931#0" expanded="true" />
-                <element signature="e#4965#4966#0" expanded="true" />
-                <element signature="e#5001#5002#0" expanded="true" />
-                <element signature="e#5063#5064#0" expanded="true" />
-                <element signature="e#5093#5094#0" expanded="true" />
-                <element signature="e#5140#5141#0" expanded="true" />
-                <element signature="e#5181#5182#0" expanded="true" />
-                <element signature="e#5214#5215#0" expanded="true" />
-                <element signature="e#5249#5250#0" expanded="true" />
-                <element signature="e#5309#5310#0" expanded="true" />
-                <element signature="e#5338#5339#0" expanded="true" />
-                <element signature="e#5382#5383#0" expanded="true" />
-                <element signature="e#5421#5422#0" expanded="true" />
-                <element signature="e#5453#5454#0" expanded="true" />
-                <element signature="e#5487#5488#0" expanded="true" />
-                <element signature="e#5538#5539#0" expanded="true" />
-                <element signature="e#5566#5567#0" expanded="true" />
-                <element signature="e#5608#5609#0" expanded="true" />
-                <element signature="e#5645#5646#0" expanded="true" />
-                <element signature="e#5677#5678#0" expanded="true" />
-                <element signature="e#5711#5712#0" expanded="true" />
-                <element signature="e#5762#5763#0" expanded="true" />
-                <element signature="e#5790#5791#0" expanded="true" />
-                <element signature="e#5832#5833#0" expanded="true" />
-                <element signature="e#5869#5870#0" expanded="true" />
-                <element signature="e#5901#5902#0" expanded="true" />
-                <element signature="e#5935#5936#0" expanded="true" />
-                <element signature="e#5986#5987#0" expanded="true" />
-                <element signature="e#6014#6015#0" expanded="true" />
-                <element signature="e#6056#6057#0" expanded="true" />
-                <element signature="e#6093#6094#0" expanded="true" />
-                <element signature="e#6121#6122#0" expanded="true" />
-                <element signature="e#6153#6154#0" expanded="true" />
-                <element signature="e#6208#6209#0" expanded="true" />
-                <element signature="e#6234#6235#0" expanded="true" />
-                <element signature="e#6270#6271#0" expanded="true" />
-                <element signature="e#6303#6304#0" expanded="true" />
-                <element signature="e#6336#6337#0" expanded="true" />
-                <element signature="e#6371#6372#0" expanded="true" />
-                <element signature="e#6423#6424#0" expanded="true" />
-                <element signature="e#6452#6453#0" expanded="true" />
-                <element signature="e#6496#6497#0" expanded="true" />
-                <element signature="e#6535#6536#0" expanded="true" />
-                <marker date="1529141898867" expanded="true" signature="2135:2352" ph="UPDATE `student`... " />
-                <marker date="1529141898867" expanded="true" signature="3255:3472" ph="INSERT INTO `student`... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controllers/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="593">
-              <caret line="120" column="77" lean-forward="false" selection-start-line="120" selection-start-column="73" selection-end-line="120" selection-end-column="77" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Undergraduate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Undergraduate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="137" column="31" lean-forward="false" selection-start-line="137" selection-start-column="31" selection-end-line="137" selection-end-column="31" />
+            <state relative-caret-position="532">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#734#735#0" expanded="true" />
-                <element signature="e#777#778#0" expanded="true" />
-                <element signature="e#7706#7707#0" expanded="true" />
-                <element signature="e#7758#7759#0" expanded="true" />
-                <marker date="1529136897813" expanded="true" signature="1462:1509" ph="DELETE FROM `users`... " />
-                <marker date="1529136897813" expanded="true" signature="2090:2148" ph="UPDATE `users`... " />
-                <marker date="1529136897813" expanded="true" signature="2175:2391" ph="UPDATE `student`... " />
-                <marker date="1529136897813" expanded="true" signature="2175:2392" ph="UPDATE `student`... " />
-                <marker date="1529136897813" expanded="true" signature="2419:2510" ph="UPDATE `undergraduate`... " />
-                <marker date="1529136897813" expanded="true" signature="2537:2628" ph="UPDATE `al_result`... " />
-                <marker date="1529136897813" expanded="true" signature="4300:4366" ph="INSERT INTO `users`... " />
-                <marker date="1529136897813" expanded="true" signature="4393:4544" ph="INSERT INTO `student`... " />
-                <marker date="1529136897813" expanded="true" signature="4393:4610" ph="INSERT INTO `student`... " />
-                <marker date="1529136897813" expanded="true" signature="4637:4715" ph="INSERT INTO `undergraduate`... " />
-                <marker date="1529136897813" expanded="true" signature="4742:4824" ph="INSERT INTO `al_result`... " />
-                <marker date="1529136897813" expanded="true" signature="6365:6627" ph="SELECT * FRO... undergraduate" />
-                <marker date="1529136897813" expanded="true" signature="6365:6690" ph="SELECT * FRO... undergraduate" />
-                <marker date="1529136897813" expanded="true" signature="6365:6734" ph="SELECT * FRO... undergraduate" />
+                <element signature="e#3276#3277#0" expanded="true" />
+                <element signature="e#3315#3316#0" expanded="true" />
+                <element signature="e#3372#3373#0" expanded="true" />
+                <element signature="e#3405#3406#0" expanded="true" />
+                <element signature="e#3454#3455#0" expanded="true" />
+                <element signature="e#3501#3502#0" expanded="true" />
+                <element signature="e#3537#3538#0" expanded="true" />
+                <element signature="e#3574#3575#0" expanded="true" />
+                <element signature="e#3637#3638#0" expanded="true" />
+                <element signature="e#3668#3669#0" expanded="true" />
+                <element signature="e#3717#3718#0" expanded="true" />
+                <element signature="e#3760#3761#0" expanded="true" />
+                <element signature="e#3795#3796#0" expanded="true" />
+                <element signature="e#3831#3832#0" expanded="true" />
+                <element signature="e#3893#3894#0" expanded="true" />
+                <element signature="e#3923#3924#0" expanded="true" />
+                <element signature="e#3970#3971#0" expanded="true" />
+                <element signature="e#4011#4012#0" expanded="true" />
+                <element signature="e#4048#4049#0" expanded="true" />
+                <element signature="e#4087#4088#0" expanded="true" />
+                <element signature="e#4143#4144#0" expanded="true" />
+                <element signature="e#4176#4177#0" expanded="true" />
+                <element signature="e#4228#4229#0" expanded="true" />
+                <element signature="e#4275#4276#0" expanded="true" />
+                <element signature="e#4310#4311#0" expanded="true" />
+                <element signature="e#4347#4348#0" expanded="true" />
+                <element signature="e#4401#4402#0" expanded="true" />
+                <element signature="e#4432#4433#0" expanded="true" />
+                <element signature="e#4480#4481#0" expanded="true" />
+                <element signature="e#4523#4524#0" expanded="true" />
+                <marker date="1529316915116" expanded="true" signature="1311:1365" ph="DELETE FROM `lecture`... " />
+                <marker date="1529316915116" expanded="true" signature="1723:1842" ph="UPDATE `lecture`... " />
+                <marker date="1529316915116" expanded="true" signature="2349:2464" ph="INSERT INTO `lecture`... " />
+                <marker date="1529316915116" expanded="true" signature="2875:3022" ph="SELECT * FRO... lecture" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Undergraduate.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/admin/Undergraduate.fxml">
+      <file leaf-file-name="Practicle.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/Practicle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="181" column="62" lean-forward="false" selection-start-line="181" selection-start-column="62" selection-end-line="181" selection-end-column="62" />
-              <folding />
+            <state relative-caret-position="84">
+              <caret line="36" column="77" lean-forward="false" selection-start-line="36" selection-start-column="77" selection-end-line="36" selection-end-column="77" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#929#930#0" expanded="true" />
+                <element signature="e#987#988#0" expanded="true" />
+                <element signature="e#3279#3280#0" expanded="true" />
+                <element signature="e#3320#3321#0" expanded="true" />
+                <element signature="e#3379#3380#0" expanded="true" />
+                <element signature="e#3414#3415#0" expanded="true" />
+                <element signature="e#3467#3468#0" expanded="true" />
+                <element signature="e#3518#3519#0" expanded="true" />
+                <element signature="e#3545#3546#0" expanded="true" />
+                <element signature="e#3577#3578#0" expanded="true" />
+                <element signature="e#3631#3632#0" expanded="true" />
+                <element signature="e#3657#3658#0" expanded="true" />
+                <element signature="e#3692#3693#0" expanded="true" />
+                <element signature="e#3725#3726#0" expanded="true" />
+                <element signature="e#3760#3761#0" expanded="true" />
+                <element signature="e#3796#3797#0" expanded="true" />
+                <element signature="e#3858#3859#0" expanded="true" />
+                <element signature="e#3888#3889#0" expanded="true" />
+                <element signature="e#3935#3936#0" expanded="true" />
+                <element signature="e#3976#3977#0" expanded="true" />
+                <element signature="e#4013#4014#0" expanded="true" />
+                <element signature="e#4052#4053#0" expanded="true" />
+                <element signature="e#4108#4109#0" expanded="true" />
+                <element signature="e#4141#4142#0" expanded="true" />
+                <element signature="e#4193#4194#0" expanded="true" />
+                <element signature="e#4240#4241#0" expanded="true" />
+                <element signature="e#4275#4276#0" expanded="true" />
+                <element signature="e#4312#4313#0" expanded="true" />
+                <element signature="e#4366#4367#0" expanded="true" />
+                <element signature="e#4397#4398#0" expanded="true" />
+                <element signature="e#4445#4446#0" expanded="true" />
+                <element signature="e#4488#4489#0" expanded="true" />
+                <marker date="1529324776321" expanded="true" signature="1316:1376" ph="DELETE FROM `practicle`... " />
+                <marker date="1529324776321" expanded="true" signature="1737:1858" ph="UPDATE `practicle`... " />
+                <marker date="1529324776321" expanded="true" signature="2363:2478" ph="INSERT INTO `practicle`... " />
+                <marker date="1529324776321" expanded="true" signature="2885:3023" ph="SELECT * FRO... practicle" />
+              </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Practicle.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/admin/Practicle.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Postgraduate.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/admin/Postgraduate.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+            <state relative-caret-position="451">
+              <caret line="89" column="65" lean-forward="false" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
         </entry>
       </file>
-      <file leaf-file-name="Postgraduate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Postgraduate.java">
+      <file leaf-file-name="PracticleController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controllers/admin/PracticleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="51" column="82" lean-forward="false" selection-start-line="51" selection-start-column="82" selection-end-line="51" selection-end-column="82" />
+            <state relative-caret-position="-1792">
+              <caret line="38" column="54" lean-forward="false" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
               <folding>
-                <element signature="e#717#718#0" expanded="true" />
-                <element signature="e#740#741#0" expanded="true" />
-                <element signature="e#5266#5267#0" expanded="true" />
-                <element signature="e#5313#5314#0" expanded="true" />
-                <element signature="e#5378#5379#0" expanded="true" />
-                <element signature="e#5419#5420#0" expanded="true" />
-                <element signature="e#5484#5485#0" expanded="true" />
-                <element signature="e#5547#5548#0" expanded="true" />
-                <element signature="e#5583#5584#0" expanded="true" />
-                <element signature="e#5621#5622#0" expanded="true" />
-                <element signature="e#5676#5677#0" expanded="true" />
-                <element signature="e#5708#5709#0" expanded="true" />
-                <element signature="e#5758#5759#0" expanded="true" />
-                <element signature="e#5803#5804#0" expanded="true" />
-                <element signature="e#5848#5849#0" expanded="true" />
-                <element signature="e#5895#5896#0" expanded="true" />
-                <element signature="e#5959#5960#0" expanded="true" />
-                <element signature="e#6000#6001#0" expanded="true" />
-                <element signature="e#6068#6069#0" expanded="true" />
-                <element signature="e#6131#6132#0" expanded="true" />
-                <marker date="1529143333625" expanded="true" signature="1285:1332" ph="DELETE FROM `users`... " />
-                <marker date="1529143333625" expanded="true" signature="1871:1929" ph="UPDATE `users`... " />
-                <marker date="1529143333625" expanded="true" signature="1957:2109" ph="UPDATE `undergraduate`... " />
-                <marker date="1529143333625" expanded="true" signature="3108:3174" ph="INSERT INTO `users`... " />
-                <marker date="1529143333625" expanded="true" signature="3201:3319" ph="INSERT INTO `postgraduate`... " />
-                <marker date="1529143333625" expanded="true" signature="4677:4980" ph="SELECT * FRO... postgraduate" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostgraduateController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controllers/admin/PostgraduateController.java">
+      <file leaf-file-name="LectureController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/admin/LectureController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1221">
-              <caret line="78" column="6" lean-forward="false" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
+            <state relative-caret-position="341">
+              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="43" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2930#2931#0" expanded="true" />
-                <element signature="e#3005#3006#0" expanded="true" />
-                <element signature="e#7688#7689#0" expanded="true" />
-                <element signature="e#7733#7734#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -363,7 +262,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>.btn</find>
-      <find>.btn</find>
+      <find>.form-control</find>
+      <find>h1</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -382,21 +282,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sample/RegisterController.java" />
-        <option value="$PROJECT_DIR$/src/helpers/MD5.java" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/models/Lecturer.java" />
-        <option value="$PROJECT_DIR$/src/models/Lecture.java" />
-        <option value="$PROJECT_DIR$/src/models/Practicle.java" />
-        <option value="$PROJECT_DIR$/src/models/Staff.java" />
-        <option value="$PROJECT_DIR$/src/models/Instructor.java" />
         <option value="$PROJECT_DIR$/src/db/DBConnection.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/admin.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/adminController.java" />
         <option value="$PROJECT_DIR$/src/views/admin/Lecturer.java" />
-        <option value="$PROJECT_DIR$/src/views/admin/Lecturer.fxml" />
         <option value="$PROJECT_DIR$/src/views/admin/Instructor.fxml" />
-        <option value="$PROJECT_DIR$/src/views/admin/Lecture.fxml" />
         <option value="$PROJECT_DIR$/src/controllers/admin/LecHall.fxml" />
         <option value="$PROJECT_DIR$/src/views/Login.fxml" />
         <option value="$PROJECT_DIR$/src/views/Register.fxml" />
@@ -404,7 +294,6 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/FacultyController.java" />
         <option value="$PROJECT_DIR$/src/models/LectureHall.java" />
-        <option value="$PROJECT_DIR$/src/models/LecHall.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/LecHallController.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/LabController.java" />
         <option value="$PROJECT_DIR$/src/models/Subject.java" />
@@ -416,23 +305,34 @@
         <option value="$PROJECT_DIR$/src/models/Course.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/CourseController.java" />
         <option value="$PROJECT_DIR$/src/models/Faculty.java" />
-        <option value="$PROJECT_DIR$/src/assets/css/login.css" />
         <option value="$PROJECT_DIR$/src/views/admin/Course.fxml" />
         <option value="$PROJECT_DIR$/src/views/admin/Faculty.fxml" />
         <option value="$PROJECT_DIR$/src/views/admin/Lab.fxml" />
         <option value="$PROJECT_DIR$/src/views/admin/LecHall.fxml" />
         <option value="$PROJECT_DIR$/src/views/admin/Subject.fxml" />
         <option value="$PROJECT_DIR$/src/views/admin/Test.fxml" />
-        <option value="$PROJECT_DIR$/src/controllers/admin/TestController.java" />
         <option value="$PROJECT_DIR$/src/models/AlResult.java" />
-        <option value="$PROJECT_DIR$/src/views/admin/Undergraduate.fxml" />
         <option value="$PROJECT_DIR$/src/controllers/admin/UndergraduateController.java" />
         <option value="$PROJECT_DIR$/src/views/admin/Postgraduate.fxml" />
         <option value="$PROJECT_DIR$/src/models/Undergraduate.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/PostgraduateController.java" />
         <option value="$PROJECT_DIR$/src/models/Student.java" />
         <option value="$PROJECT_DIR$/src/models/Postgraduate.java" />
+        <option value="$PROJECT_DIR$/src/models/Staff.java" />
+        <option value="$PROJECT_DIR$/src/views/admin/Lecturer.fxml" />
+        <option value="$PROJECT_DIR$/src/assets/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/src/assets/css/login.css" />
+        <option value="$PROJECT_DIR$/src/models/Lecturer.java" />
+        <option value="$PROJECT_DIR$/src/views/admin/Undergraduate.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/admin/TestController.java" />
+        <option value="$PROJECT_DIR$/src/models/LecHall.java" />
+        <option value="$PROJECT_DIR$/src/views/admin/Lecture.fxml" />
+        <option value="$PROJECT_DIR$/src/models/Lecture.java" />
         <option value="$PROJECT_DIR$/src/controllers/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/models/Practicle.java" />
+        <option value="$PROJECT_DIR$/src/controllers/admin/LectureController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/admin/PracticleController.java" />
+        <option value="$PROJECT_DIR$/src/views/admin/Practicle.fxml" />
       </list>
     </option>
   </component>
@@ -502,7 +402,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -532,6 +433,12 @@
               <item name="Nsbm" type="b2602c69:ProjectViewProjectNode" />
               <item name="Nsbm" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nsbm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nsbm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -546,8 +453,7 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -564,7 +470,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="D:/mY SofT/libs/mysql-connector-java-5.1.23-bin.jar!/" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/PostgraduateController.java&#10;Postg&#9;PSI&#9;JAVA://models.Postgraduate&#10;Al&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/AlResult.java&#10;Stu.j&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Stud&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Student.fxml&#10;AlR&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/AlResult.java&#10;unde.f&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Undergraduate.fxml&#10;Login&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;Registercon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/RegisterController.java&#10;java.sql.Date.valueOf&#9;PSI&#9;JAVA://java.sql.Date#valueOf&#10;Test&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/TestController.java&#10;Cou&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Button&#9;FILE&#9;jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/Button.java&#10;login.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;logincon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;course.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Faculty.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Faculty.java&#10;Test.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Test.fxml&#10;cour&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/CourseController.java&#10;Course.j&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Course.java&#10;login.css&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;T.fxml&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Test.fxml&#10;Subject.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Subject.fxml&#10;LecHallC&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LecHallController.java&#10;Lab.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lab.fxml&#10;Faculty.ja&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Faculty.java&#10;Lab.ja&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lab.java&#10;Lab.java&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lab.java&#10;Lab&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LabController.java&#10;LabController&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LabController.java&#10;TextField&#9;PSI&#9;JAVA://java.awt.TextField&#10;cour.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Studen&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Staff&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Staff.java&#10;Prac&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Practicle.java&#10;Post&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Postgraduate.java&#10;login&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/LoginController.java&#10;.fxml&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/Register.fxml&#10;recon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/RegisterController.java&#10;.x&#9;PSI&#9;JAVA://sun.net.www.content.audio.x_aiff&#10;regicon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/RegisterController.java&#10;regis.fxml&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/Register.fxml&#10;re.fxm&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/Register.fxml&#10;regi.x&#9;null&#9;null&#10;register&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/RegisterController.java&#10;main&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/Main.java&#10;regis&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/Register.fxml&#10;.css&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/login.css&#10;con&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/LoginController.java&#10;Regis.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/Register.fxml" />
+    <property name="SearchEverywhereHistoryKey" value="Login&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;Lectu&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lecture.java&#10;Tes&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/TestController.java&#10;LoginCon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;LoginC&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;lec&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lecture.fxml&#10;Lecture.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lecturer.fxml&#10;Lec&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lecturer.java&#10;Login.c&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;Bootstra.c&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/bootstrap.css&#10;staff&#9;PSI&#9;JAVA://models.Staff&#10;Postg&#9;PSI&#9;JAVA://models.Postgraduate&#10;Al&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/AlResult.java&#10;Stu.j&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Stud&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Student.fxml&#10;AlR&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/AlResult.java&#10;unde.f&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Undergraduate.fxml&#10;Registercon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/RegisterController.java&#10;java.sql.Date.valueOf&#9;PSI&#9;JAVA://java.sql.Date#valueOf&#10;Test&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/TestController.java&#10;Cou&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Button&#9;FILE&#9;jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/Button.java&#10;login.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;logincon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;course.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Faculty.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Faculty.java&#10;Test.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Test.fxml&#10;cour&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/CourseController.java&#10;Course.j&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Course.java&#10;login.css&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;T.fxml&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Test.fxml&#10;Subject.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Subject.fxml&#10;LecHallC&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LecHallController.java&#10;Lab.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lab.fxml&#10;Faculty.ja&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Faculty.java&#10;Lab.ja&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lab.java&#10;Lab.java&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lab.java&#10;Lab&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LabController.java&#10;LabController&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LabController.java&#10;TextField&#9;PSI&#9;JAVA://java.awt.TextField&#10;cour.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Studen&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Staff&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Staff.java&#10;Prac&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Practicle.java&#10;Post&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Postgraduate.java&#10;login&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/LoginController.java&#10;.fxml&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/Register.fxml&#10;recon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/RegisterController.java&#10;.x&#9;PSI&#9;JAVA://sun.net.www.content.audio.x_aiff" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -759,7 +665,12 @@
       <workItem from="1528997356470" duration="3324000" />
       <workItem from="1529042460548" duration="12801000" />
       <workItem from="1529061166580" duration="35455000" />
-      <workItem from="1529141319160" duration="3779000" />
+      <workItem from="1529141319160" duration="10772000" />
+      <workItem from="1529173415963" duration="154000" />
+      <workItem from="1529173640952" duration="56000" />
+      <workItem from="1529298583676" duration="36000" />
+      <workItem from="1529309147701" duration="10326000" />
+      <workItem from="1529323817709" duration="2013000" />
     </task>
     <task id="LOCAL-00001" summary="re-structured properly, added some models">
       <created>1528059163404</created>
@@ -775,11 +686,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528059373883</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="students functions done">
+      <created>1529146336084</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1529146336084</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="315196000" />
+    <option name="totallyTimeSpent" value="334774000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -792,7 +710,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -804,11 +721,11 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45066124" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858595" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14322917" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14322917" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19739583" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17447917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -828,6 +745,41 @@
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19739583" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17447917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3991276" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66836214" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45066124" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858595" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14322917" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -873,13 +825,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="structured project, added some models" />
     <MESSAGE value="fixed some errors" />
     <MESSAGE value="re-structured properly, added some models" />
-    <option name="LAST_COMMIT_MESSAGE" value="re-structured properly, added some models" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="students functions done" />
+    <option name="LAST_COMMIT_MESSAGE" value="students functions done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -892,132 +846,18 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/awt/TextField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="96" column="13" lean-forward="false" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="2363" column="0" lean-forward="false" selection-start-line="2363" selection-start-column="0" selection-end-line="2363" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/admin/Instructor.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/admin/LecHallController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="27" column="31" lean-forward="false" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/admin/LabController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1655">
-          <caret line="68" column="35" lean-forward="false" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/beans/value/ChangeListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="62" column="9" lean-forward="false" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/cell/ComboBoxTableCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/ListCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="333" column="0" lean-forward="false" selection-start-line="333" selection-start-column="0" selection-end-line="333" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/IndexedCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/mY SofT/libs/mysql-connector-java-5.1.23-bin.jar!/com/mysql/jdbc/ResultSetImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="3784" column="0" lean-forward="false" selection-start-line="3784" selection-start-column="0" selection-end-line="3784" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/ComboBoxBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="146" column="46" lean-forward="false" selection-start-line="146" selection-start-column="46" selection-end-line="146" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="1657" column="0" lean-forward="false" selection-start-line="1657" selection-start-column="0" selection-end-line="1657" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="8413" column="0" lean-forward="false" selection-start-line="8413" selection-start-column="0" selection-end-line="8413" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/event/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="198" column="0" lean-forward="false" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="2494" column="0" lean-forward="false" selection-start-line="2494" selection-start-column="0" selection-end-line="2494" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/ListCell.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/IndexedCell.java" />
+    <entry file="jar://D:/mY SofT/libs/mysql-connector-java-5.1.23-bin.jar!/com/mysql/jdbc/ResultSetImpl.class" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/ComboBoxBase.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/fxml/FXMLLoader.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/Node.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/event/Event.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/Scene.java" />
     <entry file="file://$PROJECT_DIR$/src/controllers/admin/FacultyController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="32" column="28" lean-forward="false" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/LecHall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1677">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1042,13 +882,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/db/DBConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1176">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/db/DBConnection.java" />
     <entry file="file://$PROJECT_DIR$/Nsbm.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -1067,13 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2001">
           <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-          <folding>
-            <marker date="1529062416668" expanded="true" signature="1263:1303" ph="DELETE FROM course... " />
-            <marker date="1529062416668" expanded="true" signature="1720:1897" ph="UPDATE `course`... " />
-            <marker date="1529062416668" expanded="true" signature="2479:2631" ph="INSERT INTO `course`... " />
-            <marker date="1529062416668" expanded="true" signature="3153:3236" ph="SELECT * FRO... course" />
-            <marker date="1529062416668" expanded="true" signature="3605:3645" ph="SELECT * FRO... course" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1091,128 +918,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Faculty.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="97" column="5" lean-forward="true" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
-          <folding>
-            <marker date="1529063044692" expanded="true" signature="774:795" ph="SELECT * FRO... faculty" />
-            <marker date="1529063044692" expanded="true" signature="1085:1126" ph="SELECT * FRO... faculty" />
-            <marker date="1529063044692" expanded="true" signature="1768:1810" ph="DELETE FROM faculty... " />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/admin/Lab.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
           <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/admin/LecHall.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
           <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/admin/Lecture.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/admin/Lecturer.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/admin/Subject.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/admin/Test.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="616">
           <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/admin/Faculty.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/Button.java" />
+    <entry file="file://$PROJECT_DIR$/src/views/admin/Course.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/Button.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/admin/Course.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="84" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/sql/Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="109" column="23" lean-forward="false" selection-start-line="109" selection-start-column="23" selection-end-line="109" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/sql/Date.java" />
     <entry file="file://$PROJECT_DIR$/src/controllers/RegisterController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
@@ -1220,28 +994,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/admin/TestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/admin/Student.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/AlResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="544">
+          <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1249,134 +1008,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
           <caret line="20" column="63" lean-forward="true" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3149#3150#0" expanded="false" />
-            <element signature="e#3224#3225#0" expanded="false" />
-            <element signature="e#7864#7865#0" expanded="false" />
-            <element signature="e#7910#7911#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/admin/Undergraduate.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="181" column="62" lean-forward="false" selection-start-line="181" selection-start-column="62" selection-end-line="181" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/admin/Postgraduate.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Undergraduate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="137" column="31" lean-forward="false" selection-start-line="137" selection-start-column="31" selection-end-line="137" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#734#735#0" expanded="true" />
-            <element signature="e#777#778#0" expanded="true" />
-            <element signature="e#7706#7707#0" expanded="true" />
-            <element signature="e#7758#7759#0" expanded="true" />
-            <marker date="1529136897813" expanded="true" signature="1462:1509" ph="DELETE FROM `users`... " />
-            <marker date="1529136897813" expanded="true" signature="2090:2148" ph="UPDATE `users`... " />
-            <marker date="1529136897813" expanded="true" signature="2175:2391" ph="UPDATE `student`... " />
-            <marker date="1529136897813" expanded="true" signature="2175:2392" ph="UPDATE `student`... " />
-            <marker date="1529136897813" expanded="true" signature="2419:2510" ph="UPDATE `undergraduate`... " />
-            <marker date="1529136897813" expanded="true" signature="2537:2628" ph="UPDATE `al_result`... " />
-            <marker date="1529136897813" expanded="true" signature="4300:4366" ph="INSERT INTO `users`... " />
-            <marker date="1529136897813" expanded="true" signature="4393:4544" ph="INSERT INTO `student`... " />
-            <marker date="1529136897813" expanded="true" signature="4393:4610" ph="INSERT INTO `student`... " />
-            <marker date="1529136897813" expanded="true" signature="4637:4715" ph="INSERT INTO `undergraduate`... " />
-            <marker date="1529136897813" expanded="true" signature="4742:4824" ph="INSERT INTO `al_result`... " />
-            <marker date="1529136897813" expanded="true" signature="6365:6627" ph="SELECT * FRO... undergraduate" />
-            <marker date="1529136897813" expanded="true" signature="6365:6690" ph="SELECT * FRO... undergraduate" />
-            <marker date="1529136897813" expanded="true" signature="6365:6734" ph="SELECT * FRO... undergraduate" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="57" column="40" lean-forward="false" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
-          <folding>
-            <element signature="e#4210#4211#0" expanded="true" />
-            <element signature="e#4247#4248#0" expanded="true" />
-            <element signature="e#4301#4302#0" expanded="true" />
-            <element signature="e#4332#4333#0" expanded="true" />
-            <element signature="e#4380#4381#0" expanded="true" />
-            <element signature="e#4423#4424#0" expanded="true" />
-            <element signature="e#4458#4459#0" expanded="true" />
-            <element signature="e#4495#4496#0" expanded="true" />
-            <element signature="e#4549#4550#0" expanded="true" />
-            <element signature="e#4580#4581#0" expanded="true" />
-            <element signature="e#4628#4629#0" expanded="true" />
-            <element signature="e#4671#4672#0" expanded="true" />
-            <element signature="e#4705#4706#0" expanded="true" />
-            <element signature="e#4744#4745#0" expanded="true" />
-            <element signature="e#4801#4802#0" expanded="true" />
-            <element signature="e#4834#4835#0" expanded="true" />
-            <element signature="e#4883#4884#0" expanded="true" />
-            <element signature="e#4930#4931#0" expanded="true" />
-            <element signature="e#4965#4966#0" expanded="true" />
-            <element signature="e#5001#5002#0" expanded="true" />
-            <element signature="e#5063#5064#0" expanded="true" />
-            <element signature="e#5093#5094#0" expanded="true" />
-            <element signature="e#5140#5141#0" expanded="true" />
-            <element signature="e#5181#5182#0" expanded="true" />
-            <element signature="e#5214#5215#0" expanded="true" />
-            <element signature="e#5249#5250#0" expanded="true" />
-            <element signature="e#5309#5310#0" expanded="true" />
-            <element signature="e#5338#5339#0" expanded="true" />
-            <element signature="e#5382#5383#0" expanded="true" />
-            <element signature="e#5421#5422#0" expanded="true" />
-            <element signature="e#5453#5454#0" expanded="true" />
-            <element signature="e#5487#5488#0" expanded="true" />
-            <element signature="e#5538#5539#0" expanded="true" />
-            <element signature="e#5566#5567#0" expanded="true" />
-            <element signature="e#5608#5609#0" expanded="true" />
-            <element signature="e#5645#5646#0" expanded="true" />
-            <element signature="e#5677#5678#0" expanded="true" />
-            <element signature="e#5711#5712#0" expanded="true" />
-            <element signature="e#5762#5763#0" expanded="true" />
-            <element signature="e#5790#5791#0" expanded="true" />
-            <element signature="e#5832#5833#0" expanded="true" />
-            <element signature="e#5869#5870#0" expanded="true" />
-            <element signature="e#5901#5902#0" expanded="true" />
-            <element signature="e#5935#5936#0" expanded="true" />
-            <element signature="e#5986#5987#0" expanded="true" />
-            <element signature="e#6014#6015#0" expanded="true" />
-            <element signature="e#6056#6057#0" expanded="true" />
-            <element signature="e#6093#6094#0" expanded="true" />
-            <element signature="e#6121#6122#0" expanded="true" />
-            <element signature="e#6153#6154#0" expanded="true" />
-            <element signature="e#6208#6209#0" expanded="true" />
-            <element signature="e#6234#6235#0" expanded="true" />
-            <element signature="e#6270#6271#0" expanded="true" />
-            <element signature="e#6303#6304#0" expanded="true" />
-            <element signature="e#6336#6337#0" expanded="true" />
-            <element signature="e#6371#6372#0" expanded="true" />
-            <element signature="e#6423#6424#0" expanded="true" />
-            <element signature="e#6452#6453#0" expanded="true" />
-            <element signature="e#6496#6497#0" expanded="true" />
-            <element signature="e#6535#6536#0" expanded="true" />
-            <marker date="1529141898867" expanded="true" signature="2135:2352" ph="UPDATE `student`... " />
-            <marker date="1529141898867" expanded="true" signature="3255:3472" ph="INSERT INTO `student`... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1384,13 +1015,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1221">
           <caret line="78" column="6" lean-forward="false" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2930#2931#0" expanded="true" />
-            <element signature="e#3005#3006#0" expanded="true" />
-            <element signature="e#7688#7689#0" expanded="true" />
-            <element signature="e#7733#7734#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1398,42 +1022,258 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="51" column="82" lean-forward="false" selection-start-line="51" selection-start-column="82" selection-end-line="51" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/AlResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="80" column="2" lean-forward="false" selection-start-line="80" selection-start-column="2" selection-end-line="80" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/admin/Postgraduate.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="194" column="23" lean-forward="true" selection-start-line="194" selection-start-column="23" selection-end-line="194" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Lecturer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/admin/Lecturer.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="25" column="49" lean-forward="false" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/admin/Undergraduate.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="257" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Undergraduate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="137" column="31" lean-forward="false" selection-start-line="137" selection-start-column="31" selection-end-line="137" selection-end-column="31" />
           <folding>
-            <element signature="e#717#718#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
-            <element signature="e#5266#5267#0" expanded="true" />
-            <element signature="e#5313#5314#0" expanded="true" />
-            <element signature="e#5378#5379#0" expanded="true" />
-            <element signature="e#5419#5420#0" expanded="true" />
-            <element signature="e#5484#5485#0" expanded="true" />
-            <element signature="e#5547#5548#0" expanded="true" />
-            <element signature="e#5583#5584#0" expanded="true" />
-            <element signature="e#5621#5622#0" expanded="true" />
-            <element signature="e#5676#5677#0" expanded="true" />
-            <element signature="e#5708#5709#0" expanded="true" />
-            <element signature="e#5758#5759#0" expanded="true" />
-            <element signature="e#5803#5804#0" expanded="true" />
-            <element signature="e#5848#5849#0" expanded="true" />
-            <element signature="e#5895#5896#0" expanded="true" />
-            <element signature="e#5959#5960#0" expanded="true" />
-            <element signature="e#6000#6001#0" expanded="true" />
-            <element signature="e#6068#6069#0" expanded="true" />
-            <element signature="e#6131#6132#0" expanded="true" />
-            <marker date="1529143333625" expanded="true" signature="1285:1332" ph="DELETE FROM `users`... " />
-            <marker date="1529143333625" expanded="true" signature="1871:1929" ph="UPDATE `users`... " />
-            <marker date="1529143333625" expanded="true" signature="1957:2109" ph="UPDATE `undergraduate`... " />
-            <marker date="1529143333625" expanded="true" signature="3108:3174" ph="INSERT INTO `users`... " />
-            <marker date="1529143333625" expanded="true" signature="3201:3319" ph="INSERT INTO `postgraduate`... " />
-            <marker date="1529143333625" expanded="true" signature="4677:4980" ph="SELECT * FRO... postgraduate" />
+            <marker date="1529136897813" expanded="true" signature="1462:1509" ph="DELETE FROM `users`... " />
+            <marker date="1529136897813" expanded="true" signature="2090:2148" ph="UPDATE `users`... " />
+            <marker date="1529136897813" expanded="true" signature="2175:2392" ph="UPDATE `student`... " />
+            <marker date="1529136897813" expanded="true" signature="2419:2510" ph="UPDATE `undergraduate`... " />
+            <marker date="1529136897813" expanded="true" signature="2537:2628" ph="UPDATE `al_result`... " />
+            <marker date="1529136897813" expanded="true" signature="4300:4366" ph="INSERT INTO `users`... " />
+            <marker date="1529136897813" expanded="true" signature="4637:4715" ph="INSERT INTO `undergraduate`... " />
+            <marker date="1529136897813" expanded="true" signature="4742:4824" ph="INSERT INTO `al_result`... " />
+            <marker date="1529136897813" expanded="true" signature="6365:6734" ph="SELECT * FRO... undergraduate" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="38" column="25" lean-forward="false" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Staff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/admin/TestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1652">
+          <caret line="128" column="41" lean-forward="true" selection-start-line="128" selection-start-column="41" selection-end-line="128" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/LecHall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="728">
+          <caret line="110" column="39" lean-forward="false" selection-start-line="110" selection-start-column="39" selection-end-line="110" selection-end-column="39" />
+          <folding>
+            <marker date="1529312721867" expanded="true" signature="710:752" ph="DELETE FROM `lec_hall`... " />
+            <marker date="1529312721867" expanded="true" signature="1096:1148" ph="UPDATE `lec_hall`... " />
+            <marker date="1529312721867" expanded="true" signature="1513:1555" ph="INSERT INTO `lec_hall`... " />
+            <marker date="1529312721867" expanded="true" signature="1905:1927" ph="SELECT * FRO... lec_hall" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/admin/Lecture.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="593">
-          <caret line="120" column="77" lean-forward="false" selection-start-line="120" selection-start-column="73" selection-end-line="120" selection-end-column="77" />
+          <caret line="120" column="82" lean-forward="false" selection-start-line="120" selection-start-column="82" selection-end-line="120" selection-end-column="82" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/admin/LectureController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="43" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/admin/Practicle.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="89" column="65" lean-forward="false" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Practicle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="36" column="77" lean-forward="false" selection-start-line="36" selection-start-column="77" selection-end-line="36" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#929#930#0" expanded="true" />
+            <element signature="e#987#988#0" expanded="true" />
+            <element signature="e#3279#3280#0" expanded="true" />
+            <element signature="e#3320#3321#0" expanded="true" />
+            <element signature="e#3379#3380#0" expanded="true" />
+            <element signature="e#3414#3415#0" expanded="true" />
+            <element signature="e#3467#3468#0" expanded="true" />
+            <element signature="e#3518#3519#0" expanded="true" />
+            <element signature="e#3545#3546#0" expanded="true" />
+            <element signature="e#3577#3578#0" expanded="true" />
+            <element signature="e#3631#3632#0" expanded="true" />
+            <element signature="e#3657#3658#0" expanded="true" />
+            <element signature="e#3692#3693#0" expanded="true" />
+            <element signature="e#3725#3726#0" expanded="true" />
+            <element signature="e#3760#3761#0" expanded="true" />
+            <element signature="e#3796#3797#0" expanded="true" />
+            <element signature="e#3858#3859#0" expanded="true" />
+            <element signature="e#3888#3889#0" expanded="true" />
+            <element signature="e#3935#3936#0" expanded="true" />
+            <element signature="e#3976#3977#0" expanded="true" />
+            <element signature="e#4013#4014#0" expanded="true" />
+            <element signature="e#4052#4053#0" expanded="true" />
+            <element signature="e#4108#4109#0" expanded="true" />
+            <element signature="e#4141#4142#0" expanded="true" />
+            <element signature="e#4193#4194#0" expanded="true" />
+            <element signature="e#4240#4241#0" expanded="true" />
+            <element signature="e#4275#4276#0" expanded="true" />
+            <element signature="e#4312#4313#0" expanded="true" />
+            <element signature="e#4366#4367#0" expanded="true" />
+            <element signature="e#4397#4398#0" expanded="true" />
+            <element signature="e#4445#4446#0" expanded="true" />
+            <element signature="e#4488#4489#0" expanded="true" />
+            <marker date="1529324776321" expanded="true" signature="1316:1376" ph="DELETE FROM `practicle`... " />
+            <marker date="1529324776321" expanded="true" signature="1737:1858" ph="UPDATE `practicle`... " />
+            <marker date="1529324776321" expanded="true" signature="2363:2478" ph="INSERT INTO `practicle`... " />
+            <marker date="1529324776321" expanded="true" signature="2885:3023" ph="SELECT * FRO... practicle" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Lecture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3276#3277#0" expanded="true" />
+            <element signature="e#3315#3316#0" expanded="true" />
+            <element signature="e#3372#3373#0" expanded="true" />
+            <element signature="e#3405#3406#0" expanded="true" />
+            <element signature="e#3454#3455#0" expanded="true" />
+            <element signature="e#3501#3502#0" expanded="true" />
+            <element signature="e#3537#3538#0" expanded="true" />
+            <element signature="e#3574#3575#0" expanded="true" />
+            <element signature="e#3637#3638#0" expanded="true" />
+            <element signature="e#3668#3669#0" expanded="true" />
+            <element signature="e#3717#3718#0" expanded="true" />
+            <element signature="e#3760#3761#0" expanded="true" />
+            <element signature="e#3795#3796#0" expanded="true" />
+            <element signature="e#3831#3832#0" expanded="true" />
+            <element signature="e#3893#3894#0" expanded="true" />
+            <element signature="e#3923#3924#0" expanded="true" />
+            <element signature="e#3970#3971#0" expanded="true" />
+            <element signature="e#4011#4012#0" expanded="true" />
+            <element signature="e#4048#4049#0" expanded="true" />
+            <element signature="e#4087#4088#0" expanded="true" />
+            <element signature="e#4143#4144#0" expanded="true" />
+            <element signature="e#4176#4177#0" expanded="true" />
+            <element signature="e#4228#4229#0" expanded="true" />
+            <element signature="e#4275#4276#0" expanded="true" />
+            <element signature="e#4310#4311#0" expanded="true" />
+            <element signature="e#4347#4348#0" expanded="true" />
+            <element signature="e#4401#4402#0" expanded="true" />
+            <element signature="e#4432#4433#0" expanded="true" />
+            <element signature="e#4480#4481#0" expanded="true" />
+            <element signature="e#4523#4524#0" expanded="true" />
+            <marker date="1529316915116" expanded="true" signature="1311:1365" ph="DELETE FROM `lecture`... " />
+            <marker date="1529316915116" expanded="true" signature="1723:1842" ph="UPDATE `lecture`... " />
+            <marker date="1529316915116" expanded="true" signature="2349:2464" ph="INSERT INTO `lecture`... " />
+            <marker date="1529316915116" expanded="true" signature="2875:3022" ph="SELECT * FRO... lecture" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/admin/PracticleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1792">
+          <caret line="38" column="54" lean-forward="false" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -118,7 +118,7 @@ public class LoginController implements Initializable {
     public void test () throws IOException {
 
         Scene scene = loginButton.getScene();
-        VBox root = FXMLLoader.load(getClass().getResource("/views/admin/Postgraduate.fxml"));
+        VBox root = FXMLLoader.load(getClass().getResource("/views/admin/Practicle.fxml"));
         scene.getStylesheets().add(getClass().getResource("/assets/css/login.css").toExternalForm());
         scene.setRoot(root);
 

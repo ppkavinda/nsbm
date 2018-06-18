@@ -7,91 +7,91 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import models.Course;
-import models.LecHall;
-import models.Lecture;
-import models.Subject;
+import models.*;
 
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class LectureController implements Initializable {
+public class PracticleController implements Initializable{
+    @FXML private TableView<Practicle> practicleTable;
     @FXML private TextField startField;
     @FXML private TextField endField;
-    @FXML private ComboBox<LecHall> locationBox;
+    @FXML private ComboBox<Lab> locationBox;
     @FXML private ComboBox<Subject> subjectBox;
-    @FXML private TableView<Lecture> lectureTable;
 
-    private Lecture lecture = new Lecture();
-    private LecHall lec_hall = new LecHall();
+    private Practicle practicle = new Practicle();
+    private Practicle selectedRow;
+    private Lab lab = new Lab();
     private Subject subject = new Subject();
-    private Lecture selectRow;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        configSubjectBox();
         configLocationBox();
-        drawTable ();
+        configSubjectBox();
+        drawTable();
     }
 
     @FXML
     private void removeLecture () {
-        lecture.remove(selectRow.getLecture_id());
-        setInputs(new Lecture());
+        practicle.remove(selectedRow.getPracticle_id());
+        setInputs(new Practicle());
         refreshTable();
     }
 
     @FXML
     private void editLecture () {
-        lecture.update(
-            startField.getText(),
-            endField.getText(),
-            locationBox.getSelectionModel().getSelectedItem().getHall_id(),
-            subjectBox.getSelectionModel().getSelectedItem().getSubject_code(),
-            selectRow.getLecture_id()
+        practicle.update(
+                startField.getText(),
+                endField.getText(),
+                locationBox.getSelectionModel().getSelectedItem().getLab_id(),
+                subjectBox.getSelectionModel().getSelectedItem().getSubject_code(),
+                selectedRow.getPracticle_id()
         );
-        setInputs(new Lecture());
+        setInputs(new Practicle());
         refreshTable();
     }
 
     @FXML
     private void getSelectedRow () {
-        selectRow = lectureTable.getSelectionModel().getSelectedItem();
-        setInputs(selectRow);
+        selectedRow = practicleTable.getSelectionModel().getSelectedItem();
+        setInputs(selectedRow);
     }
+
 
     @FXML
     private void addLecture () {
-        lecture.add(
-            startField.getText(),
-            endField.getText(),
-            locationBox.getSelectionModel().getSelectedItem().getHall_id(),
-            subjectBox.getSelectionModel().getSelectedItem().getSubject_code()
+        practicle.add(
+                startField.getText(),
+                endField.getText(),
+                locationBox.getSelectionModel().getSelectedItem().getLab_id(),
+                subjectBox.getSelectionModel().getSelectedItem().getSubject_code()
         );
 
         refreshTable();
-        setInputs(new Lecture());
+        setInputs(new Practicle());
     }
 
+
     private void refreshTable () {
-        lectureTable.getItems().clear();
+        practicleTable.getItems().clear();
         drawTable();
     }
 
     private void drawTable () {
-        ResultSet rs = lecture.get();
+        ResultSet rs = practicle.get();
 
         try {
-            ObservableList<Lecture> data = lectureTable.getItems();
+            ObservableList<Practicle> data = practicleTable.getItems();
 
             while (rs.next()) {
-                data.add(new Lecture(
-                        rs.getInt("lecture_id"),
-                        new LecHall(
-                                rs.getInt("lec_hall.hall_id"),
-                                rs.getString("lec_hall.name")
+                data.add(new Practicle(
+                        rs.getInt("lab_id"),
+                        new Lab(
+                                rs.getInt("lab.lab_id"),
+                                rs.getString("lab.name")
                         ),
                         new Subject(
                                 rs.getInt("subject.subject_code"),
@@ -112,13 +112,13 @@ public class LectureController implements Initializable {
     }
 
     private void configLocationBox () {
-        ResultSet rs = lec_hall.get();
+        ResultSet rs = lab.get();
 
         try {
-            ObservableList<LecHall> locationBoxData = FXCollections.observableArrayList();
+            ObservableList<Lab> locationBoxData = FXCollections.observableArrayList();
             while (rs.next()) {
-                locationBoxData.add(new LecHall(
-                        rs.getInt("hall_id"),
+                locationBoxData.add(new Lab(
+                        rs.getInt("lab_id"),
                         rs.getString("name")
                 ));
             }
@@ -140,7 +140,7 @@ public class LectureController implements Initializable {
                         rs.getInt("sem"),
                         rs.getString("name"),
                         rs.getDouble("fee")
-                        ));
+                ));
             }
             subjectBox.setItems(subjectBoxData);
 
@@ -149,10 +149,11 @@ public class LectureController implements Initializable {
         }
     }
 
-    private void setInputs (Lecture l) {
-        startField.setText(l.getStart_time());
-        endField.setText(l.getEnd_time());
-        locationBox.getSelectionModel().select(l.getLec_hall());
-        subjectBox.getSelectionModel().select(l.getSubject());
+    private void setInputs (Practicle p) {
+        startField.setText(p.getStart_time());
+        endField.setText(p.getEnd_time());
+        locationBox.getSelectionModel().select(p.getLab());
+        subjectBox.getSelectionModel().select(p.getSubject());
     }
+
 }

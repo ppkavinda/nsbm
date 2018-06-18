@@ -107,4 +107,6 @@ public class LecHall {
     public void setName(String name) {
         this.name.set(name);
     }
+
+    public String toString () { return getName(); }
 }
