@@ -19,7 +19,7 @@
         </HBox>
         <StackPane prefHeight="634.0" prefWidth="1125.0">
             <children>
-                <VBox fx:id="pgDetails" alignment="CENTER" prefHeight="621.0" prefWidth="1125.0" visible="false">
+                <VBox fx:id="pgDetails" alignment="CENTER" prefHeight="621.0" prefWidth="1125.0">
                     <children>
                         <HBox alignment="CENTER" prefHeight="476.0" prefWidth="1125.0">
                             <children>
@@ -118,12 +118,12 @@
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                             </GridPane.margin>
                                         </Label>
-                                        <Label text="Course" GridPane.rowIndex="9">
+                                        <Label text="Course" GridPane.rowIndex="10">
                                             <GridPane.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                             </GridPane.margin>
                                         </Label>
-                                        <Label text="Faculty" GridPane.rowIndex="10">
+                                        <Label text="Faculty" GridPane.rowIndex="9">
                                             <GridPane.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                             </GridPane.margin>
@@ -144,12 +144,12 @@
                                                 </FXCollections>
                                             </items>
                                         </ComboBox>
-                                        <ComboBox fx:id="courseBox" prefHeight="31.0" prefWidth="267.0" promptText="Course" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                        <ComboBox fx:id="courseBox" prefHeight="31.0" prefWidth="267.0" promptText="Course" GridPane.columnIndex="1" GridPane.rowIndex="10">
                                             <GridPane.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                             </GridPane.margin>
                                         </ComboBox>
-                                        <ComboBox fx:id="facultyBox" prefHeight="31.0" prefWidth="301.0" promptText="Faculty" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                        <ComboBox fx:id="facultyBox" prefHeight="31.0" prefWidth="301.0" promptText="Faculty" GridPane.columnIndex="1" GridPane.rowIndex="9">
                                             <GridPane.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                             </GridPane.margin>
@@ -193,7 +193,7 @@
                         </HBox>
                     </children>
                 </VBox>
-                <VBox fx:id="pgList" prefHeight="200.0" prefWidth="100.0">
+                <VBox fx:id="pgList" prefHeight="200.0" prefWidth="100.0" visible="false">
                     <children>
                         <HBox alignment="CENTER" prefHeight="428.0" prefWidth="1125.0">
                             <children>
@@ -269,5 +269,17 @@
                 </VBox>
             </children>
         </StackPane>
+        <HBox prefHeight="100.0" prefWidth="200.0">
+            <VBox.margin>
+                <Insets left="10.0" />
+            </VBox.margin>
+           <children>
+               <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#toMainPanel" text="Main Menu">
+                   <HBox.margin>
+                       <Insets />
+                   </HBox.margin>
+               </Button>
+           </children>
+        </HBox>
     </children>
 </VBox>

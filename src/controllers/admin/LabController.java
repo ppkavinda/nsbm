@@ -2,13 +2,17 @@ package controllers.admin;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import models.Lab;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,6 +22,7 @@ public class LabController implements Initializable {
     @FXML private Button addButton, removeButton, editButton;
     @FXML private TextField nameField;
     @FXML private TableView<Lab> labTable;
+    @FXML private Button mainMenuButton;
 
     private Lab lab = new Lab();
     private Lab selectedRow;
@@ -25,6 +30,14 @@ public class LabController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         drawTable();
+
+    }
+
+    @FXML
+    private void toMainPanel () throws IOException {
+        Scene scene = mainMenuButton.getScene();
+        VBox root = FXMLLoader.load(getClass().getResource("/views/MainPanel.fxml"));
+        scene.setRoot(root);
 
     }
 

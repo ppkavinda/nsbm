@@ -2,11 +2,16 @@ package controllers.admin;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import models.LecHall;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,14 +19,24 @@ import java.util.ResourceBundle;
 
 public class LecHallController implements Initializable {
 
-    public TableView<LecHall> lecHallTable;
-    public TextField nameField;
+    @FXML private TableView<LecHall> lecHallTable;
+    @FXML private TextField nameField;
+    @FXML private Button mainMenuButton;
+
     private LecHall lecHall = new LecHall();
     private LecHall selectedRow;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         drawTable();
+    }
+
+    @FXML
+    private void toMainPanel () throws IOException {
+        Scene scene = mainMenuButton.getScene();
+        VBox root = FXMLLoader.load(getClass().getResource("/views/MainPanel.fxml"));
+        scene.setRoot(root);
+
     }
 
     @FXML

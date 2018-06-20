@@ -115,10 +115,15 @@
                 </Button>
             </children>
         </HBox>
-        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-            <children>
-                <Button mnemonicParsing="false" text="Main Menu" />
-            </children>
+        <HBox prefHeight="100.0" prefWidth="200.0">
+            <VBox.margin>
+                <Insets left="10.0" />
+            </VBox.margin>
+            <Button fx:id="mainMenuButton" onAction="#toMainPanel" mnemonicParsing="false" text="Main Menu">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Button>
         </HBox>
     </children>
 </VBox>

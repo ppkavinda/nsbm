@@ -5,6 +5,9 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,12 +16,10 @@ import java.sql.SQLException;
 public class Subject {
     private final SimpleIntegerProperty subject_code = new SimpleIntegerProperty(0);
     private final SimpleIntegerProperty credits = new SimpleIntegerProperty(0);
-//    private final SimpleStringProperty course_id = new SimpleStringProperty("");
     private final SimpleIntegerProperty sem = new SimpleIntegerProperty(0);
     private final SimpleStringProperty name = new SimpleStringProperty("");
     private final SimpleDoubleProperty fee = new SimpleDoubleProperty(0);
     private final SimpleObjectProperty<Course> cou = new SimpleObjectProperty<>(new Course());
-
 
     private PreparedStatement stmt;
     private DBConnection conn = new DBConnection();
@@ -30,7 +31,6 @@ public class Subject {
     public Subject(int subject_code, int credits, Course cou, int sem, String name, Double fee) {
         setSubject_code(subject_code);
         setCredits(credits);
-//        setCourse_id(course_id);
         setCou(cou);
         setSem(sem);
         setName(name);
@@ -44,6 +44,27 @@ public class Subject {
         setCredits(credits);
         setName(name);
         setFee(fee);
+    }
+
+    public void configSubjectBox (ComboBox<Subject> subjectBox) {
+        ResultSet rs = get();
+
+        try {
+            ObservableList<Subject> subjectBoxData = FXCollections.observableArrayList();
+            while (rs.next()) {
+                subjectBoxData.add(new Subject(
+                        rs.getInt("subject_code"),
+                        rs.getInt("credits"),
+                        rs.getInt("sem"),
+                        rs.getString("name"),
+                        rs.getDouble("fee")
+                ));
+            }
+            subjectBox.setItems(subjectBoxData);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void remove (int subject_id) {
@@ -154,18 +175,6 @@ public class Subject {
         this.credits.set(credits);
     }
 
-//    public String getCourse_id() {
-//        return course_id.get();
-//    }
-//
-//    public SimpleStringProperty course_idProperty() {
-//        return course_id;
-//    }
-//
-//    public void setCourse_id(String course_id) {
-//        this.course_id.set(course_id);
-//    }
-//
     public int getSem() {
         return sem.get();
     }

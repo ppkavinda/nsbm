@@ -1,13 +1,19 @@
 package controllers.admin;
 
 import helpers.MD5;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import models.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,6 +41,7 @@ public class PostgraduateController implements Initializable{
     @FXML private VBox pgDetails;
     @FXML private Button saveButton;
     @FXML private Button cancelButton;
+    @FXML private Button mainMenuButton;
     @FXML private TableView<Postgraduate> pgTable;
 
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -42,13 +49,27 @@ public class PostgraduateController implements Initializable{
     private Faculty faculty = new Faculty();
     private Postgraduate selectedRow;
     private Course course = new Course();
-    private int addButton;
+    private int addButtonClick;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         drawTable();
-        configFacultyBox();
-        configCourseBox();
+        faculty.configFacultyBox(facultyBox);
+        course.configCourseBox(courseBox);
+//        ObservableList<Course> data = courseBox.getItems();
+//        facultyBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+//            data.removeIf(course1 -> course1.getFaculty().getFaculty_id() == 6);
+//            courseBox.setItems(data);
+//            System.out.println(observable.getValue().getFaculty_id());
+//            System.out.println(newValue.getFaculty_id());
+//        });
+    }
+
+    @FXML
+    private void toMainPanel () throws IOException {
+        Scene scene = mainMenuButton.getScene();
+        VBox root = FXMLLoader.load(getClass().getResource("/views/MainPanel.fxml"));
+        scene.setRoot(root);
     }
 
     @FXML
@@ -59,9 +80,9 @@ public class PostgraduateController implements Initializable{
 
     @FXML
     private void saveButtonClicked() {
-        if (addButton == 1) {
+        if (addButtonClick == 1) {
             addUg();
-            System.out.println("addButton");
+            System.out.println("addButtonClick");
         } else {
             editUg();
             System.out.println("editButton");
@@ -125,7 +146,7 @@ public class PostgraduateController implements Initializable{
     @FXML
     private void editButtonClicked() {
         System.out.println("Edit Button Clicked");
-        addButton = 0;
+        addButtonClick = 0;
         setInputs(selectedRow);
         passwordField.setDisable(true);
         toDetails();
@@ -135,7 +156,7 @@ public class PostgraduateController implements Initializable{
     private void addButtonClicked() {
         System.out.println("Add Button Clicked");
         passwordField.setDisable(false);
-        addButton = 1;
+        addButtonClick = 1;
         toDetails();
     }
 
@@ -184,52 +205,13 @@ public class PostgraduateController implements Initializable{
                         rs.getString("student.email"),
                         rs.getString("student.address1"),
                         rs.getString("student.address2"),
+                        rs.getInt("student.telephone"),
                         rs.getDate("student.dob"),
                         rs.getString("student.gender"),
                         rs.getInt("postgraduate.year_of_completion"),
                         rs.getString("postgraduate.institute"),
                         rs.getString("postgraduate.qualification_type")
                 ));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void configCourseBox() {
-        ResultSet rs = course.get();
-
-        try {
-            ObservableList<Course> data = courseBox.getItems();
-            while (rs.next()) {
-                data.add(
-                        new Course(
-                                rs.getInt("course_id"),
-                                rs.getString("name"),
-                                rs.getInt("duration"),
-                                rs.getInt("credit_limit"),
-                                rs.getString("type"),
-                                new Faculty()
-                        )
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void configFacultyBox() {
-        ResultSet rs = faculty.get();
-
-        try {
-            ObservableList<Faculty> data = facultyBox.getItems();
-            while (rs.next()) {
-                data.add(
-                        new Faculty(
-                                rs.getInt("faculty_id"),
-                                rs.getString("name")
-                        )
-                );
             }
         } catch (SQLException e) {
             e.printStackTrace();

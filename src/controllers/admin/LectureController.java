@@ -3,15 +3,20 @@ package controllers.admin;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import models.Course;
 import models.LecHall;
 import models.Lecture;
 import models.Subject;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,6 +28,7 @@ public class LectureController implements Initializable {
     @FXML private ComboBox<LecHall> locationBox;
     @FXML private ComboBox<Subject> subjectBox;
     @FXML private TableView<Lecture> lectureTable;
+    @FXML private Button mainMenuButton;
 
     private Lecture lecture = new Lecture();
     private LecHall lec_hall = new LecHall();
@@ -34,6 +40,14 @@ public class LectureController implements Initializable {
         configSubjectBox();
         configLocationBox();
         drawTable ();
+    }
+
+    @FXML
+    private void toMainPanel () throws IOException {
+        Scene scene = mainMenuButton.getScene();
+        VBox root = FXMLLoader.load(getClass().getResource("/views/MainPanel.fxml"));
+        scene.setRoot(root);
+
     }
 
     @FXML

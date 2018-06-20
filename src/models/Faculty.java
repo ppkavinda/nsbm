@@ -3,6 +3,8 @@ package models;
 import db.DBConnection;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,6 +26,24 @@ public class Faculty {
     public Faculty(int faculty_id, String name) {
         setFaculty_id(faculty_id);
         setName(name);
+    }
+
+    public void configFacultyBox(ComboBox<Faculty> facultyBox) {
+        ResultSet rs = get();
+
+        try {
+            ObservableList<Faculty> data = facultyBox.getItems();
+            while (rs.next()) {
+                data.add(
+                        new Faculty(
+                                rs.getInt("faculty_id"),
+                                rs.getString("name")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     // get all the record of table

@@ -3,12 +3,17 @@ package controllers.admin;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import models.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +25,8 @@ public class PracticleController implements Initializable{
     @FXML private TextField endField;
     @FXML private ComboBox<Lab> locationBox;
     @FXML private ComboBox<Subject> subjectBox;
+    @FXML private Button mainMenuButton;
+
 
     private Practicle practicle = new Practicle();
     private Practicle selectedRow;
@@ -30,8 +37,16 @@ public class PracticleController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         configLocationBox();
-        configSubjectBox();
+        subject.configSubjectBox(subjectBox);
         drawTable();
+    }
+
+    @FXML
+    private void toMainPanel () throws IOException {
+        Scene scene = mainMenuButton.getScene();
+        VBox root = FXMLLoader.load(getClass().getResource("/views/MainPanel.fxml"));
+        scene.setRoot(root);
+
     }
 
     @FXML
@@ -128,26 +143,7 @@ public class PracticleController implements Initializable{
             e.printStackTrace();
         }
     }
-    private void configSubjectBox () {
-        ResultSet rs = subject.get();
 
-        try {
-            ObservableList<Subject> subjectBoxData = FXCollections.observableArrayList();
-            while (rs.next()) {
-                subjectBoxData.add(new Subject(
-                        rs.getInt("subject_code"),
-                        rs.getInt("credits"),
-                        rs.getInt("sem"),
-                        rs.getString("name"),
-                        rs.getDouble("fee")
-                ));
-            }
-            subjectBox.setItems(subjectBoxData);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     private void setInputs (Practicle p) {
         startField.setText(p.getStart_time());

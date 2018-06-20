@@ -21,6 +21,7 @@ class Student {
     private final SimpleStringProperty email = new SimpleStringProperty("");
     private final SimpleStringProperty address1 = new SimpleStringProperty("");
     private final SimpleStringProperty address2 = new SimpleStringProperty("");
+    private final SimpleIntegerProperty tpno = new SimpleIntegerProperty(0);
     private final SimpleObjectProperty<Date> dob = new SimpleObjectProperty<>(new Date());
     private final SimpleStringProperty gender = new SimpleStringProperty("");
 
@@ -28,10 +29,10 @@ class Student {
     private PreparedStatement stmt;
 
     public Student () {
-        this (0, new Faculty(), new Course(), "", "", "", "", "", new java.sql.Date(0), "");
+        this (0, new Faculty(), new Course(), "", "", "", "", "", 0, new java.sql.Date(0), "");
     }
 
-    public Student (int student_id, Faculty faculty, Course course, String fname, String lname, String email, String address1, String address2, Date dob, String gender) {
+    public Student (int student_id, Faculty faculty, Course course, String fname, String lname, String email, String address1, String address2, int tpno, Date dob, String gender) {
         setStudent_id(student_id);
         setFaculty(faculty);
         setCourse(course);
@@ -40,6 +41,7 @@ class Student {
         setEmail(email);
         setAddress1(address1);
         setAddress2(address2);
+        setTpno(tpno);
         setDob(dob);
         setGender(gender);
     }
@@ -118,6 +120,18 @@ class Student {
 
     public void setAddress2(String address2) {
         this.address2.set(address2);
+    }
+
+    public int getTpno() {
+        return tpno.get();
+    }
+
+    public SimpleIntegerProperty tpnoProperty() {
+        return tpno;
+    }
+
+    public void setTpno(int tpno) {
+        this.tpno.set(tpno);
     }
 
     public int getStudent_id() {

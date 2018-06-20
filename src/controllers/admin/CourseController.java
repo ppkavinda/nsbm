@@ -3,15 +3,19 @@ package controllers.admin;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import models.Course;
 import models.Faculty;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +23,8 @@ import java.util.ResourceBundle;
 
 public class CourseController implements Initializable {
 
-    @FXML private ComboBox<String> facultyBox;
+    @FXML private Button mainMenuButton;
+    @FXML private ComboBox<Faculty> facultyBox;
     @FXML private TableView<Course> courseTable;
     @FXML private TextField nameField;
     @FXML private TextField durationField;
@@ -36,18 +41,15 @@ public class CourseController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ResultSet rs = faculty.get();
-        try {
-            System.out.println("faculty combBox");
-            while (rs.next()) {
-                facultyBox.getItems().add(rs.getInt(1) + ": " + rs.getString(2));
-                System.out.println("faculty: " + rs.getInt(1) + ": " + rs.getString(2));
-
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        faculty.configFacultyBox(facultyBox);
         drawTable();
+    }
+
+    @FXML
+    private void toMainPanel () throws IOException {
+            Scene scene = mainMenuButton.getScene();
+            VBox root = FXMLLoader.load(getClass().getResource("/views/MainPanel.fxml"));
+            scene.setRoot(root);
     }
 
     @FXML
@@ -64,7 +66,7 @@ public class CourseController implements Initializable {
             Integer.parseInt(durationField.getText()),
             Integer.parseInt(creditField.getText()),
             getTypeCode(),
-            getFacultyCode()
+            facultyBox.getSelectionModel().getSelectedItem().getFaculty_id()
         );
         refreshTable();
         System.out.println("updated");
@@ -78,7 +80,7 @@ public class CourseController implements Initializable {
         durationField.setText(String.valueOf(selectedRow.getDuration()));
         creditField.setText(String.valueOf(selectedRow.getCredit_limit()));
         typeBox.getSelectionModel().select(selectedRow.getType());
-        facultyBox.getSelectionModel().select(selectedRow.getFaculty().getName());
+        facultyBox.getSelectionModel().select(selectedRow.getFaculty());
     }
 
     @FXML
@@ -88,7 +90,7 @@ public class CourseController implements Initializable {
                 Integer.parseInt(durationField.getText()),
                 Integer.parseInt(creditField.getText()),
                 getTypeCode(),
-                getFacultyCode()
+                facultyBox.getSelectionModel().getSelectedItem().getFaculty_id()
         );
         refreshTable();
         System.out.println("Course Inserted");
@@ -101,11 +103,6 @@ public class CourseController implements Initializable {
         } else {
             return "B";     // Bachelors
         }
-    }
-
-    // get the faculty_id from comboBox option
-    private int getFacultyCode () {
-        return Integer.parseInt(String.valueOf(facultyBox.getSelectionModel().getSelectedItem().charAt(0)));
     }
 
     private void refreshTable () {
@@ -126,7 +123,10 @@ public class CourseController implements Initializable {
                     rs.getInt(3),   //  Duration
                     rs.getInt(4),   //  Credit Limit
                     rs.getString(5),    //  Type
-                    new Faculty(rs.getInt("faculty.faculty_id"), rs.getString("faculty.name"))   //  Faculty
+                    new Faculty(
+                            rs.getInt("faculty.faculty_id"),
+                            rs.getString("faculty.name")
+                    )   //  Faculty
                 ));
             }
         } catch (SQLException e) {

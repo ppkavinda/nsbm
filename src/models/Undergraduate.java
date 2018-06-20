@@ -12,21 +12,21 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class Undergraduate extends Student {
-
-    PreparedStatement stmt;
-    DBConnection conn = new DBConnection();
     private SimpleObjectProperty<AlResult> al_result = new SimpleObjectProperty<>(new AlResult());
     private SimpleIntegerProperty rank = new SimpleIntegerProperty(0);
     private SimpleDoubleProperty z_score = new SimpleDoubleProperty(.0);
+    PreparedStatement stmt;
+
+    DBConnection conn = new DBConnection();
 
     public Undergraduate() {
         this(new AlResult(), 0, .0);
     }
 
     public Undergraduate(int student_id, Faculty faculty, Course course, String fname, String lname, String email,
-                         String address1, String address2, Date dob, String gender, AlResult al_result, int rank,
+                         String address1, String address2, int tpno, Date dob, String gender, AlResult al_result, int rank,
                          Double z_score) {
-        super(student_id, faculty, course, fname, lname, email, address1, address2, dob, gender);
+        super(student_id, faculty, course, fname, lname, email, address1, address2, tpno, dob, gender);
         setAl_result(al_result);
         setRank(rank);
         setZ_score(z_score);

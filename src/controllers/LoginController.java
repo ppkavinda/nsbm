@@ -4,10 +4,8 @@ import db.DBConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import helpers.MD5;
@@ -19,16 +17,11 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
-    public Hyperlink registerLink;
-    public Label titleLabel;
-    @FXML
-    private TextField username;
-    @FXML
-    private PasswordField password;
-    @FXML
-    private Button loginButton;
-    @FXML
-    private Label error;
+
+    @FXML private TextField email;
+    @FXML private PasswordField password;
+    @FXML private Button loginButton;
+    @FXML private Label error;
 
     private Stage stage;
 
@@ -37,12 +30,12 @@ public class LoginController implements Initializable {
         error.setVisible(false);
     }
 
-    //    when login button clicked -> validate username and attempt to login
+    //    when login button clicked -> validate email and attempt to login
     public void loginButtonClicked() {
-        // validating username
+        // validating email
         clearError();
         if (!validate()) {
-            System.out.println(username.getText() + " " + password.getText());
+            System.out.println(email.getText() + " " + password.getText());
             setError("Invalid Details!");
         } else {
             String errorMessage = "Unable to Login";
@@ -56,6 +49,7 @@ public class LoginController implements Initializable {
                     System.out.println("Login success ");
                     // login successful. continue with app
                     // TODO
+                    test();
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -73,15 +67,15 @@ public class LoginController implements Initializable {
     public void registerButtonClicked() throws IOException {
 
         Scene scene = loginButton.getScene();
-        VBox root = FXMLLoader.load(getClass().getResource("../views/Register.fxml"));
+        VBox root = FXMLLoader.load(getClass().getResource("../views/MainPanel.fxml"));
         scene.getStylesheets().add(getClass().getResource("/assets/css/login.css").toExternalForm());
         scene.setRoot(root);
-        System.out.println("Register.fxml opened");
+        System.out.println("MainPanel.fxml opened");
     }
 
-    //    check weather the username is empty or not
+    //    check weather the email is empty or not
     private boolean validate() {
-        if (!username.getText().equals("") && username.getText() != null &&
+        if (!email.getText().equals("") && email.getText() != null &&
                 !password.getText().equals("") && password.getText() != null
                 ) {
             System.out.println("validated");
@@ -92,8 +86,8 @@ public class LoginController implements Initializable {
 
     private boolean login() throws SQLException {
         DBConnection conn = new DBConnection();
-            String sql = "SELECT id FROM users WHERE username = ? and password = ?;";
-            ResultSet rs = conn.loginUser(sql, username.getText(), MD5.getHash(password.getText()));
+            String sql = "SELECT user_id FROM users WHERE email = ? AND password = ? AND role = 1";
+            ResultSet rs = conn.loginUser(sql, email.getText(), MD5.getHash(password.getText()));
 
             // counting the resultSet
             int rowcount = 0;
@@ -115,12 +109,11 @@ public class LoginController implements Initializable {
         error.setVisible(false);
     }
 
-    public void test () throws IOException {
-
+    @FXML private void test () throws IOException {
         Scene scene = loginButton.getScene();
-        VBox root = FXMLLoader.load(getClass().getResource("/views/admin/Practicle.fxml"));
-        scene.getStylesheets().add(getClass().getResource("/assets/css/login.css").toExternalForm());
+        VBox root = FXMLLoader.load(getClass().getResource("/views/MainPanel.fxml"));
         scene.setRoot(root);
-
     }
+
+
 }

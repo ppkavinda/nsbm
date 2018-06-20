@@ -3,14 +3,15 @@ package controllers.admin;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 import models.Subject;
 import models.Test;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,6 +31,7 @@ public class TestController implements Initializable {
     @FXML private ComboBox<Subject> subjectBox;
     @FXML private ComboBox typeBox;
     @FXML private TableView<Test> testTable;
+    @FXML private Button mainMenuButton;
 
     private ObservableList<Subject> subjectBoxData = FXCollections.observableArrayList();
     private Test selectedRow;
@@ -39,6 +41,14 @@ public class TestController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         configSubjectBox();
         drawTable();
+    }
+
+    @FXML
+    private void toMainPanel () throws IOException {
+        Scene scene = mainMenuButton.getScene();
+        VBox root = FXMLLoader.load(getClass().getResource("/views/MainPanel.fxml"));
+        scene.setRoot(root);
+
     }
 
     @FXML

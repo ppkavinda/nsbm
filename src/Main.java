@@ -10,7 +10,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/views/Login.fxml"));
         primaryStage.setTitle("NSBM: Welcome");
-        Scene scene = new Scene(root, 500, 500);
+        Scene scene = new Scene(root, 700, 700);
         scene.getStylesheets().add(getClass().getResource("/assets/css/login.css").toExternalForm());
 //        scene.getStylesheets().add(getClass().getResource("/assets/css/bootstrap.css").toExternalForm());
         primaryStage.setScene(scene);

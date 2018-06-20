@@ -22,14 +22,12 @@ public class Postgraduate extends Student {
         super();
     }
 
-    public Postgraduate (int student_id, Faculty faculty, Course course, String fname, String lname, String email, String address1, String address2, Date dob, String gender, int year_of_completion, String institute, String quilification_type) {
-        super(student_id, faculty, course, fname, lname, email, address1, address2, dob, gender);
+    public Postgraduate (int student_id, Faculty faculty, Course course, String fname, String lname, String email, String address1, String address2, int tpno, Date dob, String gender, int year_of_completion, String institute, String quilification_type) {
+        super(student_id, faculty, course, fname, lname, email, address1, address2, tpno, dob, gender);
         setYear_of_completion(year_of_completion);
         setInstitute(institute);
         setQualification_type(quilification_type);
     }
-
-
 
     public void remove(int id) {
         String sql = "DELETE FROM `users` WHERE `users`.`user_id` = ?";

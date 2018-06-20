@@ -4,6 +4,8 @@ import db.DBConnection;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
 
 import java.sql.*;
 
@@ -29,6 +31,28 @@ public class Course {
         setFaculty(faculty);
         setName(name);
         setType(type);
+    }
+
+    public void configCourseBox(ComboBox<Course> courseBox) {
+        ResultSet rs = get();
+
+        try {
+            ObservableList<Course> data = courseBox.getItems();
+            while (rs.next()) {
+                data.add(
+                        new Course(
+                                rs.getInt("course_id"),
+                                rs.getString("name"),
+                                rs.getInt("duration"),
+                                rs.getInt("credit_limit"),
+                                rs.getString("type"),
+                                new Faculty()
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     public void remove (int id) {
         String sql = "DELETE FROM course WHERE `course_id` = ?";

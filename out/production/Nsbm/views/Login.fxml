@@ -28,8 +28,8 @@
             <RowConstraints/>
             <RowConstraints/>
         </rowConstraints>
-        <Label minWidth="-Infinity" text="Username"/>
-        <TextField fx:id="username" GridPane.columnIndex="1"/>
+        <Label minWidth="-Infinity" text="Email"/>
+        <TextField fx:id="email" GridPane.columnIndex="1"/>
 
         <Label minWidth="-Infinity" text="Password" GridPane.rowIndex="2"/>
         <PasswordField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
