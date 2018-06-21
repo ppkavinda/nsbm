@@ -46,6 +46,20 @@ public class Student {
         setGender(gender);
     }
 
+    public ResultSet getSubjects (int student_id) {
+        String sql = "SELECT * FROM `student_subject` INNER JOIN subject ON subject.subject_code = student_subject.subject_code WHERE student_subject.student_id = ?";
+
+        try {
+            stmt = conn.connect().prepareStatement(sql);
+            stmt.setInt(1, student_id);
+            return stmt.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public void addSubject (int sub_id, int student_id) {
         String sql = "INSERT INTO `student_subject` (`student_id`, `subject_code`) VALUES (?, ?);";
 System.out.println(sub_id + " " + student_id);
@@ -86,7 +100,7 @@ System.out.println(sub_id + " " + student_id);
         }
     }
 
-    public void add (int student_id, String email, String password, String fname, String lname, String address1, String address2,
+    public int add (int student_id, String email, String password, String fname, String lname, String address1, String address2,
                      int telephone, Date dob, String gender, int fac_id, int course_id) {
         String sql2 = "INSERT INTO `student` (`student_id`, `fname`, `lname`, `email`, `address1`, `address2`, `telephone`, `password`, `dob`, `gender`, `fac_id`, `course_id`)" +
                 " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
@@ -105,12 +119,26 @@ System.out.println(sub_id + " " + student_id);
             stmt.setString(10, gender);
             stmt.setInt(11, fac_id);
             stmt.setInt(12, course_id);
-            stmt.executeUpdate();
-            stmt.close();
+
+            int affectedRows = stmt.executeUpdate();
+
+            if (affectedRows == 0) {
+                throw new SQLException("Creating user failed, no rows affected.");
+            }
+
+            try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    return (int) generatedKeys.getLong(1);
+                } else {
+                    throw new SQLException("Creating user failed, no ID obtained.");
+                }
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return 0;
     }
 
     public String getAddress1() {

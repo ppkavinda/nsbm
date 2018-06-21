@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import models.*;
 
+import javax.xml.transform.Result;
 import java.io.IOException;
 import java.io.ObjectStreamException;
 import java.net.URL;
@@ -64,8 +65,8 @@ public class UndergraduateController implements Initializable {
     private Course course = new Course();
     private Subject subject = new Subject();
     private int addButtonClick;
-    private int totalSem1Credits = 0;
-    private int totalSem2Credits = 0;
+    private int totalSem1Credits = 10;
+    private int totalSem2Credits = 10;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -83,13 +84,14 @@ public class UndergraduateController implements Initializable {
     }
     @FXML
     private void registerButtonClicked () {
-        if (totalSem1Credits < 30 && totalSem2Credits < 30 ) {
+        if (totalSem1Credits > 30 && totalSem2Credits > 30 ) {
             errorLabel.setText("Error: Not Enough credits for Semester");
         } else {
             ObservableList<Subject> data = sem1SubList.getItems();
             ObservableList<Subject> data2 = sem1SubList.getItems();
-            data.forEach(sub -> st.addSubject(sub.getSubject_code(), selectedRow.getStudent_id()));
-            data2.forEach(sub -> st.addSubject(sub.getSubject_code(), selectedRow.getStudent_id()));
+            int sid = saveButtonClicked();
+            data.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
+            data2.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
         }
     }
     @FXML
@@ -133,14 +135,15 @@ public class UndergraduateController implements Initializable {
     }
 
     @FXML
-    private void saveButtonClicked() {
+    private int saveButtonClicked() {
         if (addButtonClick == 1) {
-            addUg();
             System.out.println("addButtonClick");
+            return addUg();
         } else {
             editUg();
             System.out.println("editButton");
         }
+        return 0;
     }
 
     private void editUg() {
@@ -171,8 +174,8 @@ public class UndergraduateController implements Initializable {
         selectedRow = ugTable.getSelectionModel().getSelectedItem();
     }
 
-    private void addUg() {
-        ug.add(
+    private int addUg() {
+        int stid = ug.add(
             emailField.getText(),
             MD5.getHash(passwordField.getText()),
             4,
@@ -191,8 +194,9 @@ public class UndergraduateController implements Initializable {
             sub2Field.getText(),
             sub3Field.getText()
         );
-
         toList();
+        return stid;
+
     }
 
     @FXML
@@ -201,9 +205,12 @@ public class UndergraduateController implements Initializable {
         if (addButtonClick == 1) {
             sem1SubDetails.setDisable(false);
             sem2SubDetails.setDisable(false);
+            configSemList(0);
+
         } else {
             sem1SubDetails.setDisable(true);
             sem2SubDetails.setDisable(true);
+            configSemList(selectedRow.getStudent_id());
         }
         toSelectSubject();
     }
@@ -220,6 +227,7 @@ public class UndergraduateController implements Initializable {
         addButtonClick = 0;
         setInputs(selectedRow);
         passwordField.setDisable(true);
+        saveButton.setVisible(true);
         selectSubjectsButton.setText("Selected Subjects");
         toDetails();
     }
@@ -228,6 +236,7 @@ public class UndergraduateController implements Initializable {
     private void addButtonClicked() {
         System.out.println("Add Button Clicked");
         passwordField.setDisable(false);
+        saveButton.setVisible(false);
         addButtonClick = 1;
         selectSubjectsButton.setText("Select Subjects");
         toDetails();
@@ -306,37 +315,73 @@ public class UndergraduateController implements Initializable {
         }
     }
 
-    private void configSem1List () {
+    private void configSemList (int student_id) {
+        ObservableList<Subject> sem1List = sem1SubList.getItems();
+        ObservableList<Subject> sem2List = sem2SubList.getItems();
 
+        if (student_id == 0 ) {
+            sem1List.clear();
+            sem2List.clear();
+        } else {
+
+            ResultSet rs = ug.getSubjects(student_id);
+
+            try {
+                sem1List.clear();
+                sem2List.clear();
+                while (rs.next()) {
+                    if (rs.getInt("sem") == 1) {
+                        sem1List.add(new Subject(
+                                rs.getInt("subject_code"),
+                                rs.getInt("credits"),
+                                rs.getInt("sem"),
+                                rs.getString("name"),
+                                rs.getDouble("fee")
+                        ));
+                    } else {
+                        sem2List.add(new Subject(
+                                rs.getInt("subject_code"),
+                                rs.getInt("credits"),
+                                rs.getInt("sem"),
+                                rs.getString("name"),
+                                rs.getDouble("fee")
+                        ));
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void configSubBoxes () {
         ResultSet rs = subject.get();
 
         try {
-            ObservableList sem1box = sem1SubBox.getItems();
-            ObservableList sem2box = sem2SubBox.getItems();
+            ObservableList<Subject> sem1box = sem1SubBox.getItems();
+            ObservableList<Subject> sem2box = sem2SubBox.getItems();
             while (rs.next()) {
-                if (rs.getInt("sem") == 1) {
-                    sem1box.add(new Subject(
-                            rs.getInt("subject_code"),
-                            rs.getInt("credits"),
-                            rs.getInt("sem"),
-                            rs.getString("name"),
-                            rs.getDouble("fee")
-                    ));
-                } else {
-                    sem2box.add(new Subject(
-                            rs.getInt("subject_code"),
-                            rs.getInt("credits"),
-                            rs.getInt("sem"),
-                            rs.getString("name"),
-                            rs.getDouble("fee")
-                    ));
+                if (rs.getInt("compulsory") != 1) {
+
+                    if (rs.getInt("sem") == 1) {
+                        sem1box.add(new Subject(
+                                rs.getInt("subject_code"),
+                                rs.getInt("credits"),
+                                rs.getInt("sem"),
+                                rs.getString("name"),
+                                rs.getDouble("fee")
+                        ));
+                    } else {
+                        sem2box.add(new Subject(
+                                rs.getInt("subject_code"),
+                                rs.getInt("credits"),
+                                rs.getInt("sem"),
+                                rs.getString("name"),
+                                rs.getDouble("fee")
+                        ));
+                    }
                 }
             }
-            sem1SubBox.setItems(sem1box);
-            sem2SubBox.setItems(sem2box);
 
         } catch (SQLException e) {
             e.printStackTrace();

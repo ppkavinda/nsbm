@@ -104,7 +104,7 @@ public class Undergraduate extends Student {
         }
     }
 
-    public void add(String email, String password, int role, String fname, String lname, String address1, String address2,
+    public int add(String email, String password, int role, String fname, String lname, String address1, String address2,
                     int telephone, Date dob, String gender, int fac_id, int course_id, int rank, Double z_score, String sub1,
                     String sub2, String sub3) {
         String sql1 = "INSERT INTO `users` (`password`, `email`, `role`) VALUES (?, ?, ?);";
@@ -113,7 +113,7 @@ public class Undergraduate extends Student {
         String sql3 = "INSERT INTO `undergraduate` (`student_id`, `rank`, `z_score`) VALUES (?, ?, ?);";
         String sql4 = "INSERT INTO `al_result` (`student_id`, `sub1`, `sub2`, `sub3`) VALUES (?, ?, ?, ?);";
 
-        long student_id;
+        long student_id = 0;
         try {
             stmt = conn.connect().prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, password);
@@ -154,6 +154,7 @@ public class Undergraduate extends Student {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return (int) student_id;
     }
 
     public ResultSet get() {
