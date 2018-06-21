@@ -65,9 +65,9 @@ public class Student {
 System.out.println(sub_id + " " + student_id);
         try {
             stmt = conn.connect().prepareStatement(sql);
-            stmt.setInt(1, sub_id);
-            stmt.setInt(2, student_id);
-//            stmt.executeUpdate();
+            stmt.setInt(1, student_id);
+            stmt.setInt(2, sub_id);
+            stmt.executeUpdate();
             stmt.close();
 
         } catch (SQLException e) {
@@ -106,7 +106,7 @@ System.out.println(sub_id + " " + student_id);
                 " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         try {
-            stmt = conn.connect().prepareStatement(sql2);
+            stmt = conn.connect().prepareStatement(sql2, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, student_id);
             stmt.setString(2, fname);
             stmt.setString(3, lname);

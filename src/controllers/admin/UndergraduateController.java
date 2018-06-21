@@ -73,7 +73,6 @@ public class UndergraduateController implements Initializable {
         drawTable();
         faculty.configFacultyBox(facultyBox);
         course.configCourseBox(courseBox);
-        configSubBoxes();
     }
 
     @FXML
@@ -88,7 +87,7 @@ public class UndergraduateController implements Initializable {
             errorLabel.setText("Error: Not Enough credits for Semester");
         } else {
             ObservableList<Subject> data = sem1SubList.getItems();
-            ObservableList<Subject> data2 = sem1SubList.getItems();
+            ObservableList<Subject> data2 = sem2SubList.getItems();
             int sid = saveButtonClicked();
             data.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
             data2.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
@@ -248,6 +247,7 @@ public class UndergraduateController implements Initializable {
         ugDetails.setVisible(false);
         ugList.setVisible(false);
         selectSubView.setVisible(true);
+        configSubBoxes();
     }
     // GO TO THE STUDENTS TABLEvIEW
     private void toList() {
@@ -331,6 +331,7 @@ public class UndergraduateController implements Initializable {
                 sem2List.clear();
                 while (rs.next()) {
                     if (rs.getInt("sem") == 1) {
+                        totalSem1Credits += rs.getInt("credits");
                         sem1List.add(new Subject(
                                 rs.getInt("subject_code"),
                                 rs.getInt("credits"),
@@ -339,6 +340,7 @@ public class UndergraduateController implements Initializable {
                                 rs.getDouble("fee")
                         ));
                     } else {
+                        totalSem2Credits += rs.getInt("credits");
                         sem2List.add(new Subject(
                                 rs.getInt("subject_code"),
                                 rs.getInt("credits"),
@@ -347,6 +349,8 @@ public class UndergraduateController implements Initializable {
                                 rs.getDouble("fee")
                         ));
                     }
+                    sem1CreditsLabel.setText(String.valueOf(totalSem1Credits));
+                    sem2CreditsLabel.setText(String.valueOf(totalSem2Credits));
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
