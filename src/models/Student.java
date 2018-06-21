@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-class Student {
+public class Student {
     private final SimpleIntegerProperty student_id = new SimpleIntegerProperty(0);
     private final SimpleObjectProperty<Faculty> faculty = new SimpleObjectProperty<>(new Faculty());
     private final SimpleObjectProperty<Course> course = new SimpleObjectProperty<>(new Course());
@@ -44,6 +44,21 @@ class Student {
         setTpno(tpno);
         setDob(dob);
         setGender(gender);
+    }
+
+    public void addSubject (int sub_id, int student_id) {
+        String sql = "INSERT INTO `student_subject` (`student_id`, `subject_code`) VALUES (?, ?);";
+System.out.println(sub_id + " " + student_id);
+        try {
+            stmt = conn.connect().prepareStatement(sql);
+            stmt.setInt(1, sub_id);
+            stmt.setInt(2, student_id);
+//            stmt.executeUpdate();
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void update (String email, String fname, String lname, String address1, String address2,

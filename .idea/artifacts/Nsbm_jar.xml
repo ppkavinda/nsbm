@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Nsbm:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Nsbm_jar</output-path>
+    <root id="archive" name="Nsbm.jar">
+      <element id="module-output" name="Nsbm" />
+      <element id="extracted-dir" path="D:/mY SofT/libs/mysql-connector-java-5.1.23-bin.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

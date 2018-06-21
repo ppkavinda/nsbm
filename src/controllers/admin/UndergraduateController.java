@@ -8,12 +8,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import models.AlResult;
-import models.Course;
-import models.Faculty;
-import models.Undergraduate;
+import javafx.scene.text.Text;
+import models.*;
 
 import java.io.IOException;
+import java.io.ObjectStreamException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,6 +21,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class UndergraduateController implements Initializable {
+    @FXML private Text sem1CreditsLabel;
+    @FXML private Text sem2CreditsLabel;
+    @FXML private Label errorLabel;
+    @FXML private Button selectSubjectsButton;
+    @FXML private VBox selectSubView;
+    @FXML private VBox sem2SubDetails;
+    @FXML private VBox sem1SubDetails;
+    @FXML private ComboBox<Subject> sem2SubBox;
+    @FXML private ComboBox<Subject> sem1SubBox;
+    @FXML private ListView<Subject> sem1SubList;
+    @FXML private ListView<Subject> sem2SubList;
     @FXML private TextField sub1Field;
     @FXML private TextField sub3Field;
     @FXML private TextField sub2Field;
@@ -48,16 +58,21 @@ public class UndergraduateController implements Initializable {
 
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private Undergraduate ug = new Undergraduate();
+    private Student st = new Student();
     private Faculty faculty = new Faculty();
     private Undergraduate selectedRow;
     private Course course = new Course();
+    private Subject subject = new Subject();
     private int addButtonClick;
+    private int totalSem1Credits = 0;
+    private int totalSem2Credits = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         drawTable();
         faculty.configFacultyBox(facultyBox);
         course.configCourseBox(courseBox);
+        configSubBoxes();
     }
 
     @FXML
@@ -65,9 +80,52 @@ public class UndergraduateController implements Initializable {
         Scene scene = mainMenuButton.getScene();
         VBox root = FXMLLoader.load(getClass().getResource("/views/MainPanel.fxml"));
         scene.setRoot(root);
-
     }
-
+    @FXML
+    private void registerButtonClicked () {
+        if (totalSem1Credits < 30 && totalSem2Credits < 30 ) {
+            errorLabel.setText("Error: Not Enough credits for Semester");
+        } else {
+            ObservableList<Subject> data = sem1SubList.getItems();
+            ObservableList<Subject> data2 = sem1SubList.getItems();
+            data.forEach(sub -> st.addSubject(sub.getSubject_code(), selectedRow.getStudent_id()));
+            data2.forEach(sub -> st.addSubject(sub.getSubject_code(), selectedRow.getStudent_id()));
+        }
+    }
+    @FXML
+    private void sem1RemoveButtonClicked () {
+        Subject selectedSub = sem1SubList.getSelectionModel().getSelectedItem();
+        sem1SubList.getItems().remove(selectedSub);
+        sem1SubBox.getItems().add(selectedSub);
+        totalSem1Credits -= selectedSub.getCredits();
+        sem1CreditsLabel.setText(String.valueOf(totalSem1Credits));
+    }
+    @FXML
+    private void sem2RemoveButtonClicked () {
+        Subject selectedSub = sem2SubList.getSelectionModel().getSelectedItem();
+        sem2SubList.getItems().remove(selectedSub);
+        sem2SubBox.getItems().add(selectedSub);
+        totalSem2Credits -= selectedSub.getCredits();
+        sem2CreditsLabel.setText(String.valueOf(totalSem2Credits));
+    }
+    @FXML
+    private void sem1SubButtonClicked () {
+        ObservableList data = sem1SubList.getItems();
+        Subject selectedSub = sem1SubBox.getSelectionModel().getSelectedItem();
+        data.add(selectedSub);
+        totalSem1Credits += selectedSub.getCredits();
+        sem1CreditsLabel.setText(String.valueOf(totalSem1Credits));
+        sem1SubBox.getItems().remove(selectedSub);
+    }
+    @FXML
+    private void sem2SubButtonClicked () {
+        ObservableList data = sem2SubList.getItems();
+        Subject selectedSub = sem2SubBox.getSelectionModel().getSelectedItem();
+        data.add(selectedSub);
+        totalSem2Credits += selectedSub.getCredits();
+        sem2CreditsLabel.setText(String.valueOf(totalSem2Credits));
+        sem2SubBox.getItems().remove(selectedSub);
+    }
     @FXML
     private void removeButtonClicked() {
         ug.remove(selectedRow.getStudent_id());
@@ -138,6 +196,19 @@ public class UndergraduateController implements Initializable {
     }
 
     @FXML
+    private void selectSubjectButtonClicked () {
+        System.out.println("Subject Select Button Clicked");
+        if (addButtonClick == 1) {
+            sem1SubDetails.setDisable(false);
+            sem2SubDetails.setDisable(false);
+        } else {
+            sem1SubDetails.setDisable(true);
+            sem2SubDetails.setDisable(true);
+        }
+        toSelectSubject();
+    }
+
+    @FXML
     private void cancelButtonClicked() {
         System.out.println("Cancel Button Clicked");
         toList();
@@ -149,6 +220,7 @@ public class UndergraduateController implements Initializable {
         addButtonClick = 0;
         setInputs(selectedRow);
         passwordField.setDisable(true);
+        selectSubjectsButton.setText("Selected Subjects");
         toDetails();
     }
 
@@ -157,20 +229,32 @@ public class UndergraduateController implements Initializable {
         System.out.println("Add Button Clicked");
         passwordField.setDisable(false);
         addButtonClick = 1;
+        selectSubjectsButton.setText("Select Subjects");
         toDetails();
     }
 
+    // GO TO THE SUBJECT SELECT VIEW
+    private void toSelectSubject () {
+        selectSubView.toFront();
+        ugDetails.setVisible(false);
+        ugList.setVisible(false);
+        selectSubView.setVisible(true);
+    }
+    // GO TO THE STUDENTS TABLEvIEW
     private void toList() {
         refreshTable();
         ugDetails.setVisible(false);
+        selectSubView.setVisible(false);
         ugDetails.toBack();
         ugList.setVisible(true);
         ugList.toFront();
         clearInputs();
     }
 
+    // GOT TO THE DETAILS PANEL ADD EDIT STUDENTS
     private void toDetails() {
         ugList.setVisible(false);
+        selectSubView.setVisible(false);
         ugList.toBack();
         ugDetails.setVisible(true);
         ugDetails.toFront();
@@ -217,6 +301,43 @@ public class UndergraduateController implements Initializable {
                     rs.getDouble("undergraduate.z_score")
                 ));
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void configSem1List () {
+
+    }
+
+    private void configSubBoxes () {
+        ResultSet rs = subject.get();
+
+        try {
+            ObservableList sem1box = sem1SubBox.getItems();
+            ObservableList sem2box = sem2SubBox.getItems();
+            while (rs.next()) {
+                if (rs.getInt("sem") == 1) {
+                    sem1box.add(new Subject(
+                            rs.getInt("subject_code"),
+                            rs.getInt("credits"),
+                            rs.getInt("sem"),
+                            rs.getString("name"),
+                            rs.getDouble("fee")
+                    ));
+                } else {
+                    sem2box.add(new Subject(
+                            rs.getInt("subject_code"),
+                            rs.getInt("credits"),
+                            rs.getInt("sem"),
+                            rs.getString("name"),
+                            rs.getDouble("fee")
+                    ));
+                }
+            }
+            sem1SubBox.setItems(sem1box);
+            sem2SubBox.setItems(sem2box);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

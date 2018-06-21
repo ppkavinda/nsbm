@@ -1,92 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Nsbm:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/views/MainPanel.fxml" line="1" />
     <bookmark url="file://$PROJECT_DIR$/src/controllers/LoginController.java" line="105" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/views/MainPanel.fxml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5180721d-be34-42b1-9619-eb3ee0ac9253.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/5180721d-be34-42b1-9619-eb3ee0ac9253.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/Nsbm_jar.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/Main.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/Main.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/LoginController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/LoginController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/RegisterController.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/CourseController.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/FacultyController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/FacultyController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/InstructorController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/InstructorController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/LabController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/LabController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/LecHallController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/LecHallController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/LectureController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/LectureController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/LecturerController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/LecturerController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/PostgraduateController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/PostgraduateController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/PracticleController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/PracticleController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/StudentController.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/SubjectController$1.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/SubjectController$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/SubjectController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/SubjectController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/TestController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/TestController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/UndergraduateController.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Course.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Course.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Faculty.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Faculty.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Instructor.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Instructor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Lecturer.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Lecturer.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Postgraduate.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Staff.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Student.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Subject.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Subject.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Undergraduate.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/Register.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Course.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Course.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Faculty.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Faculty.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Instructor.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Instructor.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Lab.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Lab.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/admin/LecHall.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/admin/LecHall.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Lecture.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Lecture.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Lecturer.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Lecturer.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Postgraduate.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Postgraduate.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Practicle.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Practicle.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Student.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Subject.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Subject.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Test.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Test.fxml" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/UndergraduateController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/UndergraduateController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Postgraduate.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Postgraduate.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Student.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Student.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Undergraduate.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Undergraduate.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Undergraduate.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Undergraduate.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/LoginController.java" afterPath="$PROJECT_DIR$/src/controllers/LoginController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/RegisterController.java" afterPath="$PROJECT_DIR$/src/controllers/MainPanelController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/admin/CourseController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/CourseController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/admin/FacultyController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/FacultyController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/admin/InstructorController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/InstructorController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/admin/LabController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/LabController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/admin/LecHallController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/LecHallController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/admin/LectureController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/LectureController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/admin/LecturerController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/LecturerController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/admin/PostgraduateController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/PostgraduateController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/admin/PracticleController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/PracticleController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/admin/StudentController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/admin/SubjectController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/SubjectController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/admin/TestController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/TestController.java" />
       <change beforePath="$PROJECT_DIR$/src/controllers/admin/UndergraduateController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/UndergraduateController.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Course.java" afterPath="$PROJECT_DIR$/src/models/Course.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Faculty.java" afterPath="$PROJECT_DIR$/src/models/Faculty.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Instructor.java" afterPath="$PROJECT_DIR$/src/models/Instructor.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Postgraduate.java" afterPath="$PROJECT_DIR$/src/models/Postgraduate.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Staff.java" afterPath="$PROJECT_DIR$/src/models/Lecturer.java" />
       <change beforePath="$PROJECT_DIR$/src/models/Student.java" afterPath="$PROJECT_DIR$/src/models/Student.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Subject.java" afterPath="$PROJECT_DIR$/src/models/Subject.java" />
-      <change beforePath="$PROJECT_DIR$/src/models/Undergraduate.java" afterPath="$PROJECT_DIR$/src/models/Undergraduate.java" />
-      <change beforePath="$PROJECT_DIR$/src/views/Login.fxml" afterPath="$PROJECT_DIR$/src/views/Login.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/views/Register.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/Course.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Course.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/Faculty.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Faculty.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/Instructor.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Instructor.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/Lab.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Lab.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/LecHall.fxml" afterPath="$PROJECT_DIR$/src/views/admin/LecHall.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/Lecture.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Lecture.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/Lecturer.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Lecturer.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/Postgraduate.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Postgraduate.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/Practicle.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Practicle.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/Student.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/Subject.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Subject.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/Test.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Test.fxml" />
       <change beforePath="$PROJECT_DIR$/src/views/admin/Undergraduate.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Undergraduate.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -178,47 +112,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UndergraduateController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controllers/admin/UndergraduateController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2268">
-              <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Postgraduate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Postgraduate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="24" column="158" lean-forward="false" selection-start-line="24" selection-start-column="158" selection-end-line="24" selection-end-column="158" />
-              <folding>
-                <element signature="method#add#0;class#Postgraduate#0" expanded="false" />
-                <marker date="1529467707508" expanded="true" signature="1299:1346" ph="DELETE FROM `users`... " />
-                <marker date="1529467707508" expanded="true" signature="1885:1943" ph="UPDATE `users`... " />
-                <marker date="1529467707508" expanded="true" signature="1971:2123" ph="UPDATE `postgraduate`... " />
-                <marker date="1529467707508" expanded="true" signature="4691:4994" ph="SELECT * FRO... postgraduate" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostgraduateController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controllers/admin/PostgraduateController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="36" column="42" lean-forward="true" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Undergraduate.fxml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Undergraduate.fxml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/admin/Undergraduate.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="619">
-              <caret line="129" column="63" lean-forward="true" selection-start-line="129" selection-start-column="63" selection-end-line="129" selection-end-column="63" />
+            <state relative-caret-position="-2181">
+              <caret line="313" column="27" lean-forward="true" selection-start-line="313" selection-start-column="27" selection-end-line="313" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -227,21 +125,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Undergraduate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Undergraduate.java">
+      <file leaf-file-name="UndergraduateController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/admin/UndergraduateController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="89" lean-forward="false" selection-start-line="28" selection-start-column="89" selection-end-line="28" selection-end-column="89" />
+            <state relative-caret-position="5">
+              <caret line="308" column="1" lean-forward="false" selection-start-line="308" selection-start-column="1" selection-end-line="308" selection-end-column="1" />
               <folding>
-                <marker date="1529467560731" expanded="true" signature="1478:1525" ph="DELETE FROM `users`... " />
-                <marker date="1529467560731" expanded="true" signature="2106:2164" ph="UPDATE `users`... " />
-                <marker date="1529467560731" expanded="true" signature="2191:2408" ph="UPDATE `student`... " />
-                <marker date="1529467560731" expanded="true" signature="2435:2526" ph="UPDATE `undergraduate`... " />
-                <marker date="1529467560731" expanded="true" signature="2553:2644" ph="UPDATE `al_result`... " />
-                <marker date="1529467560731" expanded="true" signature="4316:4382" ph="INSERT INTO `users`... " />
-                <marker date="1529467560731" expanded="true" signature="4653:4731" ph="INSERT INTO `undergraduate`... " />
-                <marker date="1529467560731" expanded="true" signature="4758:4840" ph="INSERT INTO `al_result`... " />
-                <marker date="1529467560731" expanded="true" signature="6381:6750" ph="SELECT * FRO... undergraduate" />
+                <element signature="e#12030#12031#0" expanded="true" />
+                <element signature="e#12076#12077#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Subject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/Subject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="54" column="25" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+              <folding>
+                <marker date="1529420483441" expanded="true" signature="2396:2438" ph="DELETE FROM subject... " />
+                <marker date="1529420483441" expanded="true" signature="2852:3034" ph="UPDATE `subject`... " />
+                <marker date="1529420483441" expanded="true" signature="3666:3797" ph="INSERT INTO `subject`... " />
+                <marker date="1529420483441" expanded="true" signature="4306:4397" ph="SELECT * FRO... subject" />
               </folding>
             </state>
           </provider>
@@ -250,14 +156,25 @@
       <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/Student.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+            <state relative-caret-position="476">
+              <caret line="50" column="44" lean-forward="false" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
               <folding>
-                <element signature="e#1427#1428#0" expanded="true" />
-                <element signature="e#1529#1530#0" expanded="true" />
-                <marker date="1529467627784" expanded="true" signature="2248:2465" ph="UPDATE `student`... " />
-                <marker date="1529467627784" expanded="true" signature="3368:3585" ph="INSERT INTO `student`... " />
+                <element signature="e#1434#1435#0" expanded="true" />
+                <element signature="e#1536#1537#0" expanded="true" />
+                <marker date="1529489892062" expanded="true" signature="2106:2180" ph="INSERT INTO `student_subject`... " />
+                <marker date="1529489892062" expanded="true" signature="2755:2972" ph="UPDATE `student`... " />
+                <marker date="1529489892062" expanded="true" signature="3875:4092" ph="INSERT INTO `student`... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FacultyController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/admin/FacultyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="560">
+              <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="43" selection-end-column="44" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -327,7 +244,6 @@
         <option value="$PROJECT_DIR$/src/views/admin/Postgraduate.fxml" />
         <option value="$PROJECT_DIR$/src/views/admin/Practicle.fxml" />
         <option value="$PROJECT_DIR$/src/views/admin/Subject.fxml" />
-        <option value="$PROJECT_DIR$/src/views/admin/Undergraduate.fxml" />
         <option value="$PROJECT_DIR$/src/controllers/admin/TestController.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/SubjectController.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/PracticleController.java" />
@@ -343,9 +259,10 @@
         <option value="$PROJECT_DIR$/src/controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/CourseController.java" />
         <option value="$PROJECT_DIR$/src/models/Undergraduate.java" />
-        <option value="$PROJECT_DIR$/src/models/Student.java" />
         <option value="$PROJECT_DIR$/src/models/Postgraduate.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/PostgraduateController.java" />
+        <option value="$PROJECT_DIR$/src/models/Student.java" />
+        <option value="$PROJECT_DIR$/src/views/admin/Undergraduate.fxml" />
         <option value="$PROJECT_DIR$/src/controllers/admin/UndergraduateController.java" />
       </list>
     </option>
@@ -484,9 +401,9 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="D:/mY SofT/libs/mysql-connector-java-5.1.23-bin.jar!/" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Faculty.java&#10;postg&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/PostgraduateController.java&#10;Post&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Postgraduate.fxml&#10;Login.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/Login.fxml&#10;LoginCon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;Stu&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Login&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;Lectu&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lecture.java&#10;Tes&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/TestController.java&#10;LoginC&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;lec&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lecture.fxml&#10;Lecture.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lecturer.fxml&#10;Lec&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lecturer.java&#10;Login.c&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;Bootstra.c&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/bootstrap.css&#10;staff&#9;PSI&#9;JAVA://models.Staff&#10;Postg&#9;PSI&#9;JAVA://models.Postgraduate&#10;Al&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/AlResult.java&#10;Stu.j&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Stud&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Student.fxml&#10;AlR&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/AlResult.java&#10;unde.f&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Undergraduate.fxml&#10;Registercon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/RegisterController.java&#10;java.sql.Date.valueOf&#9;PSI&#9;JAVA://java.sql.Date#valueOf&#10;Test&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/TestController.java&#10;Cou&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Button&#9;FILE&#9;jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/Button.java&#10;login.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;logincon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;course.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Faculty.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Faculty.java&#10;Test.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Test.fxml&#10;cour&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/CourseController.java&#10;Course.j&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Course.java&#10;login.css&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;T.fxml&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Test.fxml&#10;Subject.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Subject.fxml&#10;LecHallC&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LecHallController.java&#10;Lab.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lab.fxml&#10;Faculty.ja&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Faculty.java&#10;Lab.ja&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lab.java&#10;Lab.java&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lab.java&#10;Lab&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LabController.java&#10;LabController&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LabController.java&#10;TextField&#9;PSI&#9;JAVA://java.awt.TextField&#10;cour.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Studen&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Staff&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Staff.java&#10;Prac&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Practicle.java&#10;login&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/LoginController.java" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Undergraduate.fxml&#10;postg&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/PostgraduateController.java&#10;Post&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Postgraduate.fxml&#10;Login.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/Login.fxml&#10;LoginCon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;Stu&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Login&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;Lectu&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lecture.java&#10;Tes&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/TestController.java&#10;LoginC&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;lec&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lecture.fxml&#10;Lecture.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lecturer.fxml&#10;Lec&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lecturer.java&#10;Login.c&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;Bootstra.c&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/bootstrap.css&#10;staff&#9;PSI&#9;JAVA://models.Staff&#10;Postg&#9;PSI&#9;JAVA://models.Postgraduate&#10;Al&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/AlResult.java&#10;Stu.j&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Stud&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Student.fxml&#10;AlR&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/AlResult.java&#10;unde.f&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Undergraduate.fxml&#10;Registercon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/RegisterController.java&#10;java.sql.Date.valueOf&#9;PSI&#9;JAVA://java.sql.Date#valueOf&#10;Test&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/TestController.java&#10;Cou&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Button&#9;FILE&#9;jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/Button.java&#10;login.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;logincon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;course.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Faculty.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Faculty.java&#10;Test.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Test.fxml&#10;cour&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/CourseController.java&#10;Course.j&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Course.java&#10;login.css&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;T.fxml&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Test.fxml&#10;Subject.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Subject.fxml&#10;LecHallC&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LecHallController.java&#10;Lab.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lab.fxml&#10;Faculty.ja&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Faculty.java&#10;Lab.ja&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lab.java&#10;Lab.java&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lab.java&#10;Lab&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LabController.java&#10;LabController&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LabController.java&#10;TextField&#9;PSI&#9;JAVA://java.awt.TextField&#10;cour.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Studen&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Staff&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Staff.java&#10;Prac&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Practicle.java&#10;login&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/LoginController.java" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
@@ -686,7 +603,7 @@
       <workItem from="1529309147701" duration="10326000" />
       <workItem from="1529323817709" duration="3174000" />
       <workItem from="1529329834710" duration="8951000" />
-      <workItem from="1529376849537" duration="37487000" />
+      <workItem from="1529376849537" duration="54933000" />
     </task>
     <task id="LOCAL-00001" summary="re-structured properly, added some models">
       <created>1528059163404</created>
@@ -713,7 +630,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="382373000" />
+    <option name="totallyTimeSpent" value="399819000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -863,22 +780,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Nsbm.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="18" column="47" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/Button.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/sql/Date.java" />
     <entry file="file://$PROJECT_DIR$/src/assets/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -1300,17 +1201,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/admin/FacultyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-          <folding>
-            <element signature="e#914#915#0" expanded="false" />
-            <element signature="e#941#942#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/admin/InstructorController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -1343,19 +1233,6 @@
         <state relative-caret-position="280">
           <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Subject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="41" column="54" lean-forward="false" selection-start-line="41" selection-start-column="54" selection-end-line="41" selection-end-column="54" />
-          <folding>
-            <marker date="1529420483441" expanded="true" signature="2396:2438" ph="DELETE FROM subject... " />
-            <marker date="1529420483441" expanded="true" signature="2852:3034" ph="UPDATE `subject`... " />
-            <marker date="1529420483441" expanded="true" signature="3666:3797" ph="INSERT INTO `subject`... " />
-            <marker date="1529420483441" expanded="true" signature="4306:4397" ph="SELECT * FRO... subject" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1445,50 +1322,12 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
-          <folding>
-            <element signature="e#1427#1428#0" expanded="true" />
-            <element signature="e#1529#1530#0" expanded="true" />
-            <marker date="1529467627784" expanded="true" signature="2248:2465" ph="UPDATE `student`... " />
-            <marker date="1529467627784" expanded="true" signature="3368:3585" ph="INSERT INTO `student`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Postgraduate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="24" column="158" lean-forward="false" selection-start-line="24" selection-start-column="158" selection-end-line="24" selection-end-column="158" />
-          <folding>
-            <element signature="method#add#0;class#Postgraduate#0" expanded="false" />
-            <marker date="1529467707508" expanded="true" signature="1299:1346" ph="DELETE FROM `users`... " />
-            <marker date="1529467707508" expanded="true" signature="1885:1943" ph="UPDATE `users`... " />
-            <marker date="1529467707508" expanded="true" signature="1971:2123" ph="UPDATE `postgraduate`... " />
-            <marker date="1529467707508" expanded="true" signature="4691:4994" ph="SELECT * FRO... postgraduate" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/admin/PostgraduateController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="36" column="42" lean-forward="true" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/admin/Undergraduate.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="129" column="63" lean-forward="true" selection-start-line="129" selection-start-column="63" selection-end-line="129" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/Undergraduate.java">
@@ -1509,12 +1348,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/admin/UndergraduateController.java">
+    <entry file="file://$PROJECT_DIR$/src/models/Postgraduate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2268">
-          <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        <state relative-caret-position="230">
+          <caret line="24" column="158" lean-forward="false" selection-start-line="24" selection-start-column="158" selection-end-line="24" selection-end-column="158" />
+          <folding>
+            <element signature="method#add#0;class#Postgraduate#0" expanded="false" />
+            <marker date="1529467707508" expanded="true" signature="1299:1346" ph="DELETE FROM `users`... " />
+            <marker date="1529467707508" expanded="true" signature="1885:1943" ph="UPDATE `users`... " />
+            <marker date="1529467707508" expanded="true" signature="1971:2123" ph="UPDATE `postgraduate`... " />
+            <marker date="1529467707508" expanded="true" signature="4691:4994" ph="SELECT * FRO... postgraduate" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/admin/FacultyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="43" selection-end-column="44" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Subject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="54" column="25" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+          <folding>
+            <marker date="1529420483441" expanded="true" signature="2396:2438" ph="DELETE FROM subject... " />
+            <marker date="1529420483441" expanded="true" signature="2852:3034" ph="UPDATE `subject`... " />
+            <marker date="1529420483441" expanded="true" signature="3666:3797" ph="INSERT INTO `subject`... " />
+            <marker date="1529420483441" expanded="true" signature="4306:4397" ph="SELECT * FRO... subject" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="50" column="44" lean-forward="false" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
+          <folding>
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1536#1537#0" expanded="true" />
+            <marker date="1529489892062" expanded="true" signature="2106:2180" ph="INSERT INTO `student_subject`... " />
+            <marker date="1529489892062" expanded="true" signature="2755:2972" ph="UPDATE `student`... " />
+            <marker date="1529489892062" expanded="true" signature="3875:4092" ph="INSERT INTO `student`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="466" column="0" lean-forward="true" selection-start-line="466" selection-start-column="0" selection-end-line="466" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/LightBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="65" column="28" lean-forward="true" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/Iterable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="71" column="17" lean-forward="false" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="1070" column="22" lean-forward="false" selection-start-line="1070" selection-start-column="22" selection-end-line="1070" selection-end-column="22" />
+          <folding>
+            <element signature="e#39768#39769#0" expanded="true" />
+            <element signature="e#39809#39810#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/admin/UndergraduateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5">
+          <caret line="308" column="1" lean-forward="false" selection-start-line="308" selection-start-column="1" selection-end-line="308" selection-end-column="1" />
+          <folding>
+            <element signature="e#12030#12031#0" expanded="true" />
+            <element signature="e#12076#12077#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/admin/Undergraduate.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2181">
+          <caret line="313" column="27" lean-forward="true" selection-start-line="313" selection-start-column="27" selection-end-line="313" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
   </component>
@@ -1534,7 +1471,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>JavaFXApp</last-edited>
+          <last-edited>Nsbm:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
