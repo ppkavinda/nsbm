@@ -56,7 +56,7 @@ public class UndergraduateController implements Initializable {
 
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private Undergraduate ug = new Undergraduate();
-    private UgSubjectController ugs = new UgSubjectController();
+    private StudentSubjectController ugs = new StudentSubjectController();
     private UgTableController ugt = new UgTableController();
     private Student st = new Student();
     private Faculty faculty = new Faculty();
@@ -125,13 +125,13 @@ public class UndergraduateController implements Initializable {
 //            add button clicked. so add a new UG
             sem1SubDetails.setDisable(false);
             sem2SubDetails.setDisable(false);
-            ugs.clearSemList(sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel);
+            ugs.clearSemList(sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, "UG");
 
         } else {
 //            edit button clicked. so edit selected UG
             sem1SubDetails.setDisable(true);
             sem2SubDetails.setDisable(true);
-            ugs.configSemList(selectedRow.getStudent_id(), sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel);
+            ugs.configSemList(selectedRow.getStudent_id(), sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, "UG");
         }
         toSelectSubject();
     }
@@ -197,7 +197,7 @@ public class UndergraduateController implements Initializable {
         ugDetails.setVisible(false);
         ugList.setVisible(false);
         selectSubView.setVisible(true);
-        ugs.configSubBoxes(sem1SubBox, sem2SubBox);
+        ugs.configSubBoxes(sem1SubBox, sem2SubBox, "UG");
     }
 
     // GO TO THE STUDENTS TABLEvIEW
@@ -268,11 +268,11 @@ public class UndergraduateController implements Initializable {
 
     }
 
-    protected void clearInputs() {
+    private void clearInputs() {
         setInputs(new Undergraduate());
     }
 
-    protected void setInputs(Undergraduate ug) {
+    private void setInputs(Undergraduate ug) {
         System.out.println(ug.getRank());
         emailField.setText(ug.getEmail());
         passwordField.setText(null);

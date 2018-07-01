@@ -1,9 +1,6 @@
 package controllers.admin;
 
 import helpers.MD5;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,22 +8,41 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import models.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-public class PostgraduateController implements Initializable{
+public class PostgraduateController implements Initializable {
 
-    @FXML private TextField passwordField;
+    @FXML private Button addButton;
+    @FXML private Button editButton;
+    @FXML private Button removeButton;
+    @FXML private Button sem1AddButton;
+    @FXML private Button sem1RemoveButton;
+    @FXML private Button sem2AddButton;
+    @FXML private Button sem2RemoveButton;
+    @FXML private Button subRegisterButton;
+    @FXML private Button subCancelButton;
+    @FXML private Button saveButton;
+    @FXML private Button cancelButton;
+    @FXML private Button mainMenuButton;
+    @FXML private ComboBox<Subject> sem1SubBox;
+    @FXML private ComboBox<Subject> sem2SubBox;
     @FXML private ComboBox<Faculty> facultyBox;
     @FXML private ComboBox<Course> courseBox;
     @FXML private ComboBox<String> genderBox;
+    @FXML private DatePicker dobField;
+    @FXML private ListView<Subject> sem1SubList;
+    @FXML private ListView<Subject> sem2SubList;
+    @FXML private Label errorLabel;
+    @FXML private Text sem2CreditsLabel;
+    @FXML private Text sem1CreditsLabel;
+    @FXML private TextField passwordField;
     @FXML private TextField fnameField;
     @FXML private TextField lnameField;
     @FXML private TextField emailField;
@@ -36,16 +52,18 @@ public class PostgraduateController implements Initializable{
     @FXML private TextField addressField1;
     @FXML private TextField addressField2;
     @FXML private TextField teleField;
-    @FXML private DatePicker dobField;
     @FXML private VBox pgList;
     @FXML private VBox pgDetails;
-    @FXML private Button saveButton;
-    @FXML private Button cancelButton;
-    @FXML private Button mainMenuButton;
+    @FXML private VBox sem2SubDetails;
+    @FXML private VBox sem1SubDetails;
+    @FXML private VBox selectSubView;
     @FXML private TableView<Postgraduate> pgTable;
 
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private Student st = new Student();
     private Postgraduate pg = new Postgraduate();
+    private PgTableController pgt = new PgTableController();
+    private StudentSubjectController pgs = new StudentSubjectController();
     private Faculty faculty = new Faculty();
     private Postgraduate selectedRow;
     private Course course = new Course();
@@ -53,43 +71,152 @@ public class PostgraduateController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        drawTable();
+        pgt.drawTable(pgTable);
         faculty.configFacultyBox(facultyBox);
         course.configCourseBox(courseBox);
-//        ObservableList<Course> data = courseBox.getItems();
-//        facultyBox.valueProperty().addListener((observable, oldValue, newValue) -> {
-//            data.removeIf(course1 -> course1.getFaculty().getFaculty_id() == 6);
-//            courseBox.setItems(data);
-//            System.out.println(observable.getValue().getFaculty_id());
-//            System.out.println(newValue.getFaculty_id());
-//        });
     }
 
     @FXML
-    private void toMainPanel () throws IOException {
+    private void toMainPanel() throws IOException {
         Scene scene = mainMenuButton.getScene();
         VBox root = FXMLLoader.load(getClass().getResource("/views/MainPanel.fxml"));
         scene.setRoot(root);
     }
-
+    //    SUBJECT SELECT VIEW ************************
     @FXML
-    private void removeButtonClicked() {
-        pg.remove(selectedRow.getStudent_id());
-        refreshTable();
-    }
-
-    @FXML
-    private void saveButtonClicked() {
-        if (addButtonClick == 1) {
-            addUg();
-            System.out.println("addButtonClick");
+    private void registerButtonClicked() {
+//        if credits not enough: display error msg
+        if (Integer.valueOf(sem1CreditsLabel.getText()) > 30 && Integer.valueOf(sem2CreditsLabel.getText()) > 30) {
+            errorLabel.setText("Error: Not Enough credits for Semester");
         } else {
-            editUg();
-            System.out.println("editButton");
+            ObservableList<Subject> data = sem1SubList.getItems();
+            ObservableList<Subject> data2 = sem2SubList.getItems();
+//            insert UG into DB
+            int sid = saveButtonClicked();
+//            insert subject into table
+            data.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
+            data2.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
+
+            data.forEach(sub -> System.out.println(sub.getName()));
         }
     }
 
-    private void editUg() {
+    @FXML   // remove selected subject form sem1 list View
+    private void sem1RemoveButtonClicked() {
+        pgs.removeSubject(sem1SubList, sem1SubBox, sem1CreditsLabel);
+    }
+
+    @FXML   // remove selected subject form se2 list View
+    private void sem2RemoveButtonClicked() {
+        pgs.removeSubject(sem2SubList, sem2SubBox, sem2CreditsLabel);
+    }
+
+    @FXML   // add selected subject into sem1 listView
+    private void sem1SubButtonClicked() {
+        pgs.addSubject(sem1SubList, sem1SubBox, sem1CreditsLabel);
+    }
+
+    @FXML   // add selected subject into sem2 listView
+    private void sem2SubButtonClicked() {
+        pgs.addSubject(sem2SubList, sem2SubBox, sem2CreditsLabel);
+    }
+//    DETAILS VIEW ****************
+    @FXML
+    private void selectSubjectButtonClicked() {
+        System.out.println("Subject Select Button Clicked");
+        if (addButtonClick == 1) {
+    //            add button clicked. so add a new UG
+            sem1SubDetails.setDisable(false);
+            sem2SubDetails.setDisable(false);
+            pgs.clearSemList(sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, "PG");
+
+        } else {
+    //            edit button clicked. so edit selected UG
+            sem1SubDetails.setDisable(true);
+            sem2SubDetails.setDisable(true);
+            pgs.configSemList(selectedRow.getStudent_id(), sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, "PG");
+        }
+        toSelectSubject();
+    }
+    @FXML
+    private int saveButtonClicked() {
+        if (addButtonClick == 1) {
+    //            add button clicked. so add new UG
+            System.out.println("addButtonClick");
+            return addPg();
+        } else {
+    //            edit button clicked. so edit selected UG
+            editPg();
+            System.out.println("editButton");
+        }
+        return 0;
+    }
+    @FXML
+    private void getSelectedRow() {
+        selectedRow = pgTable.getSelectionModel().getSelectedItem();
+    }
+    @FXML
+    private void cancelButtonClicked() {
+        System.out.println("Cancel Button Clicked");
+        toList();
+    }
+//    TABLE VIEW ******************
+    @FXML
+    private void removeButtonClicked() {
+        if (selectedRow != null ) {
+            pg.remove(selectedRow.getStudent_id());
+            pgt.refreshTable(pgTable);
+        }
+    }
+    @FXML
+    private void editButtonClicked() {
+        System.out.println("Edit Button Clicked");
+        if (selectedRow != null) {
+            addButtonClick = 0;
+            setInputs(selectedRow);
+            passwordField.setDisable(true);
+            toDetails();
+        }
+    }
+    @FXML
+    private void addButtonClicked() {
+        System.out.println("Add Button Clicked");
+        passwordField.setDisable(false);
+        addButtonClick = 1;
+        toDetails();
+    }
+
+
+    // GO TO THE SUBJECT SELECT VIEW
+    private void toSelectSubject() {
+        selectSubView.toFront();
+        pgDetails.setVisible(false);
+        pgList.setVisible(false);
+        selectSubView.setVisible(true);
+        pgs.configSubBoxes(sem1SubBox, sem2SubBox, "UG");
+    }
+
+    // GO TO THE STUDENTS TABLEvIEW
+    private void toList() {
+        pgt.refreshTable(pgTable);
+        pgDetails.setVisible(false);
+        selectSubView.setVisible(false);
+        pgDetails.toBack();
+        pgList.setVisible(true);
+        pgList.toFront();
+        clearInputs();
+    }
+
+    // GOT TO THE DETAILS PANEL ADD EDIT STUDENTS
+    private void toDetails() {
+        pgList.setVisible(false);
+        selectSubView.setVisible(false);
+        pgList.toBack();
+        pgDetails.setVisible(true);
+        pgDetails.toFront();
+    }
+
+    private void editPg() {
         pg.update(
                 emailField.getText(),
                 fnameField.getText(),
@@ -110,13 +237,8 @@ public class PostgraduateController implements Initializable{
         toList();
     }
 
-    @FXML
-    private void getSelectedRow() {
-        selectedRow = pgTable.getSelectionModel().getSelectedItem();
-    }
-
-    private void addUg() {
-        pg.add(
+    private int addPg() {
+        int stid = pg.add(
                 emailField.getText(),
                 MD5.getHash(passwordField.getText()),
                 5,
@@ -133,89 +255,9 @@ public class PostgraduateController implements Initializable{
                 instituteField.getText(),
                 Integer.valueOf(qyearField.getText())
         );
-
         toList();
-    }
+        return stid;
 
-    @FXML
-    private void cancelButtonClicked() {
-        System.out.println("Cancel Button Clicked");
-        toList();
-    }
-
-    @FXML
-    private void editButtonClicked() {
-        System.out.println("Edit Button Clicked");
-        addButtonClick = 0;
-        setInputs(selectedRow);
-        passwordField.setDisable(true);
-        toDetails();
-    }
-
-    @FXML
-    private void addButtonClicked() {
-        System.out.println("Add Button Clicked");
-        passwordField.setDisable(false);
-        addButtonClick = 1;
-        toDetails();
-    }
-
-    private void toList() {
-        refreshTable();
-        pgDetails.setVisible(false);
-        pgDetails.toBack();
-        pgList.setVisible(true);
-        pgList.toFront();
-        clearInputs();
-    }
-
-    private void toDetails() {
-        pgList.setVisible(false);
-        pgList.toBack();
-        pgDetails.setVisible(true);
-        pgDetails.toFront();
-    }
-
-    private void refreshTable() {
-        pgTable.getItems().clear();
-        drawTable();
-    }
-
-    private void drawTable() {
-        ResultSet rs = pg.get();
-        try {
-            ObservableList<Postgraduate> data = pgTable.getItems();
-            while (rs.next()) {
-                data.add(new Postgraduate(
-                        rs.getInt("student_id"),
-                        new Faculty(
-                                rs.getInt("faculty.faculty_id"),
-                                rs.getString("faculty.name")
-                        ),
-                        new Course(
-                                rs.getInt("course.course_id"),
-                                rs.getString("course.name"),
-                                rs.getInt("course.duration"),
-                                rs.getInt("course.credit_limit"),
-                                rs.getString("course.type"),
-                                new Faculty()
-                        ),
-                        rs.getString("student.fname"),
-                        rs.getString("student.lname"),
-                        rs.getString("student.email"),
-                        rs.getString("student.address1"),
-                        rs.getString("student.address2"),
-                        rs.getInt("student.telephone"),
-                        rs.getDate("student.dob"),
-                        rs.getString("student.gender"),
-                        rs.getInt("postgraduate.year_of_completion"),
-                        rs.getString("postgraduate.institute"),
-                        rs.getString("postgraduate.qualification_type")
-                ));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     private void clearInputs() {
@@ -236,6 +278,7 @@ public class PostgraduateController implements Initializable{
         courseBox.getSelectionModel().select(pg.getCourse());
         qtypeField.setText(String.valueOf(pg.getQualification_type()));
         instituteField.setText(String.valueOf(pg.getInstitute()));
+        teleField.setText(String.valueOf(pg.getTpno()));
         qyearField.setText(String.valueOf(pg.getYear_of_completion()));
     }
 }

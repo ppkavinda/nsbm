@@ -72,7 +72,7 @@ public class Postgraduate extends Student {
         }
     }
 
-    public void add(String email, String password, int role, String fname, String lname, String address1, String address2, int telephone, Date dob, String gender, int fac_id, int course_id, String qualification_type, String institute, int year_of_completion) {
+    public int add(String email, String password, int role, String fname, String lname, String address1, String address2, int telephone, Date dob, String gender, int fac_id, int course_id, String qualification_type, String institute, int year_of_completion) {
         String sql1 = "INSERT INTO `users` (`password`, `email`, `role`) VALUES (?, ?, ?);";
         String sql3 = "INSERT INTO `postgraduate` (`student_id`, `qualification_type`, `institute`, `year_of_completion`) VALUES (?, ?, ?, ?);";
 
@@ -108,9 +108,12 @@ public class Postgraduate extends Student {
             stmt.executeUpdate();
             stmt.close();
 
+            return (int) student_id;
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return 0;
     }
 
     public ResultSet get() {
