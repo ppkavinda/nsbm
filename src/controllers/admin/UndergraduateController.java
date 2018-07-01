@@ -59,6 +59,9 @@ public class UndergraduateController implements Initializable {
 
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private Undergraduate ug = new Undergraduate();
+    private UgDetailsController ugd = new UgDetailsController();
+    private UgSubjectController ugs = new UgSubjectController();
+    private UgTableController ugt = new UgTableController();
     private Student st = new Student();
     private Faculty faculty = new Faculty();
     private Undergraduate selectedRow;
@@ -70,7 +73,7 @@ public class UndergraduateController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        drawTable();
+        ugt.drawTable(ugTable);
         faculty.configFacultyBox(facultyBox);
         course.configCourseBox(courseBox);
     }
@@ -130,7 +133,7 @@ public class UndergraduateController implements Initializable {
     @FXML
     private void removeButtonClicked() {
         ug.remove(selectedRow.getStudent_id());
-        refreshTable();
+        ugt.refreshTable(ugTable);
     }
 
     @FXML
@@ -204,12 +207,12 @@ public class UndergraduateController implements Initializable {
         if (addButtonClick == 1) {
             sem1SubDetails.setDisable(false);
             sem2SubDetails.setDisable(false);
-            configSemList(0);
+            ugs.configSemList(0, sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel);
 
         } else {
             sem1SubDetails.setDisable(true);
             sem2SubDetails.setDisable(true);
-            configSemList(selectedRow.getStudent_id());
+            ugs.configSemList(selectedRow.getStudent_id(), sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel);
         }
         toSelectSubject();
     }
@@ -247,11 +250,11 @@ public class UndergraduateController implements Initializable {
         ugDetails.setVisible(false);
         ugList.setVisible(false);
         selectSubView.setVisible(true);
-        configSubBoxes();
+        ugs.configSubBoxes(sem1SubBox, sem2SubBox);
     }
     // GO TO THE STUDENTS TABLEvIEW
     private void toList() {
-        refreshTable();
+        ugt.refreshTable(ugTable);
         ugDetails.setVisible(false);
         selectSubView.setVisible(false);
         ugDetails.toBack();
@@ -269,134 +272,11 @@ public class UndergraduateController implements Initializable {
         ugDetails.toFront();
     }
 
-    private void refreshTable() {
-        ugTable.getItems().clear();
-        drawTable();
-    }
-
-    private void drawTable() {
-        ResultSet rs = ug.get();
-        try {
-            ObservableList<Undergraduate> data = ugTable.getItems();
-            while (rs.next()) {
-                data.add(new Undergraduate(
-                    rs.getInt("student_id"),
-                    new Faculty(
-                        rs.getInt("faculty.faculty_id"),
-                        rs.getString("faculty.name")
-                    ),
-                    new Course(
-                        rs.getInt("course.course_id"),
-                        rs.getString("course.name"),
-                        rs.getInt("course.duration"),
-                        rs.getInt("course.credit_limit"),
-                        rs.getString("course.type"),
-                        new Faculty()
-                    ),
-                    rs.getString("student.fname"),
-                    rs.getString("student.lname"),
-                    rs.getString("student.email"),
-                    rs.getString("student.address1"),
-                    rs.getString("student.address2"),
-                    rs.getInt("student.telephone"),
-                    rs.getDate("student.dob"),
-                    rs.getString("student.gender"),
-                    new AlResult(
-                        rs.getString("al_result.sub1"),
-                        rs.getString("al_result.sub2"),
-                        rs.getString("al_result.sub2")
-                    ),
-                    rs.getInt("undergraduate.rank"),
-                    rs.getDouble("undergraduate.z_score")
-                ));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void configSemList (int student_id) {
-        ObservableList<Subject> sem1List = sem1SubList.getItems();
-        ObservableList<Subject> sem2List = sem2SubList.getItems();
-
-        if (student_id == 0 ) {
-            sem1List.clear();
-            sem2List.clear();
-        } else {
-
-            ResultSet rs = ug.getSubjects(student_id);
-
-            try {
-                sem1List.clear();
-                sem2List.clear();
-                while (rs.next()) {
-                    if (rs.getInt("sem") == 1) {
-                        totalSem1Credits += rs.getInt("credits");
-                        sem1List.add(new Subject(
-                                rs.getInt("subject_code"),
-                                rs.getInt("credits"),
-                                rs.getInt("sem"),
-                                rs.getString("name"),
-                                rs.getDouble("fee")
-                        ));
-                    } else {
-                        totalSem2Credits += rs.getInt("credits");
-                        sem2List.add(new Subject(
-                                rs.getInt("subject_code"),
-                                rs.getInt("credits"),
-                                rs.getInt("sem"),
-                                rs.getString("name"),
-                                rs.getDouble("fee")
-                        ));
-                    }
-                    sem1CreditsLabel.setText(String.valueOf(totalSem1Credits));
-                    sem2CreditsLabel.setText(String.valueOf(totalSem2Credits));
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void configSubBoxes () {
-        ResultSet rs = subject.get();
-
-        try {
-            ObservableList<Subject> sem1box = sem1SubBox.getItems();
-            ObservableList<Subject> sem2box = sem2SubBox.getItems();
-            while (rs.next()) {
-                if (rs.getInt("compulsory") != 1) {
-
-                    if (rs.getInt("sem") == 1) {
-                        sem1box.add(new Subject(
-                                rs.getInt("subject_code"),
-                                rs.getInt("credits"),
-                                rs.getInt("sem"),
-                                rs.getString("name"),
-                                rs.getDouble("fee")
-                        ));
-                    } else {
-                        sem2box.add(new Subject(
-                                rs.getInt("subject_code"),
-                                rs.getInt("credits"),
-                                rs.getInt("sem"),
-                                rs.getString("name"),
-                                rs.getDouble("fee")
-                        ));
-                    }
-                }
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void clearInputs() {
+    protected void clearInputs() {
         setInputs(new Undergraduate());
     }
 
-    private void setInputs(Undergraduate ug) {
+    protected void setInputs(Undergraduate ug) {
         System.out.println(ug.getRank());
         emailField.setText(ug.getEmail());
         passwordField.setText(null);
