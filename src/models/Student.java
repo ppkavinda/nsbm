@@ -46,19 +46,6 @@ public class Student {
         setGender(gender);
     }
 
-    public ResultSet getSubjects (int student_id) {
-        String sql = "SELECT * FROM `student_subject` INNER JOIN subject ON subject.subject_code = student_subject.subject_code WHERE student_subject.student_id = ?";
-
-        try {
-            stmt = conn.connect().prepareStatement(sql);
-            stmt.setInt(1, student_id);
-            return stmt.executeQuery();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     public void addSubject (int sub_id, int student_id) {
         String sql = "INSERT INTO `student_subject` (`student_id`, `subject_code`) VALUES (?, ?);";

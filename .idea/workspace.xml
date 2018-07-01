@@ -11,12 +11,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/UgDetailsController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/UgSubjectController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controllers/admin/UgTableController.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/LectureController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/LectureController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/PracticleController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/PracticleController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/SubjectController$1.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/SubjectController$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/SubjectController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/SubjectController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/UgSubjectController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/UgSubjectController.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/UndergraduateController.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/controllers/admin/UndergraduateController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Student.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Student.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Subject.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Subject.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/models/Undergraduate.class" afterPath="$PROJECT_DIR$/out/production/Nsbm/models/Undergraduate.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Subject.fxml" afterPath="$PROJECT_DIR$/out/production/Nsbm/views/admin/Subject.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/admin/LectureController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/LectureController.java" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/admin/PracticleController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/PracticleController.java" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/admin/SubjectController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/SubjectController.java" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/admin/UgSubjectController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/UgSubjectController.java" />
       <change beforePath="$PROJECT_DIR$/src/controllers/admin/UndergraduateController.java" afterPath="$PROJECT_DIR$/src/controllers/admin/UndergraduateController.java" />
+      <change beforePath="$PROJECT_DIR$/src/models/Student.java" afterPath="$PROJECT_DIR$/src/models/Student.java" />
+      <change beforePath="$PROJECT_DIR$/src/models/Subject.java" afterPath="$PROJECT_DIR$/src/models/Subject.java" />
+      <change beforePath="$PROJECT_DIR$/src/models/Undergraduate.java" afterPath="$PROJECT_DIR$/src/models/Undergraduate.java" />
+      <change beforePath="$PROJECT_DIR$/src/views/admin/Subject.fxml" afterPath="$PROJECT_DIR$/src/views/admin/Subject.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -113,8 +127,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="292" column="41" lean-forward="true" selection-start-line="292" selection-start-column="41" selection-end-line="292" selection-end-column="41" />
+            <state relative-caret-position="665">
+              <caret line="283" column="102" lean-forward="true" selection-start-line="283" selection-start-column="102" selection-end-line="283" selection-end-column="102" />
               <folding />
             </state>
           </provider>
@@ -123,11 +137,19 @@
       <file leaf-file-name="UndergraduateController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/admin/UndergraduateController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-113">
-              <caret line="252" column="41" lean-forward="false" selection-start-line="252" selection-start-column="41" selection-end-line="252" selection-end-column="41" />
+            <state relative-caret-position="-1565">
+              <caret line="32" column="48" lean-forward="true" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
               <folding>
-                <element signature="e#6535#6536#0" expanded="true" />
-                <element signature="e#6610#6611#0" expanded="true" />
+                <element signature="e#3932#3933#0" expanded="true" />
+                <element signature="e#4008#4009#0" expanded="true" />
+                <element signature="e#4112#4113#0" expanded="true" />
+                <element signature="e#4188#4189#0" expanded="true" />
+                <element signature="e#4286#4287#0" expanded="true" />
+                <element signature="e#4359#4360#0" expanded="true" />
+                <element signature="e#4457#4458#0" expanded="true" />
+                <element signature="e#4530#4531#0" expanded="true" />
+                <element signature="e#5734#5735#0" expanded="true" />
+                <element signature="e#5809#5810#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -136,30 +158,10 @@
       <file leaf-file-name="UgSubjectController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/admin/UgSubjectController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="67" column="26" lean-forward="true" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+            <state relative-caret-position="1049">
+              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Undergraduate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Undergraduate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2996">
-              <caret line="117" column="88" lean-forward="false" selection-start-line="117" selection-start-column="55" selection-end-line="117" selection-end-column="88" />
-              <folding>
-                <marker date="1529603432349" expanded="true" signature="1478:1525" ph="DELETE FROM `users`... " />
-                <marker date="1529603432349" expanded="true" signature="2106:2164" ph="UPDATE `users`... " />
-                <marker date="1529603432349" expanded="true" signature="2191:2408" ph="UPDATE `student`... " />
-                <marker date="1529603432349" expanded="true" signature="2435:2526" ph="UPDATE `undergraduate`... " />
-                <marker date="1529603432349" expanded="true" signature="2553:2644" ph="UPDATE `al_result`... " />
-                <marker date="1529603432349" expanded="true" signature="4315:4381" ph="INSERT INTO `users`... " />
-                <marker date="1529603432349" expanded="true" signature="4652:4730" ph="INSERT INTO `undergraduate`... " />
-                <marker date="1529603432349" expanded="true" signature="4757:4839" ph="INSERT INTO `al_result`... " />
-                <marker date="1529603432349" expanded="true" signature="6417:6786" ph="SELECT * FRO... undergraduate" />
               </folding>
             </state>
           </provider>
@@ -226,30 +228,30 @@
         <option value="$PROJECT_DIR$/src/views/admin/Lecturer.fxml" />
         <option value="$PROJECT_DIR$/src/views/admin/Postgraduate.fxml" />
         <option value="$PROJECT_DIR$/src/views/admin/Practicle.fxml" />
-        <option value="$PROJECT_DIR$/src/views/admin/Subject.fxml" />
         <option value="$PROJECT_DIR$/src/controllers/admin/TestController.java" />
-        <option value="$PROJECT_DIR$/src/controllers/admin/SubjectController.java" />
-        <option value="$PROJECT_DIR$/src/controllers/admin/PracticleController.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/LecturerController.java" />
-        <option value="$PROJECT_DIR$/src/controllers/admin/LectureController.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/LecHallController.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/FacultyController.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/InstructorController.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/LabController.java" />
         <option value="$PROJECT_DIR$/src/views/admin/Test.fxml" />
-        <option value="$PROJECT_DIR$/src/models/Subject.java" />
         <option value="$PROJECT_DIR$/src/views/Login.fxml" />
         <option value="$PROJECT_DIR$/src/controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/CourseController.java" />
         <option value="$PROJECT_DIR$/src/models/Postgraduate.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/PostgraduateController.java" />
         <option value="$PROJECT_DIR$/src/views/admin/Undergraduate.fxml" />
-        <option value="$PROJECT_DIR$/src/models/Undergraduate.java" />
-        <option value="$PROJECT_DIR$/src/models/Student.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/UgTableController.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/UgDetailsController.java" />
+        <option value="$PROJECT_DIR$/src/models/Student.java" />
+        <option value="$PROJECT_DIR$/src/models/Undergraduate.java" />
+        <option value="$PROJECT_DIR$/src/views/admin/Subject.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/admin/LectureController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/admin/SubjectController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/admin/PracticleController.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/UgSubjectController.java" />
         <option value="$PROJECT_DIR$/src/controllers/admin/UndergraduateController.java" />
+        <option value="$PROJECT_DIR$/src/models/Subject.java" />
       </list>
     </option>
   </component>
@@ -387,7 +389,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
-    <property name="SearchEverywhereHistoryKey" value="unde&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Undergraduate.java&#10;postg&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/PostgraduateController.java&#10;Post&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Postgraduate.fxml&#10;Login.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/Login.fxml&#10;LoginCon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;Stu&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Login&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;Lectu&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lecture.java&#10;Tes&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/TestController.java&#10;LoginC&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;lec&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lecture.fxml&#10;Lecture.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lecturer.fxml&#10;Lec&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lecturer.java&#10;Login.c&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;Bootstra.c&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/bootstrap.css&#10;staff&#9;PSI&#9;JAVA://models.Staff&#10;Postg&#9;PSI&#9;JAVA://models.Postgraduate&#10;Al&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/AlResult.java&#10;Stu.j&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Stud&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Student.fxml&#10;AlR&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/AlResult.java&#10;unde.f&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Undergraduate.fxml&#10;Registercon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/RegisterController.java&#10;java.sql.Date.valueOf&#9;PSI&#9;JAVA://java.sql.Date#valueOf&#10;Test&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/TestController.java&#10;Cou&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Button&#9;FILE&#9;jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/Button.java&#10;login.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;logincon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;course.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Faculty.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Faculty.java&#10;Test.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Test.fxml&#10;cour&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/CourseController.java&#10;Course.j&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Course.java&#10;login.css&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;T.fxml&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Test.fxml&#10;Subject.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Subject.fxml&#10;LecHallC&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LecHallController.java&#10;Lab.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lab.fxml&#10;Faculty.ja&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Faculty.java&#10;Lab.ja&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lab.java&#10;Lab.java&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lab.java&#10;Lab&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LabController.java&#10;LabController&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LabController.java&#10;TextField&#9;PSI&#9;JAVA://java.awt.TextField&#10;cour.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Studen&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Staff&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Staff.java&#10;Prac&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Practicle.java&#10;login&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/sample/LoginController.java" />
+    <property name="SearchEverywhereHistoryKey" value="Subject&#9;FILE&#9;file://D:/dev/aca/Java/Nsbm/src/models/Subject.java&#10;Subject.java&#9;FILE&#9;file://D:/dev/aca/Java/Nsbm/src/models/Subject.java&#10;subject.fx&#9;FILE&#9;file://D:/dev/aca/Java/Nsbm/src/views/admin/Subject.fxml&#10;unde&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Undergraduate.java&#10;postg&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/PostgraduateController.java&#10;Post&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Postgraduate.fxml&#10;Login.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/Login.fxml&#10;LoginCon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;Stu&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Login&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;Lectu&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lecture.java&#10;Tes&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/TestController.java&#10;LoginC&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;lec&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lecture.fxml&#10;Lecture.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lecturer.fxml&#10;Lec&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lecturer.java&#10;Login.c&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;Bootstra.c&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/bootstrap.css&#10;staff&#9;PSI&#9;JAVA://models.Staff&#10;Postg&#9;PSI&#9;JAVA://models.Postgraduate&#10;Al&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/AlResult.java&#10;Stu.j&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Student.java&#10;Stud&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Student.fxml&#10;AlR&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/AlResult.java&#10;unde.f&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Undergraduate.fxml&#10;Registercon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/RegisterController.java&#10;java.sql.Date.valueOf&#9;PSI&#9;JAVA://java.sql.Date#valueOf&#10;Test&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/TestController.java&#10;Cou&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Button&#9;FILE&#9;jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/scene/control/Button.java&#10;login.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;logincon&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/LoginController.java&#10;course.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml&#10;Faculty.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Faculty.java&#10;Test.&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Test.fxml&#10;cour&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/CourseController.java&#10;Course.j&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Course.java&#10;login.css&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/assets/css/login.css&#10;T.fxml&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Test.fxml&#10;Subject.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Subject.fxml&#10;LecHallC&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LecHallController.java&#10;Lab.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Lab.fxml&#10;Faculty.ja&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Faculty.java&#10;Lab.ja&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lab.java&#10;Lab.java&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/models/Lab.java&#10;Lab&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LabController.java&#10;LabController&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/controllers/admin/LabController.java&#10;TextField&#9;PSI&#9;JAVA://java.awt.TextField&#10;cour.fx&#9;FILE&#9;file://D:/dev/Java/Nsbm/src/views/admin/Course.fxml" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -591,7 +593,7 @@
       <workItem from="1529329834710" duration="8951000" />
       <workItem from="1529376849537" duration="65421000" />
       <workItem from="1530035050981" duration="70000" />
-      <workItem from="1530440233969" duration="5084000" />
+      <workItem from="1530440233969" duration="19655000" />
     </task>
     <task id="LOCAL-00001" summary="re-structured properly, added some models">
       <created>1528059163404</created>
@@ -618,7 +620,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="415461000" />
+    <option name="totallyTimeSpent" value="430032000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -892,16 +894,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/admin/Student.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/views/admin/Subject.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="126" column="15" lean-forward="false" selection-start-line="126" selection-start-column="15" selection-end-line="126" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/admin/TestController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
@@ -909,31 +901,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/admin/SubjectController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/admin/PracticleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/admin/LecturerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
           <caret line="31" column="40" lean-forward="false" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/admin/LectureController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -1102,50 +1073,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Subject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1148">
-          <caret line="54" column="25" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
-          <folding>
-            <marker date="1529420483441" expanded="true" signature="2396:2438" ph="DELETE FROM subject... " />
-            <marker date="1529420483441" expanded="true" signature="2852:3034" ph="UPDATE `subject`... " />
-            <marker date="1529420483441" expanded="true" signature="3666:3797" ph="INSERT INTO `subject`... " />
-            <marker date="1529420483441" expanded="true" signature="4306:4397" ph="SELECT * FRO... subject" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1484">
-          <caret line="65" column="13" lean-forward="false" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
-          <folding>
-            <element signature="e#1434#1435#0" expanded="false" />
-            <element signature="e#1536#1537#0" expanded="false" />
-            <marker date="1529604728657" expanded="true" signature="2100:2241" ph="SELECT * FRO... student_subject" />
-            <marker date="1529604728657" expanded="true" signature="2100:2242" ph="SELECT * FRO... student_subject" />
-            <marker date="1529604728657" expanded="true" signature="2584:2658" ph="INSERT INTO `student_subject`... " />
-            <marker date="1529604728657" expanded="true" signature="3231:3448" ph="UPDATE `student`... " />
-            <marker date="1529604728657" expanded="true" signature="4350:4567" ph="INSERT INTO `student`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
           <caret line="3097" column="25" lean-forward="false" selection-start-line="3097" selection-start-column="25" selection-end-line="3097" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/admin/Undergraduate.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="292" column="41" lean-forward="true" selection-start-line="292" selection-start-column="41" selection-end-line="292" selection-end-column="41" />
-          <folding />
+          <folding>
+            <element signature="e#121727#121728#0" expanded="false" />
+            <element signature="e#121769#121770#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1154,24 +1089,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Undergraduate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2996">
-          <caret line="117" column="88" lean-forward="false" selection-start-line="117" selection-start-column="55" selection-end-line="117" selection-end-column="88" />
-          <folding>
-            <marker date="1529603432349" expanded="true" signature="1478:1525" ph="DELETE FROM `users`... " />
-            <marker date="1529603432349" expanded="true" signature="2106:2164" ph="UPDATE `users`... " />
-            <marker date="1529603432349" expanded="true" signature="2191:2408" ph="UPDATE `student`... " />
-            <marker date="1529603432349" expanded="true" signature="2435:2526" ph="UPDATE `undergraduate`... " />
-            <marker date="1529603432349" expanded="true" signature="2553:2644" ph="UPDATE `al_result`... " />
-            <marker date="1529603432349" expanded="true" signature="4315:4381" ph="INSERT INTO `users`... " />
-            <marker date="1529603432349" expanded="true" signature="4652:4730" ph="INSERT INTO `undergraduate`... " />
-            <marker date="1529603432349" expanded="true" signature="4757:4839" ph="INSERT INTO `al_result`... " />
-            <marker date="1529603432349" expanded="true" signature="6417:6786" ph="SELECT * FRO... undergraduate" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1190,28 +1107,133 @@
         <state relative-caret-position="476">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <marker date="1530450332866" expanded="true" signature="2107:2181" ph="INSERT INTO `student_subject`... " />
+            <marker date="1530450332866" expanded="true" signature="2754:2971" ph="UPDATE `student`... " />
+            <marker date="1530450332866" expanded="true" signature="3873:4090" ph="INSERT INTO `student`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Undergraduate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="161" column="43" lean-forward="true" selection-start-line="161" selection-start-column="43" selection-end-line="161" selection-end-column="43" />
+          <folding>
+            <marker date="1530454224127" expanded="true" signature="1478:1525" ph="DELETE FROM `users`... " />
+            <marker date="1530454224127" expanded="true" signature="2106:2164" ph="UPDATE `users`... " />
+            <marker date="1530454224127" expanded="true" signature="2191:2408" ph="UPDATE `student`... " />
+            <marker date="1530454224127" expanded="true" signature="2435:2526" ph="UPDATE `undergraduate`... " />
+            <marker date="1530454224127" expanded="true" signature="2553:2644" ph="UPDATE `al_result`... " />
+            <marker date="1530454224127" expanded="true" signature="4315:4381" ph="INSERT INTO `users`... " />
+            <marker date="1530454224127" expanded="true" signature="4652:4730" ph="INSERT INTO `undergraduate`... " />
+            <marker date="1530454224127" expanded="true" signature="4757:4839" ph="INSERT INTO `al_result`... " />
+            <marker date="1530454224127" expanded="true" signature="6440:6773" ph="SELECT subje... student_subject" />
+            <marker date="1530454224127" expanded="true" signature="6440:6774" ph="SELECT subje... student_subject" />
+            <marker date="1530454224127" expanded="true" signature="6440:7044" ph="SELECT subje... " />
+            <marker date="1530454224127" expanded="true" signature="6440:7071" ph="SELECT subje... " />
+            <marker date="1530454224127" expanded="true" signature="6823:7044" ph="SELECT subje... student_subject" />
+            <marker date="1530454224127" expanded="true" signature="7384:7753" ph="SELECT * FRO... undergraduate" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/admin/PracticleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="118" column="60" lean-forward="false" selection-start-line="118" selection-start-column="60" selection-end-line="118" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/admin/LectureController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="117" column="60" lean-forward="false" selection-start-line="117" selection-start-column="60" selection-end-line="117" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/admin/Undergraduate.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="283" column="102" lean-forward="true" selection-start-line="283" selection-start-column="102" selection-end-line="283" selection-end-column="102" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/admin/UgSubjectController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="67" column="26" lean-forward="true" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+        <state relative-caret-position="1049">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/admin/Subject.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="44" column="46" lean-forward="true" selection-start-line="44" selection-start-column="46" selection-end-line="44" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Subject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1118">
+          <caret line="208" column="0" lean-forward="true" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+          <folding>
+            <element signature="e#1241#1242#0" expanded="true" />
+            <element signature="e#1300#1301#0" expanded="true" />
+            <marker date="1530459318477" expanded="true" signature="2598:2640" ph="DELETE FROM subject... " />
+            <marker date="1530459318477" expanded="true" signature="3083:3294" ph="UPDATE `subject`... " />
+            <marker date="1530459318477" expanded="true" signature="4032:4191" ph="INSERT INTO `subject`... " />
+            <marker date="1530459318477" expanded="true" signature="4777:4868" ph="SELECT * FRO... subject" />
+            <marker date="1530459318477" expanded="true" signature="4777:4890" ph="SELECT * FRO... subject" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/admin/SubjectController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="730">
+          <caret line="123" column="46" lean-forward="true" selection-start-line="123" selection-start-column="46" selection-end-line="123" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/admin/UndergraduateController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-113">
-          <caret line="252" column="41" lean-forward="false" selection-start-line="252" selection-start-column="41" selection-end-line="252" selection-end-column="41" />
+        <state relative-caret-position="-1565">
+          <caret line="32" column="48" lean-forward="true" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
           <folding>
-            <element signature="e#6535#6536#0" expanded="true" />
-            <element signature="e#6610#6611#0" expanded="true" />
+            <element signature="e#3932#3933#0" expanded="true" />
+            <element signature="e#4008#4009#0" expanded="true" />
+            <element signature="e#4112#4113#0" expanded="true" />
+            <element signature="e#4188#4189#0" expanded="true" />
+            <element signature="e#4286#4287#0" expanded="true" />
+            <element signature="e#4359#4360#0" expanded="true" />
+            <element signature="e#4457#4458#0" expanded="true" />
+            <element signature="e#4530#4531#0" expanded="true" />
+            <element signature="e#5734#5735#0" expanded="true" />
+            <element signature="e#5809#5810#0" expanded="true" />
           </folding>
         </state>
       </provider>

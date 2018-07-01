@@ -23,6 +23,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class SubjectController implements Initializable {
+    @FXML private ComboBox<String> typeBox;
+    @FXML private CheckBox compCBox;
     @FXML private TableColumn codeCol;
     @FXML private TableColumn nameCol;
     @FXML private TableColumn courseCol;
@@ -45,9 +47,6 @@ public class SubjectController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         configCourseBox();
         drawTable();
-//        courseCol.setCellValueFactory(
-//            new PropertyValueFactory<Course,String>("course_id")
-//        );
     }
 
     @FXML
@@ -66,6 +65,7 @@ public class SubjectController implements Initializable {
 
     @FXML
     private void editSubject () {
+        System.out.println(typeBox.getSelectionModel().getSelectedItem());
         subject.update(
             Integer.parseInt(codeField.getText()),
             Integer.parseInt(creditsField.getText()),
@@ -73,6 +73,8 @@ public class SubjectController implements Initializable {
             semBox.getSelectionModel().getSelectedIndex() + 1,
             nameField.getText(),
             Double.parseDouble(feeField.getText()),
+            compCBox.isSelected() ? 1 : 0,
+            typeBox.getSelectionModel().getSelectedItem(),
             selectedRow.getSubject_code()
         );
         refreshTable();
@@ -89,6 +91,8 @@ public class SubjectController implements Initializable {
         courseBox.getSelectionModel().select(selectedRow.getCou());
         semBox.getSelectionModel().select(selectedRow.getSem() - 1);
         creditsField.setText(String.valueOf(selectedRow.getCredits()));
+        compCBox.setSelected(selectedRow.getCompulsory() == 1);
+        typeBox.getSelectionModel().select(selectedRow.getType());
         System.out.println(selectedRow.getSem());
     }
 
@@ -99,7 +103,9 @@ public class SubjectController implements Initializable {
             courseBox.getSelectionModel().getSelectedItem().getCourse_id(),
             semBox.getSelectionModel().getSelectedIndex() + 1,
             nameField.getText(),
-            Double.parseDouble(feeField.getText())
+            Double.parseDouble(feeField.getText()),
+            compCBox.isSelected() ? 1 : 0,
+            typeBox.getSelectionModel().getSelectedItem()
         );
         refreshTable();
         clearInputs();
@@ -117,18 +123,18 @@ public class SubjectController implements Initializable {
                 data.add(new Subject(
                     rs.getInt("subject_code"),
                     rs.getInt("credits"),
-//                    rs.getString("course.name"),
                     new Course(rs.getInt("course.course_id"),
                         rs.getString("course.name"),
                         rs.getInt("course.duration"),
                         rs.getInt("course.credit_limit"),
                         rs.getString("course.type"),
                         new Faculty()
-//                        rs.getString("course.faculty_id")
                     ),
                     rs.getInt("sem"),
                     rs.getString("name"),
-                    rs.getDouble("fee")
+                    rs.getDouble("fee"),
+                    rs.getInt("compulsory"),
+                    rs.getString("type")
                 ));
             }
         } catch (SQLException e) {
@@ -182,16 +188,6 @@ public class SubjectController implements Initializable {
                         + ". ID: " + newval.getCourse_id());
         });
 
-//            nameCol.setOnEditCommit(
-//                (EventHandler<TableColumn.CellEditEvent<Course, String>>) t
-//                    -> ((Course) t.getTableView().getItems()
-//                        .get(t.getTablePosition().getRow())
-//                        )
-//                        .setName(t.getNewValue())
-//
-//            );
-
-//            courseCol.setCellFactory(ComboBoxTableCell.forTableColumn(con, c));
     }
 
     private void clearInputs () {

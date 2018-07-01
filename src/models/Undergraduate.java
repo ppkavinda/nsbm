@@ -157,6 +157,27 @@ public class Undergraduate extends Student {
         return (int) student_id;
     }
 
+    public ResultSet getSubjects (int student_id) {
+        String sql = "SELECT subject.subject_code, subject.name, subject.fee, subject.course_id, subject.sem, subject.compulsory, subject.type, subject.credits " +
+                "FROM `student_subject` " +
+                "INNER JOIN subject ON subject.subject_code = student_subject.subject_code " +
+                "WHERE student_subject.student_id = ? " +
+                "UNION " +
+                "SELECT subject.subject_code, subject.name, subject.fee, subject.course_id, subject.sem, subject.compulsory, subject.type, subject.credits " +
+                "FROM `subject`" +
+                "WHERE subject.type = \"UG\" AND subject.compulsory = 1";
+
+        try {
+            stmt = conn.connect().prepareStatement(sql);
+            stmt.setInt(1, student_id);
+            return stmt.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public ResultSet get() {
         String sql = "SELECT * FROM `undergraduate`, student, faculty, course, al_result" +
                 " WHERE undergraduate.student_id = student.student_id " +

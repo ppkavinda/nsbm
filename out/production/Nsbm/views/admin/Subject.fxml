@@ -9,16 +9,16 @@
 <?import javafx.scene.layout.*?>
 <?import java.lang.String?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.admin.SubjectController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.admin.SubjectController">
     <children>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
             <children>
                 <Label fx:id="titleLabel" text="Subjects" />
             </children>
         </HBox>
-        <HBox alignment="CENTER" prefHeight="270.0" prefWidth="600.0">
+        <HBox alignment="CENTER" prefHeight="578.0" prefWidth="870.0">
             <children>
-                <TableView fx:id="subTable" onMouseClicked="#getSelectedRow" editable="true" prefHeight="80.0" prefWidth="474.0">
+                <TableView fx:id="subTable" editable="true" onMouseClicked="#getSelectedRow" prefHeight="80.0" prefWidth="474.0" HBox.hgrow="ALWAYS">
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                     </columnResizePolicy>
@@ -56,6 +56,16 @@
                                 <PropertyValueFactory property="sem" />
                             </cellValueFactory>
                         </TableColumn>
+                        <TableColumn prefWidth="75.0" text="Compulsory">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="compulsory" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="75.0" text="Type">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="type" />
+                            </cellValueFactory>
+                        </TableColumn>
                     </columns>
                 </TableView>
             </children>
@@ -78,6 +88,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </HBox.margin>
                 </TextField>
+            <CheckBox fx:id="compCBox" mnemonicParsing="false" text="Compulsory" />
                 <ComboBox fx:id="courseBox" prefWidth="150.0" promptText="Course">
                     <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -94,6 +105,17 @@
                         </FXCollections>
                     </items>
                 </ComboBox>
+            <ComboBox fx:id="typeBox" prefWidth="150.0" promptText="Type">
+                <HBox.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </HBox.margin>
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="PG" />
+                        <String fx:value="UG" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
             </children>
         </HBox>
         <HBox alignment="CENTER" prefHeight="51.0" prefWidth="600.0">
@@ -119,11 +141,13 @@
             <VBox.margin>
                 <Insets left="10.0" />
             </VBox.margin>
-            <Button fx:id="mainMenuButton" onAction="#toMainPanel" mnemonicParsing="false" text="Main Menu">
-                <HBox.margin>
-                    <Insets />
-                </HBox.margin>
-            </Button>
+           <children>
+               <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#toMainPanel" text="Main Menu">
+                   <HBox.margin>
+                       <Insets />
+                   </HBox.margin>
+               </Button>
+           </children>
         </HBox>
     </children>
 </VBox>

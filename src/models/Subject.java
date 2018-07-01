@@ -19,24 +19,26 @@ public class Subject {
     private final SimpleIntegerProperty sem = new SimpleIntegerProperty(0);
     private final SimpleStringProperty name = new SimpleStringProperty("");
     private final SimpleDoubleProperty fee = new SimpleDoubleProperty(0);
+    private final SimpleIntegerProperty compulsory = new SimpleIntegerProperty(0);
+    private final SimpleStringProperty type = new SimpleStringProperty("");
     private final SimpleObjectProperty<Course> cou = new SimpleObjectProperty<>(new Course());
 
     private PreparedStatement stmt;
     private DBConnection conn = new DBConnection();
 
     public Subject () {
-        this(0, 0, new Course(), 0, "", .00);
+        this(0, 0, new Course(), 0, "", .00, 0, "");
     }
 
-    public Subject(int subject_code, int credits, Course cou, int sem, String name, Double fee) {
+    public Subject(int subject_code, int credits, Course cou, int sem, String name, Double fee, int compulsory, String type) {
         setSubject_code(subject_code);
         setCredits(credits);
         setCou(cou);
         setSem(sem);
         setName(name);
         setFee(fee);
-
-        System.out.println(this.cou + "LSDKFDS");
+        setCompulsory(compulsory);
+        setType(type);
     }
 
     public Subject (int subject_code, int credits, int sem, String name, Double fee) {
@@ -82,9 +84,9 @@ public class Subject {
         }
 
     }
-    public void update (int subject_code, int credits, int course_id, int sem, String name, Double fee, int prev_id) {
+    public void update (int subject_code, int credits, int course_id, int sem, String name, Double fee, int compulsory, String type, int prev_id) {
         String sql = "UPDATE `subject` " +
-                "SET `subject_code` = ?, `name` = ?, `credits` = ?, `fee` = ?, `course_id` = ?, `sem` = ? " +
+                "SET `subject_code` = ?, `name` = ?, `credits` = ?, `fee` = ?, `course_id` = ?, `sem` = ?, `compulsory` = ?, `type` = ?" +
                 "WHERE `subject`.`subject_code` = ?;";
 
         try {
@@ -95,7 +97,9 @@ public class Subject {
             stmt.setDouble(4, fee);
             stmt.setInt(5, course_id);
             stmt.setInt(6, sem);
-            stmt.setInt(7, prev_id);
+            stmt.setInt(7, compulsory);
+            stmt.setString(8, type);
+            stmt.setInt(9, prev_id);
             stmt.executeUpdate();
             System.out.println("Subject Updated");
 
@@ -103,9 +107,9 @@ public class Subject {
             e.printStackTrace();
         }
     }
-    public void add (int subject_code, int credits, int course_id, int sem, String name, Double fee) {
-        String sql = "INSERT INTO `subject` (`subject_code`, `name`, `credits`, `fee`, `course_id`, `sem`) " +
-                "VALUES (?, ?, ?, ?, ?, ?);";
+    public void add (int subject_code, int credits, int course_id, int sem, String name, Double fee, int compulsory, String type) {
+        String sql = "INSERT INTO `subject` (`subject_code`, `name`, `credits`, `fee`, `course_id`, `sem`, `compulsory`, `type`) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
         try {
             stmt = conn.connect().prepareStatement(sql);
@@ -115,6 +119,8 @@ public class Subject {
             stmt.setDouble(4, fee);
             stmt.setInt(5, course_id);
             stmt.setInt(6, sem);
+            stmt.setInt(7, compulsory);
+            stmt.setString(8, type);
             stmt.executeUpdate();
             System.out.println(sql);
 
@@ -124,7 +130,7 @@ public class Subject {
     }
 
     public ResultSet get () {
-        String sql = "SELECT * FROM `subject` INNER JOIN nsbm_test.course ON subject.course_id = course.course_id";
+        String sql = "SELECT * FROM `subject` INNER JOIN nsbm_test.course ON subject.course_id = course.course_id ORDER BY subject_code";
 
         try {
             stmt = conn.connect().prepareStatement(sql);
@@ -139,6 +145,32 @@ public class Subject {
     }
 
     // GETTERS and SETTERS
+
+
+    public int getCompulsory() {
+        return compulsory.get();
+    }
+
+    public SimpleIntegerProperty compulsoryProperty() {
+        return compulsory;
+    }
+
+    public void setCompulsory(int compulsory) {
+        this.compulsory.set(compulsory);
+    }
+
+    public String getType() {
+        return type.get();
+    }
+
+    public SimpleStringProperty typeProperty() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type.set(type);
+    }
+
     public Course getCou() {
         return cou.get();
     }

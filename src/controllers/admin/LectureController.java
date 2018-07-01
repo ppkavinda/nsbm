@@ -113,7 +113,9 @@ public class LectureController implements Initializable {
                                 new Course(),
                                 rs.getInt("subject.sem"),
                                 rs.getString("subject.name"),
-                                rs.getDouble("subject.fee")
+                                rs.getDouble("subject.fee"),
+                                rs.getInt("subject.compulsory"),
+                                rs.getString("subject.type")
                         ),
                         rs.getString("start_time"),
                         rs.getString("end_time")
