@@ -12,9 +12,9 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class Undergraduate extends Student {
-    private SimpleObjectProperty<AlResult> al_result = new SimpleObjectProperty<>(new AlResult());
-    private SimpleIntegerProperty rank = new SimpleIntegerProperty(0);
-    private SimpleDoubleProperty z_score = new SimpleDoubleProperty(.0);
+    private final SimpleObjectProperty<AlResult> al_result = new SimpleObjectProperty<>(new AlResult());
+    private final SimpleIntegerProperty rank = new SimpleIntegerProperty(0);
+    private final SimpleDoubleProperty z_score = new SimpleDoubleProperty(.0);
     PreparedStatement stmt;
 
     DBConnection conn = new DBConnection();
@@ -32,13 +32,13 @@ public class Undergraduate extends Student {
         setZ_score(z_score);
     }
 
-    public Undergraduate(AlResult al_result, int rank, Double z_score) {
+    private Undergraduate(AlResult al_result, int rank, Double z_score) {
         setAl_result(al_result);
         setRank(rank);
         setZ_score(z_score);
     }
 
-    public void remove(int id) {
+    public void remove(int id) throws SQLException {
         String sql = "DELETE FROM `users` WHERE `users`.`user_id` = ?";
 
         try {
@@ -48,6 +48,8 @@ public class Undergraduate extends Student {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new SQLException("Cannot delete Undergraduate!");
+
         }
     }
 
@@ -55,7 +57,7 @@ public class Undergraduate extends Student {
 
     public void update(String email, String fname, String lname, String address1, String address2,
                        int telephone, Date dob, String gender, int fac_id, int course_id, int rank, Double z_score, String sub1,
-                       String sub2, String sub3, int user_id) {
+                       String sub2, String sub3, int user_id) throws SQLException {
         String sql1 = "UPDATE `users` SET `email` = ? WHERE `users`.`user_id` = ?;";
         String sql2 = "UPDATE `student` SET `fname` = ?, `lname` = ?, `email` = ?, `address1` = ?, `address2` = ?, " +
                 "`telephone` = ?, `dob` = ?, `gender` = ?, `fac_id` = ?, `course_id` = ? WHERE `student`.`student_id` = ?;";
@@ -101,19 +103,18 @@ public class Undergraduate extends Student {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new SQLException("Cannot update Undergraduate!");
         }
     }
 
     public int add(String email, String password, int role, String fname, String lname, String address1, String address2,
                     int telephone, Date dob, String gender, int fac_id, int course_id, int rank, Double z_score, String sub1,
-                    String sub2, String sub3) {
+                    String sub2, String sub3) throws SQLException {
         String sql1 = "INSERT INTO `users` (`password`, `email`, `role`) VALUES (?, ?, ?);";
-        String sql2 = "INSERT INTO `student` (`student_id`, `fname`, `lname`, `email`, `address1`, `address2`, `telephone`, `password`, `dob`, `gender`, `fac_id`, `course_id`)" +
-                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         String sql3 = "INSERT INTO `undergraduate` (`student_id`, `rank`, `z_score`) VALUES (?, ?, ?);";
         String sql4 = "INSERT INTO `al_result` (`student_id`, `sub1`, `sub2`, `sub3`) VALUES (?, ?, ?, ?);";
 
-        long student_id = 0;
+        long student_id;
         try {
             stmt = conn.connect().prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, password);
@@ -153,11 +154,12 @@ public class Undergraduate extends Student {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new SQLException("Cannot register Undergraduate!");
         }
         return (int) student_id;
     }
 
-    public ResultSet get() {
+    public ResultSet get() throws SQLException {
         String sql = "SELECT * FROM `undergraduate`, student, faculty, course, al_result" +
                 " WHERE undergraduate.student_id = student.student_id " +
                 "AND student.fac_id = faculty.faculty_id " +
@@ -169,9 +171,8 @@ public class Undergraduate extends Student {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new SQLException("Cannot load Undergraduates!");
         }
-
-        return null;
     }
 
     public AlResult getAl_result() {

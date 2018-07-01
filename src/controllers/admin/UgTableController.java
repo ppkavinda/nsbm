@@ -1,12 +1,13 @@
 package controllers.admin;
 
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
 import models.AlResult;
 import models.Course;
 import models.Faculty;
 import models.Undergraduate;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -16,12 +17,17 @@ public class UgTableController {
 
     protected void refreshTable(TableView<Undergraduate> ugTable) {
         ugTable.getItems().clear();
-        drawTable(ugTable);
+        try {
+            drawTable(ugTable);
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Cannot Add Undergraduate!", ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
-    protected void drawTable(TableView<Undergraduate> ugTable) {
-        ResultSet rs = ug.get();
+    protected void drawTable(TableView<Undergraduate> ugTable) throws SQLException {
         try {
+            ResultSet rs = ug.get();
             ObservableList<Undergraduate> data = ugTable.getItems();
             while (rs.next()) {
                 data.add(new Undergraduate(
@@ -57,6 +63,7 @@ public class UgTableController {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new SQLException("Cannot load the table.!");
         }
     }
 

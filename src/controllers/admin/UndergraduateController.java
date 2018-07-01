@@ -13,6 +13,7 @@ import models.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -66,7 +67,12 @@ public class UndergraduateController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ugt.drawTable(ugTable);
+        try {
+            ugt.drawTable(ugTable);
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
         faculty.configFacultyBox(facultyBox);
         course.configCourseBox(courseBox);
     }
@@ -141,10 +147,22 @@ public class UndergraduateController implements Initializable {
         if (addButtonClick == 1) {
 //            add button clicked. so add new UG
             System.out.println("addButtonClick");
-            return addUg();
+            try {
+                return addUg();
+            } catch (SQLException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+                alert.showAndWait();
+
+                e.printStackTrace();
+            }
         } else {
 //            edit button clicked. so edit selected UG
-            editUg();
+            try {
+                editUg();
+            } catch (SQLException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+                alert.showAndWait();
+            }
             System.out.println("editButton");
         }
         return 0;
@@ -164,7 +182,12 @@ public class UndergraduateController implements Initializable {
     //    TABLE VIEW ******************
     @FXML
     private void removeButtonClicked() {
-        ug.remove(selectedRow.getStudent_id());
+        try {
+            ug.remove(selectedRow.getStudent_id());
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
         ugt.refreshTable(ugTable);
     }
 
@@ -220,7 +243,7 @@ public class UndergraduateController implements Initializable {
         ugDetails.toFront();
     }
 
-    private void editUg() {
+    private void editUg() throws SQLException {
         ug.update(
                 emailField.getText(),
                 fnameField.getText(),
@@ -243,7 +266,7 @@ public class UndergraduateController implements Initializable {
         toList();
     }
 
-    private int addUg() {
+    private int addUg() throws SQLException {
         int stid = ug.add(
                 emailField.getText(),
                 MD5.getHash(passwordField.getText()),
