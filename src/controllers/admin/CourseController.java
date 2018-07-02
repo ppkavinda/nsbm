@@ -1,15 +1,13 @@
 package controllers.admin;
 
+import helpers.Validate;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import models.Course;
 import models.Faculty;
@@ -31,7 +29,6 @@ public class CourseController implements Initializable {
     @FXML private TextField creditField;
     @FXML private ComboBox<String> typeBox;
 
-    private Course selectedRow;
     private ObservableList<Course> data;
 
     private Course course = new Course();
@@ -53,47 +50,67 @@ public class CourseController implements Initializable {
     }
 
     @FXML
-    private void removeCourse (ActionEvent e) {
+    private void removeCourse () {
         ObservableList<Course> selectedItems = courseTable.getSelectionModel().getSelectedItems();
-        selectedItems.forEach(data::remove);
-        faculty.remove(selectedRow.getCourse_id());
+        try {
+            course.remove(getSelectedRow().getCourse_id());
+            selectedItems.forEach(data::remove);
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Cannot delete Course. Student are still following the course.", ButtonType.OK);
+            alert.showAndWait();
+        } catch (NullPointerException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a Course", ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
    @FXML
-   private void editCourse (ActionEvent e) {
-        course.update(selectedRow.getCourse_id(),
-            nameField.getText(),
-            Integer.parseInt(durationField.getText()),
-            Integer.parseInt(creditField.getText()),
-            getTypeCode(),
-            facultyBox.getSelectionModel().getSelectedItem().getFaculty_id()
-        );
-        refreshTable();
-        System.out.println("updated");
+   private void editCourse () {
+        try {
+            course.update(getSelectedRow().getCourse_id(),
+                    nameField.getText(),
+                    Integer.parseInt(durationField.getText()),
+                    Integer.parseInt(creditField.getText()),
+                    getTypeCode(),
+                    facultyBox.getSelectionModel().getSelectedItem().getFaculty_id()
+            );
+            clearInputs();
+            refreshTable();
+            System.out.println("updated");
+        } catch (NullPointerException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a Course", ButtonType.OK);
+            alert.showAndWait();
+        }
    }
 
     // getting the selected Row of table
+    private Course getSelectedRow () {
+        return courseTable.getSelectionModel().getSelectedItem();
+    }
     @FXML
-    private void getSelectedRow () {
-        selectedRow= courseTable.getSelectionModel().getSelectedItem();
-        nameField.setText(selectedRow.getName());
-        durationField.setText(String.valueOf(selectedRow.getDuration()));
-        creditField.setText(String.valueOf(selectedRow.getCredit_limit()));
-        typeBox.getSelectionModel().select(selectedRow.getType());
-        facultyBox.getSelectionModel().select(selectedRow.getFaculty());
+    private void setSelectedRow () {
+        setInputs(getSelectedRow());
     }
 
     @FXML
-    private void addCourse (ActionEvent e) {
-        course.add(
-                nameField.getText(),
-                Integer.parseInt(durationField.getText()),
-                Integer.parseInt(creditField.getText()),
-                getTypeCode(),
-                facultyBox.getSelectionModel().getSelectedItem().getFaculty_id()
-        );
-        refreshTable();
-        System.out.println("Course Inserted");
+    private void addCourse () {
+        try {
+            Validate.validateTf(new TextField[] {nameField, creditField, durationField});
+
+            course.add(
+                    nameField.getText(),
+                    Integer.parseInt(durationField.getText()),
+                    Integer.parseInt(creditField.getText()),
+                    getTypeCode(),
+                    facultyBox.getSelectionModel().getSelectedItem().getFaculty_id()
+            );
+            clearInputs();
+            refreshTable();
+            System.out.println("Course Inserted");
+        } catch (NullPointerException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
     //  convert comboBox options to ENUM
@@ -132,5 +149,17 @@ public class CourseController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private void clearInputs () {
+        setInputs(new Course());
+    }
+
+    private void setInputs (Course c) {
+        nameField.setText(c.getName());
+        creditField.setText(String.valueOf(c.getCredit_limit()));
+        durationField.setText(String.valueOf(c.getDuration()));
+        typeBox.getSelectionModel().select(c.getType());
+        facultyBox.getSelectionModel().select(c.getFaculty());
     }
 }

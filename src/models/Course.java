@@ -54,19 +54,15 @@ public class Course {
             e.printStackTrace();
         }
     }
-    public void remove (int id) {
+    public void remove (int id) throws SQLException {
         String sql = "DELETE FROM course WHERE `course_id` = ?";
 
-        try {
-            stmt = conn.connect().prepareStatement(sql);
-            stmt.setInt(1, id);
+        stmt = conn.connect().prepareStatement(sql);
+        stmt.setInt(1, id);
+        stmt.executeUpdate();
 
-            stmt.executeUpdate();
-            System.out.println(sql);
+        System.out.println(sql);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     public void update (int course_id, String name, int duration, int credit_limit, String type, int faculty) {

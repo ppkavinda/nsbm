@@ -7,14 +7,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import models.Faculty;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import models.Faculty;
 
 public class FacultyController implements Initializable {
     @FXML private Label titleLabel;
@@ -23,38 +22,55 @@ public class FacultyController implements Initializable {
     @FXML private TextField nameField;
 
     private ObservableList<Faculty> data;
-    Faculty selectedRow;
-
     private Faculty faculty = new Faculty();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         drawTable();
     }
+
     @FXML
-    private void toMainPanel () throws IOException {
+    private void toMainPanel() throws IOException {
         Scene scene = mainMenuButton.getScene();
         VBox root = FXMLLoader.load(getClass().getResource("/views/MainPanel.fxml"));
         scene.setRoot(root);
-
     }
+
     @FXML
     private void removeButton(ActionEvent actionEvent) {
         ObservableList<Faculty> selectedItems = facultyTable.getSelectionModel().getSelectedItems();
-        selectedItems.forEach(data::remove);
-        faculty.remove(selectedRow.getFaculty_id());
+        try {
+            faculty.remove(getSelectRow().getFaculty_id());
+            selectedItems.forEach(data::remove);
+            nameField.setText("");
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Cannot delete Faculty. Students are assigned to the Faculty");
+            alert.showAndWait();
+        } catch (NullPointerException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a Faculty", ButtonType.OK);
+            alert.showAndWait();
+        }
     }
-    @FXML
-    protected void selectRow (MouseEvent event) {
-        Faculty row = facultyTable.getSelectionModel().getSelectedItem();
-        nameField.setText(row.getName());
-        selectedRow = row;
+
+    private Faculty getSelectRow() {
+        return facultyTable.getSelectionModel().getSelectedItem();
     }
+
     @FXML
-    protected void editFaculty (ActionEvent e) {
-        faculty.update(selectedRow.getFaculty_id(), nameField.getText());
-        nameField.setText("");
-        refreshTable();
+    private void setSelectedRow () {
+        nameField.setText(getSelectRow().getName());
+    }
+
+    @FXML
+    protected void editFaculty() {
+        try {
+            faculty.update(getSelectRow().getFaculty_id(), nameField.getText());
+            nameField.setText("");
+            refreshTable();
+        } catch (NullPointerException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a Faculty", ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
     @FXML
@@ -64,7 +80,7 @@ public class FacultyController implements Initializable {
         refreshTable();
     }
 
-    private void refreshTable () {
+    private void refreshTable() {
         facultyTable.getItems().clear();
         drawTable();
     }
@@ -76,13 +92,13 @@ public class FacultyController implements Initializable {
             while (rs.next()) {
                 data = facultyTable.getItems();
                 data.add(new Faculty(
-                    rs.getInt(1),
-                    rs.getString(2)
+                        rs.getInt(1),
+                        rs.getString(2)
                 ));
 
                 System.out.println("Getting Records - table :faculty" + rs.getString(2));
             }
-        } catch (Exception e ) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

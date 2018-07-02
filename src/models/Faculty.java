@@ -46,9 +46,17 @@ public class Faculty {
         }
     }
 
+    public void remove (int id) throws SQLException {
+        String sql = "DELETE FROM faculty WHERE `faculty_id` = ?";
+
+        stmt = conn.connect().prepareStatement(sql);
+        stmt.setInt(1, id);
+        stmt.executeUpdate();
+
+    }
+
     // get all the record of table
     public ResultSet get () {
-
         String sql = "SELECT * FROM faculty";
 
         try {
@@ -63,59 +71,47 @@ public class Faculty {
     }
 
     public ResultSet get (int faculty_id) {
-
         String sql = "SELECT * FROM faculty WHERE faculty_id = " + faculty_id;
 
         try {
             System.out.println("SQL" + sql);
-
             stmt = conn.connect().prepareStatement(sql);
             return stmt.executeQuery();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return null;
     }
+
     public void add (String name) {
         String sql = "INSERT INTO faculty (`name`) VALUES (?); ";
+        try {
+            System.out.println(sql + " " + name);
+            stmt = conn.connect().prepareStatement(sql);
+            stmt.setString(1, name);
+            stmt.executeUpdate();
 
-        runQuery(name, sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
     public void update (int id, String name) {
-        String sql = "UPDATE faculty SET `name` = ? WHERE `faculty_id` = " + id;
-
-        runQuery(name, sql);
-    }
-
-    public void remove (int id) {
-        String sql = "DELETE FROM faculty WHERE `faculty_id` = ?";
-
+        String sql = "UPDATE faculty SET `name` = ? WHERE `faculty_id` = ?";
         try {
-            stmt = conn.connect().prepareStatement(sql);
-            stmt.setInt(1, id);
-
-            stmt.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void runQuery(String name, String sql) {
-        try {
+            System.out.println(sql + " " + name);
             stmt = conn.connect().prepareStatement(sql);
             stmt.setString(1, name);
-
+            stmt.setInt(2, id);
             stmt.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 
     public int getFaculty_id() {
         return faculty_id.get();
