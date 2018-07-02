@@ -1,6 +1,7 @@
 package controllers.admin;
 
 import helpers.MD5;
+import helpers.Validate;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,7 +40,6 @@ public class UndergraduateController implements Initializable {
     @FXML private TextField sub1Field;
     @FXML private TextField sub3Field;
     @FXML private TextField sub2Field;
-    @FXML private TextField sub4Field;
     @FXML private TextField passwordField;
     @FXML private TextField fnameField;
     @FXML private TextField lnameField;
@@ -61,7 +61,6 @@ public class UndergraduateController implements Initializable {
     private UgTableController ugt = new UgTableController();
     private Student st = new Student();
     private Faculty faculty = new Faculty();
-    private Undergraduate selectedRow;
     private Course course = new Course();
     private int addButtonClick; //  to determine weather to ADD or EDIT Ug (when add button clicked :1 else :0)
 
@@ -94,10 +93,15 @@ public class UndergraduateController implements Initializable {
             ObservableList<Subject> data = sem1SubList.getItems();
             ObservableList<Subject> data2 = sem2SubList.getItems();
 //            insert UG into DB
-            int sid = saveButtonClicked();
+            try {
+                int sid = saveButtonClicked();
 //            insert subject into table
-            data.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
-            data2.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
+                data.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
+                data2.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
+            } catch (SQLException |NullPointerException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input. Please fill all fields correctly!", ButtonType.OK);
+                alert.showAndWait();
+            }
 
             data.forEach(sub -> System.out.println(sub.getName()));
         }
@@ -137,29 +141,23 @@ public class UndergraduateController implements Initializable {
 //            edit button clicked. so edit selected UG
             sem1SubDetails.setDisable(true);
             sem2SubDetails.setDisable(true);
-            ugs.configSemList(selectedRow.getStudent_id(), sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, "UG");
+            ugs.configSemList(getSelectedRow().getStudent_id(), sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, "UG");
         }
         toSelectSubject();
     }
 
     @FXML
-    private int saveButtonClicked() {
+    private int saveButtonClicked() throws SQLException, NullPointerException {
         if (addButtonClick == 1) {
 //            add button clicked. so add new UG
             System.out.println("addButtonClick");
-            try {
-                return addUg();
-            } catch (SQLException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
-                alert.showAndWait();
+            return addUg();
 
-                e.printStackTrace();
-            }
         } else {
-//            edit button clicked. so edit selected UG
             try {
+//            edit button clicked. so edit selected UG
                 editUg();
-            } catch (SQLException e) {
+            } catch (SQLException | NullPointerException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
                 alert.showAndWait();
             }
@@ -169,8 +167,8 @@ public class UndergraduateController implements Initializable {
     }
 
     @FXML
-    private void getSelectedRow() {
-        selectedRow = ugTable.getSelectionModel().getSelectedItem();
+    private Undergraduate getSelectedRow() {
+        return ugTable.getSelectionModel().getSelectedItem();
     }
 
     @FXML
@@ -183,9 +181,12 @@ public class UndergraduateController implements Initializable {
     @FXML
     private void removeButtonClicked() {
         try {
-            ug.remove(selectedRow.getStudent_id());
+            ug.remove(getSelectedRow().getStudent_id());
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        } catch (NullPointerException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a Student", ButtonType.OK);
             alert.showAndWait();
         }
         ugt.refreshTable(ugTable);
@@ -194,13 +195,19 @@ public class UndergraduateController implements Initializable {
     @FXML
     private void editButtonClicked() {
         System.out.println("Edit Button Clicked");
-        addButtonClick = 0;
-        setInputs(selectedRow);
-        passwordField.setDisable(true);
-        saveButton.setVisible(true);
-        subRegisterButton.setVisible(false);
-        selectSubjectsButton.setText("Selected Subjects");
-        toDetails();
+        try {
+            setInputs(getSelectedRow());
+            addButtonClick = 0;
+            passwordField.setDisable(true);
+            saveButton.setVisible(true);
+            subRegisterButton.setVisible(false);
+            selectSubjectsButton.setText("Selected Subjects");
+            toDetails();
+
+        } catch (NullPointerException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
     @FXML
@@ -243,30 +250,32 @@ public class UndergraduateController implements Initializable {
         ugDetails.toFront();
     }
 
-    private void editUg() throws SQLException {
+    private void editUg() throws SQLException, NullPointerException {
+        Validate.validateTf(new TextField [] {emailField, fnameField, lnameField, addressField1, addressField2, teleField, sub1Field, sub2Field, sub3Field});
         ug.update(
                 emailField.getText(),
                 fnameField.getText(),
                 lnameField.getText(),
                 addressField1.getText(),
                 addressField2.getText(),
-                Integer.valueOf(teleField.getText()),
+                teleField.getText(),
                 java.sql.Date.valueOf(dobField.getValue()),
                 genderBox.getSelectionModel().getSelectedItem(),
                 facultyBox.getSelectionModel().getSelectedItem().getFaculty_id(),
                 courseBox.getSelectionModel().getSelectedItem().getCourse_id(),
-                Integer.valueOf(rankField.getText()),
+                rankField.getText(),
                 Double.valueOf(zscoreField.getText()),
                 sub1Field.getText(),
                 sub2Field.getText(),
                 sub3Field.getText(),
-                selectedRow.getStudent_id()
+                getSelectedRow().getStudent_id()
         );
 
         toList();
     }
 
-    private int addUg() throws SQLException {
+    private int addUg() throws SQLException, NullPointerException {
+        Validate.validateTf(new TextField [] {emailField, fnameField, lnameField, addressField1, addressField2, teleField, sub1Field, sub2Field, sub3Field});
         int stid = ug.add(
                 emailField.getText(),
                 MD5.getHash(passwordField.getText()),
@@ -275,12 +284,12 @@ public class UndergraduateController implements Initializable {
                 lnameField.getText(),
                 addressField1.getText(),
                 addressField2.getText(),
-                Integer.parseInt(teleField.getText()),
+                teleField.getText(),
                 java.sql.Date.valueOf(dobField.getValue()),
                 genderBox.getSelectionModel().getSelectedItem(),
                 facultyBox.getSelectionModel().getSelectedItem().getFaculty_id(),
                 courseBox.getSelectionModel().getSelectedItem().getCourse_id(),
-                Integer.parseInt(rankField.getText()),
+                rankField.getText(),
                 Double.valueOf(zscoreField.getText()),
                 sub1Field.getText(),
                 sub2Field.getText(),
@@ -295,23 +304,27 @@ public class UndergraduateController implements Initializable {
         setInputs(new Undergraduate());
     }
 
-    private void setInputs(Undergraduate ug) {
-        System.out.println(ug.getRank());
-        emailField.setText(ug.getEmail());
-        passwordField.setText(null);
-        fnameField.setText(ug.getFname());
-        lnameField.setText(ug.getLname());
-        addressField1.setText(ug.getAddress1());
-        addressField2.setText(ug.getAddress2());
-        teleField.setText(String.valueOf(ug.getTpno()));
-        dobField.setValue(LocalDate.parse(ug.getDob().toString(), dtf));
-        genderBox.getSelectionModel().select(ug.getGender());
-        facultyBox.getSelectionModel().select(ug.getFaculty());
-        courseBox.getSelectionModel().select(ug.getCourse());
-        rankField.setText(String.valueOf(ug.getRank()));
-        zscoreField.setText(String.valueOf(ug.getZ_score()));
-        sub1Field.setText(ug.getAl_result().getSub1());
-        sub2Field.setText(ug.getAl_result().getSub2());
-        sub3Field.setText(ug.getAl_result().getSub3());
+    private void setInputs(Undergraduate ug) throws NullPointerException {
+        if (ug == null) {
+            throw new NullPointerException("Please select a student");
+        } else {
+            System.out.println(ug.getRank());
+            emailField.setText(ug.getEmail());
+            passwordField.setText(null);
+            fnameField.setText(ug.getFname());
+            lnameField.setText(ug.getLname());
+            addressField1.setText(ug.getAddress1());
+            addressField2.setText(ug.getAddress2());
+            teleField.setText(String.valueOf(ug.getTpno()));
+            dobField.setValue(LocalDate.parse(ug.getDob().toString(), dtf));
+            genderBox.getSelectionModel().select(ug.getGender());
+            facultyBox.getSelectionModel().select(ug.getFaculty());
+            courseBox.getSelectionModel().select(ug.getCourse());
+            rankField.setText(String.valueOf(ug.getRank()));
+            zscoreField.setText(String.valueOf(ug.getZ_score()));
+            sub1Field.setText(ug.getAl_result().getSub1());
+            sub2Field.setText(ug.getAl_result().getSub2());
+            sub3Field.setText(ug.getAl_result().getSub3());
+        }
     }
 }

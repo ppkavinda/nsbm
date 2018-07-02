@@ -1,6 +1,7 @@
 package controllers.admin;
 
 import helpers.MD5;
+import helpers.Validate;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,12 +14,14 @@ import models.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class PostgraduateController implements Initializable {
 
+    @FXML private Button selectSubjectsButton;
     @FXML private Button addButton;
     @FXML private Button editButton;
     @FXML private Button removeButton;
@@ -65,7 +68,6 @@ public class PostgraduateController implements Initializable {
     private PgTableController pgt = new PgTableController();
     private StudentSubjectController pgs = new StudentSubjectController();
     private Faculty faculty = new Faculty();
-    private Postgraduate selectedRow;
     private Course course = new Course();
     private int addButtonClick;
 
@@ -92,12 +94,15 @@ public class PostgraduateController implements Initializable {
             ObservableList<Subject> data = sem1SubList.getItems();
             ObservableList<Subject> data2 = sem2SubList.getItems();
 //            insert UG into DB
-            int sid = saveButtonClicked();
+            try {
+                int sid = saveButtonClicked();
 //            insert subject into table
-            data.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
-            data2.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
-
-            data.forEach(sub -> System.out.println(sub.getName()));
+                data.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
+                data2.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
+            } catch (SQLException |NullPointerException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input. Please fill all fields correctly!", ButtonType.OK);
+                alert.showAndWait();
+            }
         }
     }
 
@@ -134,26 +139,32 @@ public class PostgraduateController implements Initializable {
     //            edit button clicked. so edit selected UG
             sem1SubDetails.setDisable(true);
             sem2SubDetails.setDisable(true);
-            pgs.configSemList(selectedRow.getStudent_id(), sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, "PG");
+            pgs.configSemList(getSelectedRow().getStudent_id(), sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, "PG");
         }
         toSelectSubject();
     }
     @FXML
-    private int saveButtonClicked() {
+    private int saveButtonClicked() throws SQLException, NullPointerException {
         if (addButtonClick == 1) {
-    //            add button clicked. so add new UG
+//            add button clicked. so add new PG
             System.out.println("addButtonClick");
             return addPg();
+
         } else {
-    //            edit button clicked. so edit selected UG
-            editPg();
+            try {
+//            edit button clicked. so edit selected PG
+                editPg();
+            } catch (SQLException | NullPointerException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+                alert.showAndWait();
+            }
             System.out.println("editButton");
         }
         return 0;
     }
     @FXML
-    private void getSelectedRow() {
-        selectedRow = pgTable.getSelectionModel().getSelectedItem();
+    private Postgraduate getSelectedRow() {
+        return pgTable.getSelectionModel().getSelectedItem();
     }
     @FXML
     private void cancelButtonClicked() {
@@ -163,26 +174,42 @@ public class PostgraduateController implements Initializable {
 //    TABLE VIEW ******************
     @FXML
     private void removeButtonClicked() {
-        if (selectedRow != null ) {
-            pg.remove(selectedRow.getStudent_id());
-            pgt.refreshTable(pgTable);
+        try {
+            pg.remove(getSelectedRow().getStudent_id());
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        } catch (NullPointerException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a Student", ButtonType.OK);
+            alert.showAndWait();
         }
+        pgt.refreshTable(pgTable);
     }
     @FXML
     private void editButtonClicked() {
         System.out.println("Edit Button Clicked");
-        if (selectedRow != null) {
+        try {
+            setInputs(getSelectedRow());
             addButtonClick = 0;
-            setInputs(selectedRow);
             passwordField.setDisable(true);
+            saveButton.setVisible(true);
+            subRegisterButton.setVisible(false);
+            selectSubjectsButton.setText("Selected Subjects");
             toDetails();
+
+        } catch (NullPointerException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
         }
     }
     @FXML
     private void addButtonClicked() {
         System.out.println("Add Button Clicked");
         passwordField.setDisable(false);
+        saveButton.setVisible(false);
+        subRegisterButton.setVisible(true);
         addButtonClick = 1;
+        selectSubjectsButton.setText("Select Subjects");
         toDetails();
     }
 
@@ -216,14 +243,15 @@ public class PostgraduateController implements Initializable {
         pgDetails.toFront();
     }
 
-    private void editPg() {
+    private void editPg() throws SQLException, NullPointerException{
+        Validate.validateTf(new TextField [] {emailField, fnameField, lnameField, addressField1, addressField2, teleField, qtypeField, instituteField, qyearField});
         pg.update(
                 emailField.getText(),
                 fnameField.getText(),
                 lnameField.getText(),
                 addressField1.getText(),
                 addressField2.getText(),
-                Integer.valueOf(teleField.getText()),
+                teleField.getText(),
                 java.sql.Date.valueOf(dobField.getValue()),
                 genderBox.getSelectionModel().getSelectedItem(),
                 facultyBox.getSelectionModel().getSelectedItem().getFaculty_id(),
@@ -231,13 +259,14 @@ public class PostgraduateController implements Initializable {
                 qtypeField.getText(),
                 instituteField.getText(),
                 Integer.valueOf(qyearField.getText()),
-                selectedRow.getStudent_id()
+                getSelectedRow().getStudent_id()
         );
 
         toList();
     }
 
-    private int addPg() {
+    private int addPg() throws SQLException, NullPointerException{
+        Validate.validateTf(new TextField [] {emailField, fnameField, lnameField, addressField1, addressField2, teleField, qtypeField, instituteField, qyearField});
         int stid = pg.add(
                 emailField.getText(),
                 MD5.getHash(passwordField.getText()),
@@ -246,7 +275,7 @@ public class PostgraduateController implements Initializable {
                 lnameField.getText(),
                 addressField1.getText(),
                 addressField2.getText(),
-                Integer.parseInt(teleField.getText()),
+                teleField.getText(),
                 java.sql.Date.valueOf(dobField.getValue()),
                 genderBox.getSelectionModel().getSelectedItem(),
                 facultyBox.getSelectionModel().getSelectedItem().getFaculty_id(),
@@ -265,20 +294,24 @@ public class PostgraduateController implements Initializable {
     }
 
     private void setInputs(Postgraduate pg) {
-        System.out.println(pg.getInstitute());
-        emailField.setText(pg.getEmail());
-        passwordField.setText(null);
-        fnameField.setText(pg.getFname());
-        lnameField.setText(pg.getLname());
-        addressField1.setText(pg.getAddress1());
-        addressField2.setText(pg.getAddress2());
-        dobField.setValue(LocalDate.parse(pg.getDob().toString(), dtf));
-        genderBox.getSelectionModel().select(pg.getGender());
-        facultyBox.getSelectionModel().select(pg.getFaculty());
-        courseBox.getSelectionModel().select(pg.getCourse());
-        qtypeField.setText(String.valueOf(pg.getQualification_type()));
-        instituteField.setText(String.valueOf(pg.getInstitute()));
-        teleField.setText(String.valueOf(pg.getTpno()));
-        qyearField.setText(String.valueOf(pg.getYear_of_completion()));
+        if (pg == null) {
+            throw new NullPointerException("Please select a student");
+        } else {
+            System.out.println(pg.getInstitute());
+            emailField.setText(pg.getEmail());
+            passwordField.setText(null);
+            fnameField.setText(pg.getFname());
+            lnameField.setText(pg.getLname());
+            addressField1.setText(pg.getAddress1());
+            addressField2.setText(pg.getAddress2());
+            dobField.setValue(LocalDate.parse(pg.getDob().toString(), dtf));
+            genderBox.getSelectionModel().select(pg.getGender());
+            facultyBox.getSelectionModel().select(pg.getFaculty());
+            courseBox.getSelectionModel().select(pg.getCourse());
+            qtypeField.setText(String.valueOf(pg.getQualification_type()));
+            instituteField.setText(String.valueOf(pg.getInstitute()));
+            teleField.setText(String.valueOf(pg.getTpno()));
+            qyearField.setText(String.valueOf(pg.getYear_of_completion()));
+        }
     }
 }

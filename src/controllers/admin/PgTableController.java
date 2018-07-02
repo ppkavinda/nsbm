@@ -41,7 +41,7 @@ public class PgTableController {
                         rs.getString("student.email"),
                         rs.getString("student.address1"),
                         rs.getString("student.address2"),
-                        rs.getInt("student.telephone"),
+                        rs.getString("student.telephone"),
                         rs.getDate("student.dob"),
                         rs.getString("student.gender"),
                         rs.getInt("postgraduate.year_of_completion"),

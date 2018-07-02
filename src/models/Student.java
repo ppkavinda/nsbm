@@ -21,7 +21,7 @@ public class Student {
     private final SimpleStringProperty email = new SimpleStringProperty("");
     private final SimpleStringProperty address1 = new SimpleStringProperty("");
     private final SimpleStringProperty address2 = new SimpleStringProperty("");
-    private final SimpleIntegerProperty tpno = new SimpleIntegerProperty(0);
+    private final SimpleStringProperty tpno = new SimpleStringProperty("");
     private final SimpleObjectProperty<Date> dob = new SimpleObjectProperty<>(new Date());
     private final SimpleStringProperty gender = new SimpleStringProperty("");
 
@@ -29,10 +29,10 @@ public class Student {
     private PreparedStatement stmt;
 
     public Student () {
-        this (0, new Faculty(), new Course(), "", "", "", "", "", 0, new java.sql.Date(0), "");
+        this (0, new Faculty(), new Course(), "", "", "", "", "", "", new java.sql.Date(0), "");
     }
 
-    public Student (int student_id, Faculty faculty, Course course, String fname, String lname, String email, String address1, String address2, int tpno, Date dob, String gender) {
+    public Student (int student_id, Faculty faculty, Course course, String fname, String lname, String email, String address1, String address2, String tpno, Date dob, String gender) {
         setStudent_id(student_id);
         setFaculty(faculty);
         setCourse(course);
@@ -71,7 +71,7 @@ public class Student {
 
     public void addSubject (int sub_id, int student_id) {
         String sql = "INSERT INTO `student_subject` (`student_id`, `subject_code`) VALUES (?, ?);";
-System.out.println(sub_id + " " + student_id);
+        System.out.println(sub_id + " " + student_id);
         try {
             stmt = conn.connect().prepareStatement(sql);
             stmt.setInt(1, student_id);
@@ -85,7 +85,7 @@ System.out.println(sub_id + " " + student_id);
     }
 
     public void update (String email, String fname, String lname, String address1, String address2,
-                        int telephone, Date dob, String gender, int fac_id, int course_id, int user_id) {
+                        String telephone, Date dob, String gender, int fac_id, int course_id, int user_id) {
         String sql2 = "UPDATE `student` SET `fname` = ?, `lname` = ?, `email` = ?, `address1` = ?, `address2` = ?, " +
                 "`telephone` = ?, `dob` = ?, `gender` = ?, `fac_id` = ?, `course_id` = ? WHERE `student`.`student_id` = ?;";
 
@@ -96,7 +96,7 @@ System.out.println(sub_id + " " + student_id);
             stmt.setString(3, email);
             stmt.setString(4, address1);
             stmt.setString(5, address2);
-            stmt.setInt(6, telephone);
+            stmt.setString(6, telephone);
             stmt.setDate(7, (java.sql.Date) dob);
             stmt.setString(8, gender);
             stmt.setInt(9, fac_id);
@@ -110,7 +110,7 @@ System.out.println(sub_id + " " + student_id);
     }
 
     public int add (int student_id, String email, String password, String fname, String lname, String address1, String address2,
-                     int telephone, Date dob, String gender, int fac_id, int course_id) {
+                     String telephone, Date dob, String gender, int fac_id, int course_id) {
         String sql2 = "INSERT INTO `student` (`student_id`, `fname`, `lname`, `email`, `address1`, `address2`, `telephone`, `password`, `dob`, `gender`, `fac_id`, `course_id`)" +
                 " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
@@ -122,7 +122,7 @@ System.out.println(sub_id + " " + student_id);
             stmt.setString(4, email);
             stmt.setString(5, address1);
             stmt.setString(6, address2);
-            stmt.setInt(7, telephone);
+            stmt.setString(7, telephone);
             stmt.setString(8, password);
             stmt.setDate(9, (java.sql.Date) dob);
             stmt.setString(10, gender);
@@ -174,15 +174,15 @@ System.out.println(sub_id + " " + student_id);
         this.address2.set(address2);
     }
 
-    public int getTpno() {
+    public String getTpno() {
         return tpno.get();
     }
 
-    public SimpleIntegerProperty tpnoProperty() {
+    public SimpleStringProperty tpnoProperty() {
         return tpno;
     }
 
-    public void setTpno(int tpno) {
+    public void setTpno(String tpno) {
         this.tpno.set(tpno);
     }
 

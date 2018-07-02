@@ -22,14 +22,14 @@ public class Postgraduate extends Student {
         super();
     }
 
-    public Postgraduate (int student_id, Faculty faculty, Course course, String fname, String lname, String email, String address1, String address2, int tpno, Date dob, String gender, int year_of_completion, String institute, String quilification_type) {
+    public Postgraduate (int student_id, Faculty faculty, Course course, String fname, String lname, String email, String address1, String address2, String tpno, Date dob, String gender, int year_of_completion, String institute, String quilification_type) {
         super(student_id, faculty, course, fname, lname, email, address1, address2, tpno, dob, gender);
         setYear_of_completion(year_of_completion);
         setInstitute(institute);
         setQualification_type(quilification_type);
     }
 
-    public void remove(int id) {
+    public void remove(int id) throws SQLException {
         String sql = "DELETE FROM `users` WHERE `users`.`user_id` = ?";
 
         try {
@@ -38,13 +38,13 @@ public class Postgraduate extends Student {
             stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new SQLException("Cannot delete the Postgraduate!");
         }
     }
 
 //    CONSTRUCTORS, GETTERS & SETTERS
 
-    public void update(String email, String fname, String lname, String address1, String address2, int telephone, Date dob, String gender, int fac_id, int course_id, String qualification_type, String institute, int year_of_completion, int user_id) {
+    public void update(String email, String fname, String lname, String address1, String address2, String telephone, Date dob, String gender, int fac_id, int course_id, String qualification_type, String institute, int year_of_completion, int user_id) {
         String sql1 = "UPDATE `users` SET `email` = ? WHERE `users`.`user_id` = ?;";
 
         String sql2 = "UPDATE `postgraduate` SET `qualification_type` = ?, `institute` = ?, `year_of_completion` = ? " +
@@ -72,7 +72,7 @@ public class Postgraduate extends Student {
         }
     }
 
-    public int add(String email, String password, int role, String fname, String lname, String address1, String address2, int telephone, Date dob, String gender, int fac_id, int course_id, String qualification_type, String institute, int year_of_completion) {
+    public int add(String email, String password, int role, String fname, String lname, String address1, String address2, String telephone, Date dob, String gender, int fac_id, int course_id, String qualification_type, String institute, int year_of_completion) {
         String sql1 = "INSERT INTO `users` (`password`, `email`, `role`) VALUES (?, ?, ?);";
         String sql3 = "INSERT INTO `postgraduate` (`student_id`, `qualification_type`, `institute`, `year_of_completion`) VALUES (?, ?, ?, ?);";
 

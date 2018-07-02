@@ -24,7 +24,7 @@ public class Undergraduate extends Student {
     }
 
     public Undergraduate(int student_id, Faculty faculty, Course course, String fname, String lname, String email,
-                         String address1, String address2, int tpno, Date dob, String gender, AlResult al_result, int rank,
+                         String address1, String address2, String tpno, Date dob, String gender, AlResult al_result, int rank,
                          Double z_score) {
         super(student_id, faculty, course, fname, lname, email, address1, address2, tpno, dob, gender);
         setAl_result(al_result);
@@ -56,7 +56,7 @@ public class Undergraduate extends Student {
 //    CONSTRUCTORS, GETTERS & SETTERS
 
     public void update(String email, String fname, String lname, String address1, String address2,
-                       int telephone, Date dob, String gender, int fac_id, int course_id, int rank, Double z_score, String sub1,
+                       String telephone, Date dob, String gender, int fac_id, int course_id, String rank, Double z_score, String sub1,
                        String sub2, String sub3, int user_id) throws SQLException {
         String sql1 = "UPDATE `users` SET `email` = ? WHERE `users`.`user_id` = ?;";
         String sql2 = "UPDATE `student` SET `fname` = ?, `lname` = ?, `email` = ?, `address1` = ?, `address2` = ?, " +
@@ -77,7 +77,7 @@ public class Undergraduate extends Student {
             stmt.setString(3, email);
             stmt.setString(4, address1);
             stmt.setString(5, address2);
-            stmt.setInt(6, telephone);
+            stmt.setString(6, telephone);
             stmt.setDate(7, (java.sql.Date) dob);
             stmt.setString(8, gender);
             stmt.setInt(9, fac_id);
@@ -87,7 +87,7 @@ public class Undergraduate extends Student {
             stmt.close();
 
             stmt = conn.connect().prepareStatement(sql3);
-            stmt.setInt(1, rank);
+            stmt.setString(1, rank);
             stmt.setDouble(2, z_score);
             stmt.setInt(3, user_id);
             stmt.executeUpdate();
@@ -108,7 +108,7 @@ public class Undergraduate extends Student {
     }
 
     public int add(String email, String password, int role, String fname, String lname, String address1, String address2,
-                    int telephone, Date dob, String gender, int fac_id, int course_id, int rank, Double z_score, String sub1,
+                    String telephone, Date dob, String gender, int fac_id, int course_id, String rank, Double z_score, String sub1,
                     String sub2, String sub3) throws SQLException {
         String sql1 = "INSERT INTO `users` (`password`, `email`, `role`) VALUES (?, ?, ?);";
         String sql3 = "INSERT INTO `undergraduate` (`student_id`, `rank`, `z_score`) VALUES (?, ?, ?);";
@@ -140,7 +140,7 @@ public class Undergraduate extends Student {
 
             stmt = conn.connect().prepareStatement(sql3);
             stmt.setInt(1, (int) student_id);
-            stmt.setInt(2, rank);
+            stmt.setString(2, rank);
             stmt.setDouble(3, z_score);
             stmt.executeUpdate();
 
