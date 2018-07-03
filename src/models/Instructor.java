@@ -32,6 +32,19 @@ public class Instructor {
         setGender(gender);
     }
 
+    public void removePracticle(int staff_id, int practicle_id) {
+        String sql = "DELETE FROM `instructor_practicle` WHERE `instructor_practicle`.`staff_id` = ? AND `instructor_practicle`.`practicle_id` = ?";
+
+        try {
+            stmt = conn.connect().prepareStatement(sql);
+            stmt.setInt(2, practicle_id);
+            stmt.setInt(1, staff_id);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void remove (int instructor_id) {
         String sql = "DELETE FROM `users` WHERE `users`.`user_id` = ?";
@@ -40,7 +53,6 @@ public class Instructor {
             stmt = conn.connect().prepareStatement(sql);
             stmt.setInt(1, instructor_id);
             stmt.executeUpdate();
-            stmt.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -65,11 +77,22 @@ public class Instructor {
         }
     }
 
-    public void add(String fname, String lname, String email, String password, String gender, int role) {
+    public void addPracticle (int staff_id, int practicle_id) throws SQLException {
+        String sql = "INSERT INTO `instructor_practicle` (`staff_id`, `practicle_id`) VALUES (?, ?);";
+
+        stmt = conn.connect().prepareStatement(sql);
+        stmt.setInt(2, practicle_id);
+        stmt.setInt(1, staff_id);
+        stmt.executeUpdate();
+        stmt.close();
+
+    }
+
+    public int add(String fname, String lname, String email, String password, String gender, int role) {
         String sql1 = "INSERT INTO `users` (`password`, `email`, `role`) VALUES (?, ?, ?);";
         String sql2 = "INSERT INTO `instructor` (`instructor_id`, `fname`, `lname`, `email`, `password`, `gender`) VALUES (?, ?, ?, ?, ?, ?);";
 
-        long instructor_id;
+        long instructor_id = 0;
         try {
             stmt = conn.connect().prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, password);
@@ -104,6 +127,45 @@ public class Instructor {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return (int) instructor_id;
+    }
+    public ResultSet getUnallocatedPracticles (int instructor_id) {
+        String sql = "SELECT * FROM instructor_practicle, practicle, subject, lab " +
+                "WHERE practicle.subject_code = subject.subject_code " +
+                "AND instructor_practicle.practicle_id = practicle.practicle_id " +
+                "AND lab.lab_id = practicle.lab " +
+                "AND instructor_practicle.staff_id != ?";
+
+        try {
+            stmt = conn.connect().prepareStatement(sql);
+            stmt.setInt(1, instructor_id);
+            return stmt.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getPracticles (int instructor_id) {
+        String sql = "SELECT * FROM instructor_practicle, practicle, subject, lab " +
+                "WHERE practicle.subject_code = subject.subject_code " +
+                "AND instructor_practicle.practicle_id = practicle.practicle_id " +
+                "AND lab.lab_id = practicle.lab " +
+                "AND instructor_practicle.staff_id = ?";
+
+        System.out.println(sql);
+
+        try {
+            stmt = conn.connect().prepareStatement(sql);
+            stmt.setInt(1, instructor_id);
+            return stmt.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     public ResultSet get () {

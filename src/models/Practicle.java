@@ -153,4 +153,6 @@ public class Practicle {
     public void setEnd_time(String end_time) {
         this.end_time.set(end_time);
     }
+
+    public String toString () { return this.getSubject() + " " + this.getStart_time() + " " + getLab(); }
 }

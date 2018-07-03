@@ -50,8 +50,8 @@ public class Lecture {
         try {
             stmt = conn.connect().prepareStatement(sql);
             stmt.setString(1, start_time);
-            stmt.setString(2, end_time);
             stmt.setInt(3, hall_id);
+            stmt.setString(2, end_time);
             stmt.setInt(4, subject_code);
             stmt.setInt(5, lec_id);
             stmt.executeUpdate();
@@ -68,8 +68,8 @@ public class Lecture {
             stmt = conn.connect().prepareStatement(sql);
             stmt.setString(1, start_time);
             stmt.setString(2, end_time);
-            stmt.setInt(3, hall_id);
             stmt.setInt(4, subject_code);
+            stmt.setInt(3, hall_id);
             stmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -150,4 +150,7 @@ public class Lecture {
     public void setEnd_time(String end_time) {
         this.end_time.set(end_time);
     }
+
+    public String toString () { return this.getSubject() + " " + this.getStart_time() + " " + this.getLec_hall(); }
+
 }

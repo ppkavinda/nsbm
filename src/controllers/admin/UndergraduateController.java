@@ -96,8 +96,9 @@ public class UndergraduateController implements Initializable {
             try {
                 int sid = saveButtonClicked();
 //            insert subject into table
-                data.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
                 data2.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
+                data.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
+
             } catch (SQLException |NullPointerException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input. Please fill all fields correctly!", ButtonType.OK);
                 alert.showAndWait();
@@ -182,11 +183,11 @@ public class UndergraduateController implements Initializable {
     private void removeButtonClicked() {
         try {
             ug.remove(getSelectedRow().getStudent_id());
-        } catch (SQLException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
-            alert.showAndWait();
         } catch (NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a Student", ButtonType.OK);
+            alert.showAndWait();
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
         }
         ugt.refreshTable(ugTable);
@@ -198,8 +199,8 @@ public class UndergraduateController implements Initializable {
         try {
             setInputs(getSelectedRow());
             addButtonClick = 0;
-            passwordField.setDisable(true);
             saveButton.setVisible(true);
+            passwordField.setDisable(true);
             subRegisterButton.setVisible(false);
             selectSubjectsButton.setText("Selected Subjects");
             toDetails();
@@ -214,8 +215,8 @@ public class UndergraduateController implements Initializable {
     private void addButtonClicked() {
         System.out.println("Add Button Clicked");
         passwordField.setDisable(false);
-        saveButton.setVisible(false);
         subRegisterButton.setVisible(true);
+        saveButton.setVisible(false);
         addButtonClick = 1;
         selectSubjectsButton.setText("Select Subjects");
         toDetails();
@@ -224,16 +225,16 @@ public class UndergraduateController implements Initializable {
     // GO TO THE SUBJECT SELECT VIEW
     private void toSelectSubject() {
         selectSubView.toFront();
-        ugDetails.setVisible(false);
         ugList.setVisible(false);
-        selectSubView.setVisible(true);
+        ugDetails.setVisible(false);
         ugs.configSubBoxes(sem1SubBox, sem2SubBox, "UG");
+        selectSubView.setVisible(true);
     }
 
     // GO TO THE STUDENTS TABLEvIEW
     private void toList() {
-        ugt.refreshTable(ugTable);
         ugDetails.setVisible(false);
+        ugt.refreshTable(ugTable);
         selectSubView.setVisible(false);
         ugDetails.toBack();
         ugList.setVisible(true);
@@ -243,9 +244,8 @@ public class UndergraduateController implements Initializable {
 
     // GOT TO THE DETAILS PANEL ADD EDIT STUDENTS
     private void toDetails() {
-        ugList.setVisible(false);
         selectSubView.setVisible(false);
-        ugList.toBack();
+        ugList.setVisible(false);
         ugDetails.setVisible(true);
         ugDetails.toFront();
     }

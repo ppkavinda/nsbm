@@ -35,6 +35,20 @@ public class Lecturer {
         setGender(gender);
     }
 
+    public void removeLecture(int staff_id, int lecture_id) {
+        String sql = "DELETE FROM `lecturer_subject` WHERE `lecturer_subject`.`staff_id` = ? AND `lecturer_subject`.`lec_id` = ?";
+
+        try {
+            stmt = conn.connect().prepareStatement(sql);
+            stmt.setInt(1, staff_id);
+            stmt.setInt(2, lecture_id);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void remove (int lecturer_id) {
         String sql = "DELETE FROM `users` WHERE `users`.`user_id` = ?";
 
@@ -57,8 +71,8 @@ public class Lecturer {
             stmt.setString(1, fname);
             stmt.setString(2, lname);
             stmt.setString(3 ,email);
-            stmt.setString(4, gender);
             stmt.setInt(5, lecturer_id);
+            stmt.setString(4, gender);
             stmt.executeUpdate();
             stmt.close();
 
@@ -67,16 +81,27 @@ public class Lecturer {
         }
     }
 
-    public void add(String fname, String lname, String email, String password, String gender, int role) {
+    public void addLecture (int staff_id, int lec_id) throws SQLException {
+        String sql = "INSERT INTO `lecturer_subject` (`staff_id`, `lec_id`) VALUES (?, ?);";
+
+            stmt = conn.connect().prepareStatement(sql);
+            stmt.setInt(2, lec_id);
+            stmt.setInt(1, staff_id);
+            stmt.executeUpdate();
+            stmt.close();
+
+    }
+
+    public int add(String fname, String lname, String email, String password, String gender, int role) {
         String sql1 = "INSERT INTO `users` (`password`, `email`, `role`) VALUES (?, ?, ?);";
         String sql2 = "INSERT INTO `lecturer` (`lecturer_id`, `fname`, `lname`, `email`, `password`, `gender`) VALUES (?, ?, ?, ?, ?, ?);";
 
-        long lecture_id;
+        long lecture_id = 0;
         try {
             stmt = conn.connect().prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, password);
-            stmt.setString(2, email);
             stmt.setInt(3, role);
+            stmt.setString(2, email);
 
             int affectedRows = stmt.executeUpdate();
 
@@ -106,6 +131,46 @@ public class Lecturer {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return (int) lecture_id;
+    }
+
+    public ResultSet getUnallocatedLectures (int staff_id) {
+        String sql = "SELECT * FROM lecturer_subject, lecture, subject, lec_hall " +
+                "WHERE lecturer_subject.lec_id = lecture.lecture_id " +
+                "AND lecture.subject_code = subject.subject_code " +
+                "AND lec_hall.hall_id = lecture.hall_id " +
+                "AND lecturer_subject.staff_id != ?";
+
+        try {
+            stmt = conn.connect().prepareStatement(sql);
+            stmt.setInt(1, staff_id);
+            return stmt.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getLectures (int staff_id) {
+        String sql = "SELECT * FROM lecturer_subject, lecture, subject, lec_hall " +
+                "WHERE lecturer_subject.lec_id = lecture.lecture_id " +
+                "AND lecture.subject_code = subject.subject_code " +
+                "AND lec_hall.hall_id = lecture.hall_id " +
+                "AND lecturer_subject.staff_id = ?";
+
+        System.out.println(sql);
+
+        try {
+            stmt = conn.connect().prepareStatement(sql);
+            stmt.setInt(1, staff_id);
+            return stmt.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
 
@@ -182,4 +247,6 @@ public class Lecturer {
     public void setGender(String gender) {
         this.gender.set(gender);
     }
+
+    public String toString () { return this.getFname() + " " + this.getLname(); }
 }
