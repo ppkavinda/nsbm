@@ -13,7 +13,7 @@
     <children>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
             <children>
-                <Label fx:id="titleLabel" text="Tests" />
+                <Label fx:id="titleLabel" text="Exams" />
             </children>
         </HBox>
         <HBox alignment="CENTER" prefHeight="199.0" prefWidth="600.0" VBox.vgrow="ALWAYS">

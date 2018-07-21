@@ -52,6 +52,10 @@ public class StudentSubjectController {
     }
 
 //    INSERT SELECTED SUBJECTS INTO LIST VIEWS (EDIT BUTTON CLICKED)
+
+    /**
+     * @param subType   UG or PG
+     */
     protected void configSemList (int student_id, ListView<Subject> sem1SubList, ListView<Subject> sem2SubList, Text sem1CreditsLabel, Text sem2CreditsLabel, String subType) {
         int totalSem1Credits = 0;
         int totalSem2Credits = 0;

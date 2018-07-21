@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
-
-<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.admin.LectureController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -102,6 +100,13 @@
                <HBox.margin>
                    <Insets />
                </HBox.margin>
+               <graphic>
+                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                       <image>
+                           <Image url="@../../assets/img/012.png" />
+                       </image>
+                   </ImageView>
+               </graphic>
            </Button>
        </HBox>
    </children>

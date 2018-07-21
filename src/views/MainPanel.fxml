@@ -1,91 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="734.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainPanelController">
-   <children>
-      <HBox alignment="CENTER" prefHeight="115.0" prefWidth="986.0" VBox.vgrow="ALWAYS">
-         <children>
-            <Text fx:id="titleLabel" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Panel" textOrigin="CENTER" wrappingWidth="299.14306640625" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="501.0" prefWidth="986.0">
-         <children>
-            <GridPane prefHeight="428.0" prefWidth="750.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="881.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainPanelController">
+    <children>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <Text fx:id="titleLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="NSBM: control panel" />
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="785.0" prefWidth="1150.0">
+            <children>
+                <GridPane alignment="CENTER" prefHeight="712.0" prefWidth="1150.0" HBox.hgrow="ALWAYS">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Button fx:id="facultyButton" onAction="#facultyButtonClicked" mnemonicParsing="false" text="Faculties" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                     <padding>
-                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
-                     </padding>
-                  </Button>
-                  <Button fx:id="courseButton" onAction="#courseButtonClicked" mnemonicParsing="false" text="Courses" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                     <padding>
-                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
-                     </padding>
-                  </Button>
-                  <Button fx:id="labButton" onAction="#labButtonClicked" mnemonicParsing="false" text="Labs" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                     <padding>
-                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
-                     </padding>
-                  </Button>
-                  <Button fx:id="lechallButton" onAction="#lecHallButtonClicked" mnemonicParsing="false" text="Lecture Halls" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                     <padding>
-                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
-                     </padding>
-                  </Button>
-                  <Button fx:id="subjectButton" onAction="#subjectButtonClicked" mnemonicParsing="false" text="Subjects" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                     <padding>
-                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
-                     </padding>
-                  </Button>
-                  <Button fx:id="testButton" onAction="#testButtonClicked" mnemonicParsing="false" text="Tests" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                     <padding>
-                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
-                     </padding>
-                  </Button>
-                  <Button fx:id="instructorButton" onAction="#instructorButtonClicked" mnemonicParsing="false" text="Instructors" GridPane.halignment="CENTER" GridPane.rowIndex="4">
-                     <padding>
-                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
-                     </padding>
-                  </Button>
-                  <Button fx:id="lecturerButton" onAction="#lecturerButtonClicked" mnemonicParsing="false" text="Lecturers" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
-                     <padding>
-                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
-                     </padding>
-                  </Button>
-                  <Button fx:id="postgraduateButton" onAction="#postgraduateButtonClicked" mnemonicParsing="false" text="Postgraduates" GridPane.halignment="CENTER" GridPane.rowIndex="5">
-                     <padding>
-                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
-                     </padding>
-                  </Button>
-                  <Button fx:id="undergraduateButton" onAction="#undergraduateButtonClicked" mnemonicParsing="false" text="Undergraduates" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
-                     <padding>
-                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
-                     </padding>
-                  </Button>
-                  <Button fx:id="lectureButton" onAction="#lectureButtonClicked" mnemonicParsing="false" text="Lectures" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                  <Button fx:id="practicleButton" onAction="#practicleButtonClicked" mnemonicParsing="false" text="Practicles" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-               </children>
-            </GridPane>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="127.0" prefWidth="986.0" />
-   </children>
+                    </rowConstraints>
+                    <children>
+                        <Button fx:id="facultyButton" layoutX="138.0" layoutY="226.0" mnemonicParsing="false" onAction="#facultyButtonClicked" styleClass="main-menu-icon, faculty-butkton" text="Faculties">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/img/1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                        </Button>
+                        <Button fx:id="lectureButton" mnemonicParsing="false" onAction="#lectureButtonClicked" styleClass="main-menu-icon, lec-b1utton" text="Lectures" GridPane.columnIndex="2">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                            <graphic>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/img/395.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="labButton" mnemonicParsing="false" onAction="#labButtonClicked" styleClass="main-menu-icon, lab-bu5tton" text="Labs" GridPane.columnIndex="1">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                            <graphic>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/img/507.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="subjectButton" mnemonicParsing="false" onAction="#subjectButtonClicked" styleClass="main-menu-icon, sub5-button" text="Subjects" GridPane.rowIndex="2">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                            <graphic>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/img/2.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="instructorButton" mnemonicParsing="false" onAction="#instructorButtonClicked" styleClass="main-menu-icon, instr5uctor-button" text="Instructors" GridPane.columnIndex="3">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                            <graphic>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/img/339.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="postgraduateButton" mnemonicParsing="false" onAction="#postgraduateButtonClicked" styleClass="main-menu-icon, pg-bu5tton" text="Postgraduates" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                            <graphic>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/img/191.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="testButton" mnemonicParsing="false" onAction="#testButtonClicked" styleClass="main-menu-icon, test5-button" text="Exams" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                            <graphic>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/img/415.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="undergraduateButton" mnemonicParsing="false" onAction="#undergraduateButtonClicked" styleClass="main-menu-icon, ug-b5utton" text="Undergraduates" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                            <graphic>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/img/337.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="lecturerButton" mnemonicParsing="false" onAction="#lecturerButtonClicked" styleClass="main-menu-icon, lectu5rer-button" text="Lecturers" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                            <graphic>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/img/335.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="practicleButton" mnemonicParsing="false" onAction="#practicleButtonClicked" styleClass="main-menu-icon, practi5cle-button" text="Practicals" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                            <graphic>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/img/163.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="lechallButton" mnemonicParsing="false" onAction="#lecHallButtonClicked" styleClass="main-menu-icon, lech5all-button" text="Lecture Halls" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                            <graphic>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/img/457.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="courseButton" mnemonicParsing="false" onAction="#courseButtonClicked" styleClass="main-menu-icon, co5urse-button" text="Courses" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </GridPane.margin>
+                            <graphic>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/img/014.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </children>
+                </GridPane>
+            </children>
+        </HBox>
+    </children>
 </VBox>

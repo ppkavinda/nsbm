@@ -1,8 +1,8 @@
 .root {
     -fx-font-size: 17px;
     -fx-font-family: sans-serif;
-    /*-fx-font-size: 1em;*/
-    -fx-font-weight: 400;
+/*-fx-font-size: 1em;*/
+-fx-font-weight: 400;
     -fx-background-color: #fff;
     -fx-text-fill: #212529;
     -fx-line-spacing: 1.5em;
@@ -15,6 +15,20 @@
     -fx-font-size: 1em;
     -fx-line-spacing: 1.5em;
     fx-border-radius: 0.25em;
+}
+
+.main-menu-icon {
+    -fx-font-size: 2em;
+    -fx-background-size: 150px;
+    -fx-background-position: top;
+    -fx-background-repeat: no-repeat;
+    -fx-content-display: top;
+    /*-fx-padding: 100px;*/
+    -fx-background-color: #ffffff;
+
+}
+.main-menu-icon:hover{
+    -fx-background-color: #f4f4f4;
 }
 .text-field {
     -fx-padding: 0.375em 0.75em;
@@ -64,8 +78,13 @@
 }
 
 #mainMenuButton {
-    -fx-background-color: black;
-    -fx-text-fill: #f4f4f4;
+    -fx-background-color: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    /*-fx-text-fill: #f4f4f4;*/
+}
+#mainMenuButton:hover{
+    -fx-background-color: #f4f4f4;
 }
 
 .btn {
@@ -79,4 +98,49 @@
     -fx-text-fill: #fff;
     -fx-background-color: #007bff;
     -fx-border-color: #007bff;
+}
+.faculty-button {
+    -fx-background-image: url('/assets/img/1.png');
+}
+.sub-button {
+    -fx-background-image: url('/assets/img/2.png');
+}
+.course-button {
+    -fx-background-image: url('/assets/img/014.png');
+}
+
+.lechall-button {
+    -fx-background-image: url('/assets/img/457.png');
+}
+
+.practicle-button {
+    -fx-background-image: url('/assets/img/163.png');
+}
+
+.lecturer-button {
+    -fx-background-image: url('/assets/img/335.png') ;
+}
+
+.ug-button {
+    -fx-background-image: url('/assets/img/337.png');
+}
+
+.test-button {
+    -fx-background-image: url('/assets/img/415.png');
+}
+
+.pg-button {
+    -fx-background-image: url('/assets/img/191.png');
+}
+
+.instructor-button {
+    -fx-background-image: url('/assets/img/339.png');
+}
+
+.lab-button {
+    -fx-background-image: url('/assets/img/507.png');
+}
+
+.lec-button {
+    -fx-background-image: url('/assets/img/395.png');
 }

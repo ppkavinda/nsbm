@@ -46,6 +46,12 @@ public class Student {
         setGender(gender);
     }
 
+    /**
+     *
+     * @param student_id
+     * @param subType   UG or PG
+     * @return
+     */
     public ResultSet getSubjects (int student_id, String subType) {
         String sql = "SELECT subject.subject_code, subject.name, subject.fee, subject.course_id, subject.sem, subject.compulsory, subject.type, subject.credits " +
                 "FROM `student_subject` " +

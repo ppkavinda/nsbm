@@ -10,6 +10,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.admin.FacultyController">
     <Label fx:id="titleLabel" contentDisplay="CENTER" text="Faculties">
         <VBox.margin>
@@ -69,6 +71,13 @@
             <HBox.margin>
                 <Insets />
             </HBox.margin>
+            <graphic>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../assets/img/012.png" />
+                    </image>
+                </ImageView>
+            </graphic>
         </Button>
     </HBox>
 </VBox>
