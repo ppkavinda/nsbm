@@ -1,4 +1,4 @@
-package controllers.admin;
+package controllers;
 
 import helpers.MD5;
 import helpers.Validate;

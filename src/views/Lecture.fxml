@@ -1,61 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.cell.*?>
 <?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.admin.PracticleController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LectureController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Text fx:id="titleLabel" lineSpacing="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Praticles" />
+            <Label fx:id="titleLabel" text="Lectures" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="309.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="370.0" prefWidth="799.0">
          <children>
-            <TableView fx:id="practicleTable" onMouseClicked="#getSelectedRow" prefHeight="100.0" prefWidth="388.0" HBox.hgrow="ALWAYS">
+            <TableView fx:id="lectureTable" onMouseClicked="#getSelectedRow" prefHeight="140.0" prefWidth="799.0" HBox.hgrow="ALWAYS">
                 <columnResizePolicy>
                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                 </columnResizePolicy>
               <columns>
-                <TableColumn prefWidth="75.0" text="ID">
+                <TableColumn prefWidth="75.0" text="ID" >
                     <cellValueFactory>
-                        <PropertyValueFactory property="practicle_id" />
+                        <PropertyValueFactory property="lecture_id"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="75.0" text="Start Time">
+                <TableColumn prefWidth="75.0" text="Start Time" >
                     <cellValueFactory>
-                        <PropertyValueFactory property="start_time" />
+                        <PropertyValueFactory property="start_time"/>
                     </cellValueFactory>
                 </TableColumn>
-                  <TableColumn prefWidth="75.0" text="End Time">
+                  <TableColumn prefWidth="75.0" text="End Time" >
                       <cellValueFactory>
-                          <PropertyValueFactory property="end_time" />
+                          <PropertyValueFactory property="end_time"/>
                       </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="75.0" text="Location">
+                  <TableColumn prefWidth="75.0" text="Location" >
                       <cellValueFactory>
-                          <PropertyValueFactory property="lab" />
+                          <PropertyValueFactory property="lec_hall"/>
                       </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="75.0" text="Subject">
+                  <TableColumn prefWidth="75.0" text="Subject" >
                       <cellValueFactory>
-                          <PropertyValueFactory property="subject" />
+                          <PropertyValueFactory property="subject"/>
                       </cellValueFactory>
                   </TableColumn>
               </columns>
             </TableView>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0">
          <children>
             <TextField fx:id="startField" promptText="Start Time">
                <HBox.margin>
@@ -81,17 +75,17 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="addButton" mnemonicParsing="false" onAction="#addLecture" text="Add">
+            <Button fx:id="addButton" onAction="#addLecture" mnemonicParsing="false" text="Add">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="editButton" mnemonicParsing="false" onAction="#editLecture" text="Edit">
+            <Button fx:id="editButton" onAction="#editLecture" mnemonicParsing="false" text="Edit">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeLecture" text="Remove">
+            <Button fx:id="removeButton" onAction="#removeLecture" mnemonicParsing="false" text="Remove">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
@@ -109,7 +103,7 @@
                <graphic>
                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                        <image>
-                           <Image url="@../../assets/img/012.png" />
+                           <Image url="@../assets/img/012.png" />
                        </image>
                    </ImageView>
                </graphic>

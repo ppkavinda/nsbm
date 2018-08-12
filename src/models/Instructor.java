@@ -1,8 +1,7 @@
 package models;
 
 import com.mysql.jdbc.Statement;
-import controllers.admin.InstructorController;
-import db.DBConnection;
+import db.DbSingleton;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -18,7 +17,7 @@ public class Instructor {
     private final SimpleStringProperty gender = new SimpleStringProperty("");
 
     private PreparedStatement stmt;
-    private DBConnection conn = new DBConnection();
+    private DbSingleton conn = DbSingleton.getInstance();
 
     public Instructor () {
         this (0, "", "", "", "");
@@ -36,7 +35,7 @@ public class Instructor {
         String sql = "DELETE FROM `instructor_practicle` WHERE `instructor_practicle`.`staff_id` = ? AND `instructor_practicle`.`practicle_id` = ?";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.getConnection().prepareStatement(sql);
             stmt.setInt(2, practicle_id);
             stmt.setInt(1, staff_id);
             stmt.executeUpdate();
@@ -50,7 +49,7 @@ public class Instructor {
         String sql = "DELETE FROM `users` WHERE `users`.`user_id` = ?";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.getConnection().prepareStatement(sql);
             stmt.setInt(1, instructor_id);
             stmt.executeUpdate();
 
@@ -63,7 +62,7 @@ public class Instructor {
         String sql = "UPDATE `instructor` SET `fname` = ?, `lname` = ?, `email` = ?, `gender` = ? WHERE `instructor`.`instructor_id` = ?;";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.getConnection().prepareStatement(sql);
             stmt.setString(1, fname);
             stmt.setString(2, lname);
             stmt.setString(3 ,email);
@@ -80,7 +79,7 @@ public class Instructor {
     public void addPracticle (int staff_id, int practicle_id) throws SQLException {
         String sql = "INSERT INTO `instructor_practicle` (`staff_id`, `practicle_id`) VALUES (?, ?);";
 
-        stmt = conn.connect().prepareStatement(sql);
+        stmt = conn.getConnection().prepareStatement(sql);
         stmt.setInt(2, practicle_id);
         stmt.setInt(1, staff_id);
         stmt.executeUpdate();
@@ -94,7 +93,7 @@ public class Instructor {
 
         long instructor_id = 0;
         try {
-            stmt = conn.connect().prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
+            stmt = conn.getConnection().prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, password);
             stmt.setString(2, email);
             stmt.setInt(3, role);
@@ -114,7 +113,7 @@ public class Instructor {
             }
             stmt.close();
 
-            stmt = conn.connect().prepareStatement(sql2);
+            stmt = conn.getConnection().prepareStatement(sql2);
             stmt.setInt(1, (int) instructor_id);
             stmt.setString(2, fname);
             stmt.setString(3, lname);
@@ -137,7 +136,7 @@ public class Instructor {
                 "AND instructor_practicle.staff_id != ?";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.getConnection().prepareStatement(sql);
             stmt.setInt(1, instructor_id);
             return stmt.executeQuery();
 
@@ -157,7 +156,7 @@ public class Instructor {
         System.out.println(sql);
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.getConnection().prepareStatement(sql);
             stmt.setInt(1, instructor_id);
             return stmt.executeQuery();
 
@@ -172,7 +171,7 @@ public class Instructor {
         String sql = "SELECT * FROM `instructor`";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.getConnection().prepareStatement(sql);
             return stmt.executeQuery();
 
         } catch (SQLException e) {

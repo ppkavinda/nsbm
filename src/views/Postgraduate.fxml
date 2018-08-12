@@ -12,7 +12,7 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="800.0" minWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.admin.PostgraduateController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="800.0" minWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PostgraduateController">
    <children>
        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="1125.0">
           <children>
@@ -384,7 +384,7 @@
                   <graphic>
                       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                           <image>
-                              <Image url="@../../assets/img/012.png" />
+                              <Image url="@../assets/img/012.png" />
                           </image>
                       </ImageView>
                   </graphic>

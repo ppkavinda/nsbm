@@ -1,4 +1,4 @@
-package controllers.admin;
+package controllers;
 
 import helpers.Validate;
 import javafx.collections.ObservableList;

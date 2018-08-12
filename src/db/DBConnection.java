@@ -3,6 +3,20 @@ package db;
 import java.sql.*;
 
 public class DBConnection {
+
+//    // placeholder for hold current object
+//    private static DBConnection __me = null;
+//
+//    // private constructor - no other object can instantiate
+//    private DBConnection () {}
+//
+//    public static DBConnection getInstance () {
+//        if (__me == null ) {
+//            __me = new DBConnection();
+//        }
+//        return __me;
+//    }
+
     public Connection connect () {
         Connection conn;
 
@@ -15,19 +29,6 @@ public class DBConnection {
             e.printStackTrace();
             return null;
 
-        }
-    }
-
-    public ResultSet selectFrom (String fields, String table) {
-        try {
-            Statement stmt = connect().createStatement();
-            String query = "SELECT " + fields + " FROM " + table;
-            ResultSet rs = stmt.executeQuery(query);
-            return rs;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
         }
     }
 

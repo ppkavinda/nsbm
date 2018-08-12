@@ -1,6 +1,7 @@
 package models;
 
 import db.DBConnection;
+import db.DbSingleton;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -14,7 +15,7 @@ public class Lab {
 
     private PreparedStatement stmt;
 
-    private DBConnection conn = new DBConnection();
+    private DbSingleton conn = DbSingleton.getInstance();
 
     public Lab () {
         this(0, "");
@@ -30,7 +31,7 @@ public class Lab {
 
         try {
             System.out.println(sql);
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.getConnection().prepareStatement(sql);
             stmt.setInt(1, id);
 
             stmt.executeUpdate();
@@ -45,7 +46,7 @@ public class Lab {
         String sql = "UPDATE `lab` SET `name` = ? WHERE `lab`.`lab_id` = ?;";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.getConnection().prepareStatement(sql);
             stmt.setString(1, name);
             stmt.setInt(2, id);
             stmt.executeUpdate();
@@ -60,7 +61,7 @@ public class Lab {
         String sql = "INSERT INTO `lab` (`name`) VALUES (?);";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.getConnection().prepareStatement(sql);
             stmt.setString(1, name);
             stmt.executeUpdate();
             System.out.println(sql);
@@ -74,7 +75,7 @@ public class Lab {
         String sql = "SELECT * FROM lab ";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.getConnection().prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             System.out.println(sql);       // TODO: 6/7/2018 remove
             return rs;

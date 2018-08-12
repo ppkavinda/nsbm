@@ -21,7 +21,7 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="925.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.admin.CourseController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="925.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CourseController">
    <children>
        <Label fx:id="titleLabel" text="Courses" />
        <TableView fx:id="courseTable" onMouseClicked="#setSelectedRow" prefWidth="200.0">
@@ -130,7 +130,7 @@
                   <graphic>
                       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                           <image>
-                              <Image url="@../../assets/img/012.png" />
+                              <Image url="@../assets/img/012.png" />
                           </image>
                       </ImageView>
                   </graphic>

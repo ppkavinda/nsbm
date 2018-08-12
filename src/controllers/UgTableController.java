@@ -1,28 +1,36 @@
-package controllers.admin;
+package controllers;
 
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
+import models.AlResult;
 import models.Course;
 import models.Faculty;
-import models.Postgraduate;
-
+import models.Undergraduate;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PgTableController {
-    private Postgraduate pg = new Postgraduate();
+public class UgTableController {
 
-    protected void refreshTable(TableView<Postgraduate> pgTable) {
-        pgTable.getItems().clear();
-        drawTable(pgTable);
+    private Undergraduate ug = new Undergraduate();
+
+    protected void refreshTable(TableView<Undergraduate> ugTable) {
+        ugTable.getItems().clear();
+        try {
+            drawTable(ugTable);
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Cannot Add Undergraduate!", ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
-    protected void drawTable(TableView<Postgraduate> pgTable) {
-        ResultSet rs = pg.get();
+    protected void drawTable(TableView<Undergraduate> ugTable) throws SQLException {
         try {
-            ObservableList<Postgraduate> data = pgTable.getItems();
+            ResultSet rs = ug.get();
+            ObservableList<Undergraduate> data = ugTable.getItems();
             while (rs.next()) {
-                data.add(new Postgraduate(
+                data.add(new Undergraduate(
                         rs.getInt("student_id"),
                         new Faculty(
                                 rs.getInt("faculty.faculty_id"),
@@ -44,13 +52,19 @@ public class PgTableController {
                         rs.getString("student.telephone"),
                         rs.getDate("student.dob"),
                         rs.getString("student.gender"),
-                        rs.getInt("postgraduate.year_of_completion"),
-                        rs.getString("postgraduate.institute"),
-                        rs.getString("postgraduate.qualification_type")
+                        new AlResult(
+                                rs.getString("al_result.sub1"),
+                                rs.getString("al_result.sub2"),
+                                rs.getString("al_result.sub2")
+                        ),
+                        rs.getInt("undergraduate.rank"),
+                        rs.getDouble("undergraduate.z_score")
                 ));
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new SQLException("Cannot load the table.!");
         }
     }
+
 }

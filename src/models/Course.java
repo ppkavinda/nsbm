@@ -1,6 +1,7 @@
 package models;
 
 import db.DBConnection;
+import db.DbSingleton;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -17,7 +18,9 @@ public class Course {
     private final SimpleStringProperty type = new SimpleStringProperty("");
     private final SimpleStringProperty name = new SimpleStringProperty("");
 
-    private DBConnection conn = new DBConnection();
+//    private DBConnection conn = new DBConnection();
+    private DbSingleton conn = DbSingleton.getInstance();
+
     private PreparedStatement stmt = null;
 
     public Course () {
@@ -57,7 +60,7 @@ public class Course {
     public void remove (int id) throws SQLException {
         String sql = "DELETE FROM course WHERE `course_id` = ?";
 
-        stmt = conn.connect().prepareStatement(sql);
+        stmt = conn.getConnection().prepareStatement(sql);
         stmt.setInt(1, id);
         stmt.executeUpdate();
 
@@ -70,7 +73,7 @@ public class Course {
             String sql = "UPDATE `course` " +
                     "SET `name` = ?, `duration` = ?, `credit_limit` = ?, `type` = ?, `faculty_id` = ? " +
                     "WHERE `course`.`course_id` = ?";
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.getConnection().prepareStatement(sql);
             stmt.setString(1, name);
             stmt.setInt(2, duration);
             stmt.setInt(3, credit_limit);
@@ -90,7 +93,7 @@ public class Course {
             String sql = "INSERT INTO `course` (`name`, `duration`, `credit_limit`, `type`, `faculty_id`) " +
                     "" +
                     "VALUES (?, ?, ?, ?, ?);";
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.getConnection().prepareStatement(sql);
             stmt.setString(1, name);
             stmt.setInt(2, duration);
             stmt.setInt(3, credit_limit);
@@ -110,7 +113,7 @@ public class Course {
 
         try {
             String sql = "SELECT * FROM course INNER JOIN `faculty` ON faculty.faculty_id = course.faculty_id";
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.getConnection().prepareStatement(sql);
             System.out.println(sql);
 
             return stmt.executeQuery();
@@ -126,7 +129,7 @@ public class Course {
     public ResultSet get (int courseId) {
         try {
             String sql = "SELECT * FROM course WHERE course_id = ?";
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.getConnection().prepareStatement(sql);
             stmt.setInt(1, courseId);
             System.out.println(sql);
 
