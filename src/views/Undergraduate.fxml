@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.collections.*?>
@@ -9,9 +10,9 @@
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 <?import java.lang.String?>
-
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UndergraduateController">
     <children>
         <HBox alignment="CENTER" prefHeight="80.0" prefWidth="1125.0">
@@ -21,7 +22,7 @@
         </HBox>
         <StackPane prefHeight="634.0" prefWidth="1125.0">
             <children>
-                <VBox fx:id="ugList" prefHeight="200.0" prefWidth="100.0">
+                <VBox fx:id="ugList" prefHeight="200.0" prefWidth="100.0" visible="false">
                     <children>
                         <HBox alignment="CENTER" prefHeight="428.0" prefWidth="1125.0">
                             <children>
@@ -95,7 +96,7 @@
                         </HBox>
                     </children>
                 </VBox>
-                <VBox fx:id="ugDetails" alignment="CENTER" prefHeight="621.0" prefWidth="1125.0" visible="false">
+                <VBox fx:id="ugDetails" alignment="CENTER" prefHeight="621.0" prefWidth="1125.0">
                     <children>
                         <HBox alignment="CENTER" prefHeight="476.0" prefWidth="1125.0">
                             <children>
@@ -293,6 +294,7 @@
                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                     </HBox.margin>
                                 </Button>
+                        <Button fx:id="tst" mnemonicParsing="false" onAction="#showTestDialog" text="TsT" />
                             </children>
                         </HBox>
                     </children>

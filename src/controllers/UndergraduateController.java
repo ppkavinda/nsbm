@@ -10,6 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import models.*;
 
 import java.io.IOException;
@@ -74,6 +77,21 @@ public class UndergraduateController implements Initializable {
         }
         faculty.configFacultyBox(facultyBox);
         course.configCourseBox(courseBox);
+    }
+
+    @FXML
+    private Stage showTestDialog () throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/UgDetailsForm.fxml"));
+
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(new Scene(loader.load()));
+
+        UgDetailsFormController controller = loader.getController();
+        controller.initData("PrasaD");
+        stage.showAndWait();
+
+        return stage;
     }
 
     @FXML
