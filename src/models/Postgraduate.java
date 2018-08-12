@@ -6,6 +6,7 @@ import db.DbSingleton;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,8 +17,9 @@ public class Postgraduate extends Student {
     private final SimpleStringProperty institute = new SimpleStringProperty("");
     private final SimpleStringProperty qualification_type = new SimpleStringProperty("");
 
+    private Connection conn = DbSingleton.getInstance().getConnection();
     private PreparedStatement stmt;
-private DbSingleton conn = DbSingleton.getInstance();
+
     public Postgraduate () {
         super();
     }
@@ -33,7 +35,7 @@ private DbSingleton conn = DbSingleton.getInstance();
         String sql = "DELETE FROM `users` WHERE `users`.`user_id` = ?";
 
         try {
-            stmt = conn.getConnection().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
             stmt.executeUpdate();
 
@@ -51,7 +53,7 @@ private DbSingleton conn = DbSingleton.getInstance();
                 "WHERE `postgraduate`.`student_id` = ?;";
 
         try {
-            stmt = conn.getConnection().prepareStatement(sql1);
+            stmt = conn.prepareStatement(sql1);
             stmt.setString(1, email);
             stmt.setInt(2, user_id);
             stmt.executeUpdate();
@@ -59,7 +61,7 @@ private DbSingleton conn = DbSingleton.getInstance();
 
             super.update(email, fname, lname, address1, address2, telephone, dob, gender, fac_id, course_id, user_id);
 
-            stmt = conn.getConnection().prepareStatement(sql2);
+            stmt = conn.prepareStatement(sql2);
             stmt.setString(1, qualification_type);
             stmt.setString(2, institute);
             stmt.setInt(3, year_of_completion);
@@ -78,7 +80,7 @@ private DbSingleton conn = DbSingleton.getInstance();
 
         long student_id;
         try {
-            stmt = conn.getConnection().prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
+            stmt = conn.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, password);
             stmt.setString(2, email);
             stmt.setInt(3, role);
@@ -100,7 +102,7 @@ private DbSingleton conn = DbSingleton.getInstance();
 
             super.add((int) student_id, email, password, fname, lname, address1, address2, telephone, dob, gender, fac_id, course_id);
 
-            stmt = conn.getConnection().prepareStatement(sql3);
+            stmt = conn.prepareStatement(sql3);
             stmt.setInt(1, (int) student_id);
             stmt.setString(2, qualification_type);
             stmt.setString(3, institute);
@@ -123,7 +125,7 @@ private DbSingleton conn = DbSingleton.getInstance();
                 "AND student.course_id = course.course_id " +
                 "ORDER BY postgraduate.student_id";
         try {
-            stmt = conn.getConnection().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             return stmt.executeQuery();
 
         } catch (SQLException e) {

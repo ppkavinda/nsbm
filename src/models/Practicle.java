@@ -1,11 +1,13 @@
 package models;
 
 import db.DBConnection;
+import db.DbSingleton;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +20,7 @@ public class Practicle {
     private final SimpleStringProperty start_time= new SimpleStringProperty("");
     private final SimpleStringProperty end_time= new SimpleStringProperty("");
 
-    private DBConnection conn = new DBConnection();
+    private Connection conn = DbSingleton.getInstance().getConnection();
     private PreparedStatement stmt;
 
     public Practicle () {
@@ -37,7 +39,7 @@ public class Practicle {
         String sql = "DELETE FROM `practicle` WHERE `practicle`.`practicle_id` = ?";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, lec_id);
             stmt.executeUpdate();
 
@@ -51,7 +53,7 @@ public class Practicle {
         String sql = "UPDATE `practicle` SET `start_time` = ?, `end_time` = ?, `lab` = ?, subject_code = ? WHERE `practicle`.`practicle_id` = ?;";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setString(1, start_time);
             stmt.setString(2, end_time);
             stmt.setInt(3, lab);
@@ -68,7 +70,7 @@ public class Practicle {
         String sql = "INSERT INTO `practicle` (`practicle_id`, `start_time`, `end_time`, `lab`, `subject_code`) VALUES (NULL, ?, ?, ?, ?);";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setString(1, start_time);
             stmt.setString(2, end_time);
             stmt.setInt(3, lab);
@@ -84,7 +86,7 @@ public class Practicle {
         String sql = "SELECT * FROM `practicle` INNER JOIN lab ON lab.lab_id = practicle.lab INNER JOIN subject ON subject.subject_code = practicle.subject_code";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             return stmt.executeQuery();
 
         } catch (SQLException e) {

@@ -2,10 +2,12 @@ package models;
 
 import com.mysql.jdbc.Statement;
 import db.DBConnection;
+import db.DbSingleton;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,9 +17,9 @@ public class Undergraduate extends Student {
     private final SimpleObjectProperty<AlResult> al_result = new SimpleObjectProperty<>(new AlResult());
     private final SimpleIntegerProperty rank = new SimpleIntegerProperty(0);
     private final SimpleDoubleProperty z_score = new SimpleDoubleProperty(.0);
-    PreparedStatement stmt;
 
-    DBConnection conn = new DBConnection();
+    private Connection conn = DbSingleton.getInstance().getConnection();
+    private PreparedStatement stmt;
 
     public Undergraduate() {
         this(new AlResult(), 0, .0);
@@ -42,7 +44,7 @@ public class Undergraduate extends Student {
         String sql = "DELETE FROM `users` WHERE `users`.`user_id` = ?";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
             stmt.executeUpdate();
 
@@ -65,13 +67,13 @@ public class Undergraduate extends Student {
         String sql4 = "UPDATE `al_result` SET `sub1` = ?, `sub2` =?, `sub3` = ? WHERE `al_result`.`student_id` = ?;";
 
         try {
-            stmt = conn.connect().prepareStatement(sql1);
+            stmt = conn.prepareStatement(sql1);
             stmt.setString(1, email);
             stmt.setInt(2, user_id);
             stmt.executeUpdate();
             stmt.close();
 
-            stmt = conn.connect().prepareStatement(sql2);
+            stmt = conn.prepareStatement(sql2);
             stmt.setString(1, fname);
             stmt.setString(2, lname);
             stmt.setString(3, email);
@@ -86,14 +88,14 @@ public class Undergraduate extends Student {
             stmt.executeUpdate();
             stmt.close();
 
-            stmt = conn.connect().prepareStatement(sql3);
+            stmt = conn.prepareStatement(sql3);
             stmt.setString(1, rank);
             stmt.setDouble(2, z_score);
             stmt.setInt(3, user_id);
             stmt.executeUpdate();
             stmt.close();
 
-            stmt = conn.connect().prepareStatement(sql4);
+            stmt = conn.prepareStatement(sql4);
             stmt.setString(1, sub1);
             stmt.setString(2, sub2);
             stmt.setString(3, sub3);
@@ -116,7 +118,7 @@ public class Undergraduate extends Student {
 
         long student_id;
         try {
-            stmt = conn.connect().prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
+            stmt = conn.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, password);
             stmt.setString(2, email);
             stmt.setInt(3, role);
@@ -138,13 +140,13 @@ public class Undergraduate extends Student {
 
             super.add((int) student_id, email, password, fname, lname, address1, address2, telephone, dob, gender, fac_id, course_id);
 
-            stmt = conn.connect().prepareStatement(sql3);
+            stmt = conn.prepareStatement(sql3);
             stmt.setInt(1, (int) student_id);
             stmt.setString(2, rank);
             stmt.setDouble(3, z_score);
             stmt.executeUpdate();
 
-            stmt = conn.connect().prepareStatement(sql4);
+            stmt = conn.prepareStatement(sql4);
             stmt.setInt(1, (int) student_id);
             stmt.setString(2, sub1);
             stmt.setString(3, sub2);
@@ -166,7 +168,7 @@ public class Undergraduate extends Student {
                 "AND student.course_id = course.course_id " +
                 "AND undergraduate.student_id = al_result.student_id ORDER BY undergraduate.student_id";
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             return stmt.executeQuery();
 
         } catch (SQLException e) {

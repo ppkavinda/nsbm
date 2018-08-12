@@ -1,10 +1,12 @@
 package models;
 
 import db.DBConnection;
+import db.DbSingleton;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +20,7 @@ public class Test {
     private final SimpleStringProperty start_time = new SimpleStringProperty("");
     private final SimpleStringProperty end_time = new SimpleStringProperty("");
 
-    private DBConnection conn = new DBConnection();
+    private Connection conn = DbSingleton.getInstance().getConnection();
     private PreparedStatement stmt;
 
     public Test() {
@@ -38,7 +40,7 @@ public class Test {
         String sql =   "DELETE FROM `test` WHERE `test`.`test_id` = ?";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
             stmt.executeUpdate();
             System.out.println("deleted" + sql);
@@ -54,7 +56,7 @@ public class Test {
                 " WHERE `test`.`test_id` = ?;";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setDate(1, (java.sql.Date) date);
             stmt.setString(2, start_time);
             stmt.setString(3, end_time);
@@ -74,7 +76,7 @@ public class Test {
         String sql = "INSERT INTO `test` (`date`, `start_time`, `end_time`, `subject_code`, `type`) " +
                 "VALUES (?, ?, ?, ?, ?);";
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setDate(1, (java.sql.Date) date);
             stmt.setString(2, start_time);
             stmt.setString(3, end_time);
@@ -94,7 +96,7 @@ public class Test {
                 "INNER JOIN subject ON test.subject_code = subject.subject_code;";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             return stmt.executeQuery();
 
         } catch (SQLException e) {

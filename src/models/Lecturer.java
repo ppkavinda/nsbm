@@ -2,9 +2,11 @@ package models;
 
 import com.mysql.jdbc.Statement;
 import db.DBConnection;
+import db.DbSingleton;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,8 +20,8 @@ public class Lecturer {
     private final SimpleStringProperty email = new SimpleStringProperty("");
     private final SimpleStringProperty gender = new SimpleStringProperty("");
 
+    private Connection conn = DbSingleton.getInstance().getConnection();
     private PreparedStatement stmt;
-    private DBConnection conn = new DBConnection();
 
 //    CONSTRUCTORS  GETTERS SETTERS
 
@@ -39,7 +41,7 @@ public class Lecturer {
         String sql = "DELETE FROM `lecturer_subject` WHERE `lecturer_subject`.`staff_id` = ? AND `lecturer_subject`.`lec_id` = ?";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, staff_id);
             stmt.setInt(2, lecture_id);
             stmt.executeUpdate();
@@ -53,7 +55,7 @@ public class Lecturer {
         String sql = "DELETE FROM `users` WHERE `users`.`user_id` = ?";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, lecturer_id);
             stmt.executeUpdate();
             stmt.close();
@@ -67,7 +69,7 @@ public class Lecturer {
         String sql = "UPDATE `lecturer` SET `fname` = ?, `lname` = ?, `email` = ?, `gender` = ? WHERE `lecturer`.`lecturer_id` = ?;";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setString(1, fname);
             stmt.setString(2, lname);
             stmt.setString(3 ,email);
@@ -84,7 +86,7 @@ public class Lecturer {
     public void addLecture (int staff_id, int lec_id) throws SQLException {
         String sql = "INSERT INTO `lecturer_subject` (`staff_id`, `lec_id`) VALUES (?, ?);";
 
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(2, lec_id);
             stmt.setInt(1, staff_id);
             stmt.executeUpdate();
@@ -98,7 +100,7 @@ public class Lecturer {
 
         long lecture_id = 0;
         try {
-            stmt = conn.connect().prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
+            stmt = conn.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, password);
             stmt.setInt(3, role);
             stmt.setString(2, email);
@@ -118,7 +120,7 @@ public class Lecturer {
             }
             stmt.close();
 
-            stmt = conn.connect().prepareStatement(sql2);
+            stmt = conn.prepareStatement(sql2);
             stmt.setInt(1, (int) lecture_id);
             stmt.setString(2, fname);
             stmt.setString(3, lname);
@@ -142,7 +144,7 @@ public class Lecturer {
                 "AND lecturer_subject.staff_id != ?";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, staff_id);
             return stmt.executeQuery();
 
@@ -162,7 +164,7 @@ public class Lecturer {
         System.out.println(sql);
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, staff_id);
             return stmt.executeQuery();
 
@@ -178,7 +180,7 @@ public class Lecturer {
         String sql = "SELECT * FROM `lecturer`";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             return stmt.executeQuery();
 
         } catch (SQLException e) {

@@ -5,6 +5,7 @@ import db.DbSingleton;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +16,7 @@ public class Lab {
 
     private PreparedStatement stmt;
 
-    private DbSingleton conn = DbSingleton.getInstance();
+    private Connection conn = DbSingleton.getInstance().getConnection();
 
     public Lab () {
         this(0, "");
@@ -31,7 +32,7 @@ public class Lab {
 
         try {
             System.out.println(sql);
-            stmt = conn.getConnection().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
 
             stmt.executeUpdate();
@@ -46,7 +47,7 @@ public class Lab {
         String sql = "UPDATE `lab` SET `name` = ? WHERE `lab`.`lab_id` = ?;";
 
         try {
-            stmt = conn.getConnection().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setString(1, name);
             stmt.setInt(2, id);
             stmt.executeUpdate();
@@ -61,7 +62,7 @@ public class Lab {
         String sql = "INSERT INTO `lab` (`name`) VALUES (?);";
 
         try {
-            stmt = conn.getConnection().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setString(1, name);
             stmt.executeUpdate();
             System.out.println(sql);
@@ -75,7 +76,7 @@ public class Lab {
         String sql = "SELECT * FROM lab ";
 
         try {
-            stmt = conn.getConnection().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             System.out.println(sql);       // TODO: 6/7/2018 remove
             return rs;

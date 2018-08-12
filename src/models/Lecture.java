@@ -1,10 +1,12 @@
 package models;
 
 import db.DBConnection;
+import db.DbSingleton;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +20,7 @@ public class Lecture {
     private final SimpleStringProperty start_time = new SimpleStringProperty("");
     private final SimpleStringProperty end_time = new SimpleStringProperty("");
 
-    private DBConnection conn = new DBConnection();
+    private Connection conn = DbSingleton.getInstance().getConnection();
     PreparedStatement stmt;
 
     public Lecture () { this (0, new LecHall(), new Subject(), "", "");}
@@ -35,7 +37,7 @@ public class Lecture {
         String sql = "DELETE FROM `lecture` WHERE `lecture`.`lecture_id` = ?";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, lec_id);
             stmt.executeUpdate();
 
@@ -48,7 +50,7 @@ public class Lecture {
         String sql = "UPDATE `lecture` SET `start_time` = ?, `end_time` = ?, `hall_id` = ?, subject_code = ? WHERE `lecture`.`lecture_id` = ?;";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setString(1, start_time);
             stmt.setInt(3, hall_id);
             stmt.setString(2, end_time);
@@ -65,7 +67,7 @@ public class Lecture {
         String sql = "INSERT INTO `lecture` (`lecture_id`, `start_time`, `end_time`, `hall_id`, `subject_code`) VALUES (NULL, ?, ?, ?, ?);";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setString(1, start_time);
             stmt.setString(2, end_time);
             stmt.setInt(4, subject_code);
@@ -81,7 +83,7 @@ public class Lecture {
         String sql = "SELECT * FROM `lecture` INNER JOIN lec_hall ON lec_hall.hall_id = lecture.hall_id INNER JOIN subject ON subject.subject_code = lecture.subject_code";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             return stmt.executeQuery();
 
         } catch (SQLException e) {

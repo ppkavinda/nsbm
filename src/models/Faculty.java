@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +19,7 @@ public class Faculty {
 
     private PreparedStatement stmt = null;
 
-    private DbSingleton conn = DbSingleton.getInstance();
+    private Connection conn = DbSingleton.getInstance().getConnection();
 
     public Faculty () {
         this(0, "");
@@ -50,7 +51,7 @@ public class Faculty {
     public void remove (int id) throws SQLException {
         String sql = "DELETE FROM faculty WHERE `faculty_id` = ?";
 
-        stmt = conn.getConnection().prepareStatement(sql);
+        stmt = conn.prepareStatement(sql);
         stmt.setInt(1, id);
         stmt.executeUpdate();
 
@@ -61,7 +62,7 @@ public class Faculty {
         String sql = "SELECT * FROM faculty";
 
         try {
-            stmt = conn.getConnection().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             return stmt.executeQuery();
 
         } catch (SQLException e) {
@@ -76,7 +77,7 @@ public class Faculty {
 
         try {
             System.out.println("SQL" + sql);
-            stmt = conn.getConnection().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             return stmt.executeQuery();
 
         } catch (SQLException e) {
@@ -89,7 +90,7 @@ public class Faculty {
         String sql = "INSERT INTO faculty (`name`) VALUES (?); ";
         try {
             System.out.println(sql + " " + name);
-            stmt = conn.getConnection().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setString(1, name);
             stmt.executeUpdate();
 
@@ -103,7 +104,7 @@ public class Faculty {
         String sql = "UPDATE faculty SET `name` = ? WHERE `faculty_id` = ?";
         try {
             System.out.println(sql + " " + name);
-            stmt = conn.getConnection().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setString(1, name);
             stmt.setInt(2, id);
             stmt.executeUpdate();

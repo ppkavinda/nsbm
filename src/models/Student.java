@@ -2,10 +2,12 @@ package models;
 
 import com.mysql.jdbc.Statement;
 import db.DBConnection;
+import db.DbSingleton;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,7 +27,7 @@ public class Student {
     private final SimpleObjectProperty<Date> dob = new SimpleObjectProperty<>(new Date());
     private final SimpleStringProperty gender = new SimpleStringProperty("");
 
-    private DBConnection conn = new DBConnection();
+    private Connection conn = DbSingleton.getInstance().getConnection();
     private PreparedStatement stmt;
 
     public Student () {
@@ -63,7 +65,7 @@ public class Student {
                 "WHERE subject.type = ? AND subject.compulsory = 1";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, student_id);
             stmt.setString(2, subType);
             return stmt.executeQuery();
@@ -79,7 +81,7 @@ public class Student {
         String sql = "INSERT INTO `student_subject` (`student_id`, `subject_code`) VALUES (?, ?);";
         System.out.println(sub_id + " " + student_id);
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, student_id);
             stmt.setInt(2, sub_id);
             stmt.executeUpdate();
@@ -96,7 +98,7 @@ public class Student {
                 "`telephone` = ?, `dob` = ?, `gender` = ?, `fac_id` = ?, `course_id` = ? WHERE `student`.`student_id` = ?;";
 
         try {
-            stmt = conn.connect().prepareStatement(sql2);
+            stmt = conn.prepareStatement(sql2);
             stmt.setString(1, fname);
             stmt.setString(2, lname);
             stmt.setString(3, email);
@@ -121,7 +123,7 @@ public class Student {
                 " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         try {
-            stmt = conn.connect().prepareStatement(sql2, Statement.RETURN_GENERATED_KEYS);
+            stmt = conn.prepareStatement(sql2, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, student_id);
             stmt.setString(2, fname);
             stmt.setString(3, lname);

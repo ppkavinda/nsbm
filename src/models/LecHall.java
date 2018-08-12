@@ -1,9 +1,11 @@
 package models;
 
 import db.DBConnection;
+import db.DbSingleton;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +14,7 @@ public class LecHall {
     private final SimpleIntegerProperty hall_id = new SimpleIntegerProperty(0);
     private final SimpleStringProperty name = new SimpleStringProperty("");
 
-    DBConnection conn = new DBConnection();
+    private Connection conn = DbSingleton.getInstance().getConnection();
     PreparedStatement stmt;
 
     public LecHall() {
@@ -28,7 +30,7 @@ public class LecHall {
         String sql = "DELETE FROM `lec_hall` WHERE `hall_id` = ?";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
 
             stmt.setInt(1, hall_id);
             stmt.executeUpdate();
@@ -43,7 +45,7 @@ public class LecHall {
         String sql = "UPDATE `lec_hall` SET `name` = ? WHERE `hall_id` = ?";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(2, hall_id);
             stmt.setString(1, name);
 
@@ -59,7 +61,7 @@ public class LecHall {
         String sql = "INSERT INTO `lec_hall` (`name`) VALUES (?);";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setString(1, name);
             System.out.println(sql);    // todo Remove this line
             stmt.executeUpdate();
@@ -73,7 +75,7 @@ public class LecHall {
         String sql = "SELECT * FROM lec_hall";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             System.out.println(sql);    // todo Remove this line
             return stmt.executeQuery();
 

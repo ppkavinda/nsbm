@@ -1,6 +1,7 @@
 package models;
 
 import db.DBConnection;
+import db.DbSingleton;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -9,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,7 +26,7 @@ public class Subject {
     private final SimpleObjectProperty<Course> cou = new SimpleObjectProperty<>(new Course());
 
     private PreparedStatement stmt;
-    private DBConnection conn = new DBConnection();
+    private Connection conn = DbSingleton.getInstance().getConnection();
 
     public Subject () {
         this(0, 0, new Course(), 0, "", .00, 0, "");
@@ -73,7 +75,7 @@ public class Subject {
         String sql = "DELETE FROM subject WHERE subject_code = ?";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, subject_id);
             stmt.executeUpdate();
 
@@ -90,7 +92,7 @@ public class Subject {
                 "WHERE `subject`.`subject_code` = ?;";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, subject_code);
             stmt.setString(2, name);
             stmt.setInt(3, credits);
@@ -112,7 +114,7 @@ public class Subject {
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, subject_code);
             stmt.setString(2, name);
             stmt.setInt(3, credits);
@@ -133,7 +135,7 @@ public class Subject {
         String sql = "SELECT * FROM `subject` INNER JOIN nsbm_test.course ON subject.course_id = course.course_id ORDER BY subject_code";
 
         try {
-            stmt = conn.connect().prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             System.out.println(sql);
             return stmt.executeQuery();
 
