@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
@@ -8,19 +9,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="881.0" prefWidth="1058.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UgDetailsFormController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label fx:id="labl" text="Label" />
+            <Text fx:id="titleLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Undergraduates" />
          </children>
       </HBox>
       <HBox prefHeight="752.0" prefWidth="1058.0">
          <children>
             <VBox fx:id="ugDetails" alignment="CENTER" prefHeight="621.0" prefWidth="1125.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="476.0" prefWidth="1125.0">
+                  <HBox alignment="CENTER" prefHeight="600.0" prefWidth="1058.0">
                      <children>
                         <GridPane alignment="CENTER" prefHeight="241.0" prefWidth="421.0">
                            <children>
@@ -203,19 +203,14 @@
                         </GridPane>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="58.0" prefWidth="1244.0">
+                  <HBox alignment="CENTER" prefHeight="112.0" prefWidth="1058.0">
                      <children>
-                        <!--<Button fx:id="selectSubjectsButton" mnemonicParsing="false" onAction="#selectSubjectButtonClicked" text="Select Subjects" />-->
-                        <!--<Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveButtonClicked" text="Save">-->
-                           <!--<HBox.margin>-->
-                              <!--<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />-->
-                           <!--</HBox.margin>-->
-                        <!--</Button>-->
-                        <!--<Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonClicked" text="Cancel">-->
-                           <!--<HBox.margin>-->
-                              <!--<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />-->
-                           <!--</HBox.margin>-->
-                        <!--</Button>-->
+                        <Button fx:id="selectSubjectsButton" mnemonicParsing="false" onAction="#selectSubjectButtonClicked" text="Register and Select Subjects" />
+                        <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonClicked" text="Cancel">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
                      </children>
                   </HBox>
                </children>

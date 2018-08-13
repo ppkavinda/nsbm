@@ -57,7 +57,7 @@ public class Undergraduate extends Student {
 
 //    CONSTRUCTORS, GETTERS & SETTERS
 
-    public void update(String email, String fname, String lname, String address1, String address2,
+    public int update(String email, String fname, String lname, String address1, String address2,
                        String telephone, Date dob, String gender, int fac_id, int course_id, String rank, Double z_score, String sub1,
                        String sub2, String sub3, int user_id) throws SQLException {
         String sql1 = "UPDATE `users` SET `email` = ? WHERE `users`.`user_id` = ?;";
@@ -107,9 +107,10 @@ public class Undergraduate extends Student {
             e.printStackTrace();
             throw new SQLException("Cannot update Undergraduate!");
         }
+        return user_id;
     }
 
-    public int add(String email, String password, int role, String fname, String lname, String address1, String address2,
+    public int  add(String email, String password, int role, String fname, String lname, String address1, String address2,
                     String telephone, Date dob, String gender, int fac_id, int course_id, String rank, Double z_score, String sub1,
                     String sub2, String sub3) throws SQLException {
         String sql1 = "INSERT INTO `users` (`password`, `email`, `role`) VALUES (?, ?, ?);";
@@ -137,14 +138,18 @@ public class Undergraduate extends Student {
                 }
             }
             stmt.close();
+            System.out.println("User REGISTERED 1");
 
             super.add((int) student_id, email, password, fname, lname, address1, address2, telephone, dob, gender, fac_id, course_id);
+            System.out.println("Student REGISTered 1");
 
             stmt = conn.prepareStatement(sql3);
             stmt.setInt(1, (int) student_id);
             stmt.setString(2, rank);
             stmt.setDouble(3, z_score);
             stmt.executeUpdate();
+            stmt.close();
+            System.out.println("UG registered 2");
 
             stmt = conn.prepareStatement(sql4);
             stmt.setInt(1, (int) student_id);
@@ -153,7 +158,7 @@ public class Undergraduate extends Student {
             stmt.setString(4, sub3);
             stmt.executeUpdate();
             stmt.close();
-
+            System.out.println("al result registered");
         } catch (SQLException e) {
             e.printStackTrace();
             throw new SQLException("Cannot register Undergraduate!");

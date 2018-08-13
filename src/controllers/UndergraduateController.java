@@ -1,7 +1,5 @@
 package controllers;
 
-import helpers.MD5;
-import helpers.Validate;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +16,6 @@ import models.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
@@ -75,23 +72,7 @@ public class UndergraduateController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
         }
-        faculty.configFacultyBox(facultyBox);
-        course.configCourseBox(courseBox);
-    }
 
-    @FXML
-    private Stage showTestDialog () throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/UgDetailsForm.fxml"));
-
-        Stage stage = new Stage(StageStyle.DECORATED);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(new Scene(loader.load()));
-
-        UgDetailsFormController controller = loader.getController();
-        controller.initData("PrasaD");
-        stage.showAndWait();
-
-        return stage;
     }
 
     @FXML
@@ -101,30 +82,7 @@ public class UndergraduateController implements Initializable {
         scene.setRoot(root);
     }
 
-    //    SUBJECT SELECT VIEW ************************
-    @FXML
-    private void registerButtonClicked() {
-//        if credits not enough: display error msg
-        if (Integer.valueOf(sem1CreditsLabel.getText()) > 30 && Integer.valueOf(sem2CreditsLabel.getText()) > 30) {
-            errorLabel.setText("Error: Not Enough credits for Semester");
-        } else {
-            ObservableList<Subject> data = sem1SubList.getItems();
-            ObservableList<Subject> data2 = sem2SubList.getItems();
-//            insert UG into DB
-            try {
-                int sid = saveButtonClicked();
-//            insert subject into table
-                data2.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
-                data.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
 
-            } catch (SQLException |NullPointerException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input. Please fill all fields correctly!", ButtonType.OK);
-                alert.showAndWait();
-            }
-
-            data.forEach(sub -> System.out.println(sub.getName()));
-        }
-    }
 
     @FXML   // remove selected subject form sem1 list View
     private void sem1RemoveButtonClicked() {
@@ -166,34 +124,8 @@ public class UndergraduateController implements Initializable {
     }
 
     @FXML
-    private int saveButtonClicked() throws SQLException, NullPointerException {
-        if (addButtonClick == 1) {
-//            add button clicked. so add new UG
-            System.out.println("addButtonClick");
-            return addUg();
-
-        } else {
-            try {
-//            edit button clicked. so edit selected UG
-                editUg();
-            } catch (SQLException | NullPointerException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
-                alert.showAndWait();
-            }
-            System.out.println("editButton");
-        }
-        return 0;
-    }
-
-    @FXML
     private Undergraduate getSelectedRow() {
         return ugTable.getSelectionModel().getSelectedItem();
-    }
-
-    @FXML
-    private void cancelButtonClicked() {
-        System.out.println("Cancel Button Clicked");
-        toList();
     }
 
     //    TABLE VIEW ******************
@@ -214,30 +146,44 @@ public class UndergraduateController implements Initializable {
     @FXML
     private void editButtonClicked() {
         System.out.println("Edit Button Clicked");
-        try {
-            setInputs(getSelectedRow());
-            addButtonClick = 0;
-            saveButton.setVisible(true);
-            passwordField.setDisable(true);
-            subRegisterButton.setVisible(false);
-            selectSubjectsButton.setText("Selected Subjects");
-            toDetails();
-
-        } catch (NullPointerException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+        Undergraduate ug = getSelectedRow();
+        if (ug == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a Student", ButtonType.OK);
             alert.showAndWait();
+        } else {
+            showDetailsDialog(ug);
         }
     }
 
     @FXML
     private void addButtonClicked() {
         System.out.println("Add Button Clicked");
-        passwordField.setDisable(false);
-        subRegisterButton.setVisible(true);
-        saveButton.setVisible(false);
-        addButtonClick = 1;
-        selectSubjectsButton.setText("Select Subjects");
-        toDetails();
+        showDetailsDialog(null);   // null,  because it is a new student registration
+    }
+
+//    when add button clicked - open up a dialog box with a form to register students
+    private void showDetailsDialog(Undergraduate ug) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/UgDetailsForm.fxml"));
+
+        Stage stage = new Stage(StageStyle.DECORATED);
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        try {
+            Scene scene = new Scene(loader.load());
+            scene.getStylesheets().add(getClass().getResource("/assets/css/login.css").toExternalForm());
+            stage.setScene(scene);
+
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+        }
+
+//      calling the setup method of the controller of dialog box FXML
+        UgDetailsFormController controller = loader.getController();
+        System.out.println(ug);
+        controller.initData(ug);
+        stage.showAndWait();
+
     }
 
     // GO TO THE SUBJECT SELECT VIEW
@@ -249,100 +195,11 @@ public class UndergraduateController implements Initializable {
         selectSubView.setVisible(true);
     }
 
-    // GO TO THE STUDENTS TABLEvIEW
-    private void toList() {
-        ugDetails.setVisible(false);
-        ugt.refreshTable(ugTable);
-        selectSubView.setVisible(false);
-        ugDetails.toBack();
-        ugList.setVisible(true);
-        ugList.toFront();
-        clearInputs();
-    }
-
     // GOT TO THE DETAILS PANEL ADD EDIT STUDENTS
     private void toDetails() {
         selectSubView.setVisible(false);
         ugList.setVisible(false);
         ugDetails.setVisible(true);
         ugDetails.toFront();
-    }
-
-    private void editUg() throws SQLException, NullPointerException {
-        Validate.validateTf(new TextField [] {emailField, fnameField, lnameField, addressField1, addressField2, teleField, sub1Field, sub2Field, sub3Field});
-        ug.update(
-                emailField.getText(),
-                fnameField.getText(),
-                lnameField.getText(),
-                addressField1.getText(),
-                addressField2.getText(),
-                teleField.getText(),
-                java.sql.Date.valueOf(dobField.getValue()),
-                genderBox.getSelectionModel().getSelectedItem(),
-                facultyBox.getSelectionModel().getSelectedItem().getFaculty_id(),
-                courseBox.getSelectionModel().getSelectedItem().getCourse_id(),
-                rankField.getText(),
-                Double.valueOf(zscoreField.getText()),
-                sub1Field.getText(),
-                sub2Field.getText(),
-                sub3Field.getText(),
-                getSelectedRow().getStudent_id()
-        );
-
-        toList();
-    }
-
-    private int addUg() throws SQLException, NullPointerException {
-        Validate.validateTf(new TextField [] {emailField, fnameField, lnameField, addressField1, addressField2, teleField, sub1Field, sub2Field, sub3Field});
-        int stid = ug.add(
-                emailField.getText(),
-                MD5.getHash(passwordField.getText()),
-                4,
-                fnameField.getText(),
-                lnameField.getText(),
-                addressField1.getText(),
-                addressField2.getText(),
-                teleField.getText(),
-                java.sql.Date.valueOf(dobField.getValue()),
-                genderBox.getSelectionModel().getSelectedItem(),
-                facultyBox.getSelectionModel().getSelectedItem().getFaculty_id(),
-                courseBox.getSelectionModel().getSelectedItem().getCourse_id(),
-                rankField.getText(),
-                Double.valueOf(zscoreField.getText()),
-                sub1Field.getText(),
-                sub2Field.getText(),
-                sub3Field.getText()
-        );
-        toList();
-        return stid;
-
-    }
-
-    private void clearInputs() {
-        setInputs(new Undergraduate());
-    }
-
-    private void setInputs(Undergraduate ug) throws NullPointerException {
-        if (ug == null) {
-            throw new NullPointerException("Please select a student");
-        } else {
-            System.out.println(ug.getRank());
-            emailField.setText(ug.getEmail());
-            passwordField.setText(null);
-            fnameField.setText(ug.getFname());
-            lnameField.setText(ug.getLname());
-            addressField1.setText(ug.getAddress1());
-            addressField2.setText(ug.getAddress2());
-            teleField.setText(String.valueOf(ug.getTpno()));
-            dobField.setValue(LocalDate.parse(ug.getDob().toString(), dtf));
-            genderBox.getSelectionModel().select(ug.getGender());
-            facultyBox.getSelectionModel().select(ug.getFaculty());
-            courseBox.getSelectionModel().select(ug.getCourse());
-            rankField.setText(String.valueOf(ug.getRank()));
-            zscoreField.setText(String.valueOf(ug.getZ_score()));
-            sub1Field.setText(ug.getAl_result().getSub1());
-            sub2Field.setText(ug.getAl_result().getSub2());
-            sub3Field.setText(ug.getAl_result().getSub3());
-        }
     }
 }
