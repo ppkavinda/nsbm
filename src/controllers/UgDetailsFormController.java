@@ -58,10 +58,10 @@ public class UgDetailsFormController implements Initializable {
     @FXML private VBox sem1SubDetails;
     @FXML private Label labl;
 
-
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private boolean addButtonClicked;
     private Undergraduate ug;
+    private UgSubDetails ugSubDetails = new UgSubDetails();
     private Faculty faculty = new Faculty();
     private Course course = new Course();
 
@@ -71,6 +71,7 @@ public class UgDetailsFormController implements Initializable {
         course.configCourseBox(courseBox);
     }
 
+//    get the selected student data from the table
     void initData (Undergraduate ug) {
         if (ug == null) {
             this.ug = new Undergraduate();
@@ -79,63 +80,50 @@ public class UgDetailsFormController implements Initializable {
             this.ug = ug;
             addButtonClicked = false;
             setInputs(ug);
-            System.out.println(ug.getStudent_id());
+            passwordField.setDisable(true);
         }
     }
 
+//    cancel all and close Dialog box
     @FXML
     private void cancelButtonClicked(ActionEvent actionEvent) {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
     }
 
+//  save student to DB and goto the subject-select-section
     @FXML
     private void selectSubjectButtonClicked(ActionEvent actionEvent) {
         // Register new Student or Save existing student
         try {
-            saveStudent();
+            this.ug.setStudent_id(saveStudent());
+
+            // insert SELECTED subjects into the subject ListViews
+            ugSubDetails.configSubList(sem1SubList, sem2SubList, ug.getSelectedSubs(ug.getStudent_id()));
+
+            // insert Subjects into SELECTABLE subjects into the ComboBoxes
+            ugSubDetails.configSubBox(sem1SubBox, sem2SubBox, ug.getSelectableSubjects(ug.getStudent_id()));
+
+            // goto the subject-select-section
+            ugDetails.setVisible(false);
+            selectSubView.setVisible(true);
+            selectSubView.toFront();
+
         } catch (SQLException | NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             e.printStackTrace();
             alert.showAndWait();
         }
-
-        // goto the subject-select-section
-
-    }
-    //    SUBJECT SELECT VIEW ************************
-    @FXML
-    private void registerButtonClicked() {
-//        if credits not enough: display error msg
-        if (Integer.valueOf(sem1CreditsLabel.getText()) > 30 && Integer.valueOf(sem2CreditsLabel.getText()) > 30) {
-            errorLabel.setText("Error: Not Enough credits for Semester");
-        } else {
-            ObservableList<Subject> data = sem1SubList.getItems();
-            ObservableList<Subject> data2 = sem2SubList.getItems();
-//            insert UG into DB
-            try {
-                int sid = saveStudent();
-//            insert subject into table
-//                data2.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
-//                data.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
-
-            } catch (NullPointerException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input. Please fill all fields correctly!", ButtonType.OK);
-                alert.showAndWait();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
-            data.forEach(sub -> System.out.println(sub.getName()));
-        }
     }
 
+//  trigger: add or edit methods according to the addButtonClicked states
     private int saveStudent() throws SQLException {
 
         if (addButtonClicked) {
 //            add button clicked. so add new UG
             System.out.println("addButtonClick");
             int sid =   addUg();
+            addButtonClicked = false;
 
             System.out.println("Undergraduate added!! finally :)");
             return sid;
@@ -149,7 +137,7 @@ public class UgDetailsFormController implements Initializable {
         }
     }
 
-
+//    update Existing Undergraduate
     private int editUg() throws SQLException, NullPointerException {
         Validate.validateTf(new TextField [] {emailField, fnameField, lnameField, addressField1, addressField2, teleField, sub1Field, sub2Field, sub3Field});
         return ug.update(
@@ -173,6 +161,7 @@ public class UgDetailsFormController implements Initializable {
 
     }
 
+//    add new Undergraduate to db
     private int addUg() throws SQLException {
         Validate.validateTf(new TextField[] {emailField, fnameField, lnameField, addressField1, addressField2, teleField, sub1Field, sub2Field, sub3Field});
         System.out.println("validation Done 1");
@@ -226,4 +215,5 @@ public class UgDetailsFormController implements Initializable {
             sub3Field.setText(ug.getAl_result().getSub3());
         }
     }
+
 }

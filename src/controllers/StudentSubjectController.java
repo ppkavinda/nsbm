@@ -47,16 +47,13 @@ public class StudentSubjectController {
     }
 
 //    CLEAR LIST VIEWS AND ADD COMPULSORY SUBJECTS (WHEN ADD BUTTON CLICKED)
-    protected void clearSemList (ListView<Subject> sem1SubList, ListView<Subject> sem2SubList, Text sem1CreditsLabel, Text sem2CreditsLabel, String subType) {
-        configSemList(0, sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, subType);
+    protected void clearSemList (ListView<Subject> sem1SubList, ListView<Subject> sem2SubList, Text sem1CreditsLabel, Text sem2CreditsLabel) {
+        configSemList(0, sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel);
     }
 
 //    INSERT SELECTED SUBJECTS INTO LIST VIEWS (EDIT BUTTON CLICKED)
 
-    /**
-     * @param subType   UG or PG
-     */
-    protected void configSemList (int student_id, ListView<Subject> sem1SubList, ListView<Subject> sem2SubList, Text sem1CreditsLabel, Text sem2CreditsLabel, String subType) {
+    protected void configSemList (int student_id, ListView<Subject> sem1SubList, ListView<Subject> sem2SubList, Text sem1CreditsLabel, Text sem2CreditsLabel) {
         int totalSem1Credits = 0;
         int totalSem2Credits = 0;
         ObservableList<Subject> sem1List = sem1SubList.getItems();
@@ -64,7 +61,7 @@ public class StudentSubjectController {
         sem1List.clear();
         sem2List.clear();
 
-        ResultSet rs = ug.getSubjects(student_id, subType);
+        ResultSet rs = ug.getSelectableSubjects(student_id);
 
         try {
             while (rs.next()) {

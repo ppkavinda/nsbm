@@ -133,13 +133,13 @@ public class PostgraduateController implements Initializable {
     //            add button clicked. so add a new UG
             sem1SubDetails.setDisable(false);
             sem2SubDetails.setDisable(false);
-            pgs.clearSemList(sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, "PG");
+//            pgs.clearSemList(sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, "PG");
 
         } else {
     //            edit button clicked. so edit selected UG
             sem1SubDetails.setDisable(true);
             sem2SubDetails.setDisable(true);
-            pgs.configSemList(getSelectedRow().getStudent_id(), sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, "PG");
+//            pgs.configSemList(getSelectedRow().getStudent_id(), sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, "PG");
         }
         toSelectSubject();
     }

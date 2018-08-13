@@ -11,7 +11,7 @@ import models.Undergraduate;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UgTableController {
+public class UgTable {
 
     private Undergraduate ug = new Undergraduate();
 

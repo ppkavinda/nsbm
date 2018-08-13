@@ -1,6 +1,5 @@
 package controllers;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -58,7 +57,7 @@ public class UndergraduateController implements Initializable {
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private Undergraduate ug = new Undergraduate();
     private StudentSubjectController ugs = new StudentSubjectController();
-    private UgTableController ugt = new UgTableController();
+    private UgTable ugt = new UgTable();
     private Student st = new Student();
     private Faculty faculty = new Faculty();
     private Course course = new Course();
@@ -82,8 +81,6 @@ public class UndergraduateController implements Initializable {
         scene.setRoot(root);
     }
 
-
-
     @FXML   // remove selected subject form sem1 list View
     private void sem1RemoveButtonClicked() {
         ugs.removeSubject(sem1SubList, sem1SubBox, sem1CreditsLabel);
@@ -102,25 +99,6 @@ public class UndergraduateController implements Initializable {
     @FXML   // add selected subject into sem2 listView
     private void sem2SubButtonClicked() {
         ugs.addSubject(sem2SubList, sem2SubBox, sem2CreditsLabel);
-    }
-
-    //    DETAILS VIEW ********************************
-    @FXML
-    private void selectSubjectButtonClicked() {
-        System.out.println("Subject Select Button Clicked");
-        if (addButtonClick == 1) {
-//            add button clicked. so add a new UG
-            sem1SubDetails.setDisable(false);
-            sem2SubDetails.setDisable(false);
-            ugs.clearSemList(sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, "UG");
-
-        } else {
-//            edit button clicked. so edit selected UG
-            sem1SubDetails.setDisable(true);
-            sem2SubDetails.setDisable(true);
-            ugs.configSemList(getSelectedRow().getStudent_id(), sem1SubList, sem2SubList, sem1CreditsLabel, sem2CreditsLabel, "UG");
-        }
-        toSelectSubject();
     }
 
     @FXML

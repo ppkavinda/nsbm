@@ -51,23 +51,16 @@ public class Student {
     /**
      *
      * @param student_id
-     * @param subType   UG or PG
      * @return
      */
-    public ResultSet getSubjects (int student_id, String subType) {
-        String sql = "SELECT subject.subject_code, subject.name, subject.fee, subject.course_id, subject.sem, subject.compulsory, subject.type, subject.credits " +
-                "FROM `student_subject` " +
-                "INNER JOIN subject ON subject.subject_code = student_subject.subject_code " +
-                "WHERE student_subject.student_id = ? " +
-                "UNION " +
-                "SELECT subject.subject_code, subject.name, subject.fee, subject.course_id, subject.sem, subject.compulsory, subject.type, subject.credits " +
-                "FROM `subject`" +
-                "WHERE subject.type = ? AND subject.compulsory = 1";
+    public ResultSet getSelectableSubjects (int student_id) {
+        String sql = "SELECT * FROM subject INNER JOIN course ON course.course_id = subject.course_id WHERE subject_code NOT IN (SELECT subject.subject_code FROM `subject` WHERE subject.compulsory = 1 UNION SELECT subject.subject_code FROM student_subject, subject WHERE student_subject.subject_code = SUBJECT.subject_code AND student_subject.student_id = ? ) AND SUBJECT.type = IF( ( SELECT COUNT(undergraduate.student_id) FROM undergraduate WHERE undergraduate.student_id = ? ) > 0, \"UG\", \"PG\" ) AND SUBJECT.course_id =(SELECT student.course_id FROM student WHERE student.student_id = ? )";
 
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setInt(1, student_id);
-            stmt.setString(2, subType);
+            stmt.setInt(2, student_id);
+            stmt.setInt(3, student_id);
             return stmt.executeQuery();
 
         } catch (SQLException e) {
@@ -76,6 +69,40 @@ public class Student {
         return null;
     }
 
+    public ResultSet getSelectedSubs (int student_id) {
+        String sql = "SELECT subject.subject_code, subject.name, subject.credits, subject.fee, subject.course_id, subject.sem, subject.compulsory, subject.type, course.*\n" +
+                "FROM `subject` INNER JOIN course ON course.course_id = subject.course_id\n" +
+                " WHERE subject.course_id =(SELECT student.course_id FROM student WHERE student.student_id = ? )\n" +
+                "  AND subject.type = \n" +
+                " IF( ( SELECT COUNT(undergraduate.student_id) FROM undergraduate WHERE undergraduate.student_id = ? ) > 0,\n" +
+                " \"UG\", " +
+                " \"PG\" " +
+                " ) " +
+                " AND subject.compulsory = 1 " +
+                " UNION " +
+                "SELECT subject.subject_code, subject.name, subject.credits, subject.fee, subject.course_id, subject.sem, subject.compulsory, subject.type, course.*\n" +
+                "FROM student_subject, subject INNER JOIN course ON course.course_id = subject.course_id\n" +
+                "WHERE\n" +
+                "    student_subject.subject_code = subject.subject_code AND student_subject.student_id = ? AND subject.type = \n" +
+                "    IF( ( SELECT COUNT(undergraduate.student_id) FROM undergraduate WHERE undergraduate.student_id = ? ) > 0,\n" +
+                "    \t\"UG\",\n" +
+                "    \t\"PG\" \n" +
+                "     )";
+
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, student_id);
+            stmt.setInt(2, student_id);
+            stmt.setInt(3, student_id);
+            stmt.setInt(4, student_id);
+            return stmt.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
     public void addSubject (int sub_id, int student_id) {
         String sql = "INSERT INTO `student_subject` (`student_id`, `subject_code`) VALUES (?, ?);";
