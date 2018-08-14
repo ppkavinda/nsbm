@@ -1,6 +1,7 @@
 package controllers;
 
 import db.DBConnection;
+import db.DbSingleton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,71 +13,62 @@ import helpers.MD5;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
-    @FXML private TextField email;
-    @FXML private PasswordField password;
+    @FXML private TextField emailField;
+    @FXML private PasswordField passwordField;
     @FXML private Button loginButton;
     @FXML private Label error;
 
     private Stage stage;
+    private DbSingleton conn = DbSingleton.getInstance();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         error.setVisible(false);
     }
 
-    //    when login button clicked -> validate email and attempt to login
+    //    when login button clicked -> validate emailField and attempt to login
     public void loginButtonClicked() {
-        // validating email
-        clearError();
+        // validating emailField
         if (!validate()) {
-            System.out.println(email.getText() + " " + password.getText());
-            setError("Invalid Details!");
+            System.out.println(emailField.getText() + " " + passwordField.getText());
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Data", ButtonType.OK);
+            alert.showAndWait();
         } else {
-            String errorMessage = "Unable to Login";
             try {
                 if (!login()) {
                     // fail login. setting error message
-                    errorMessage = "Unable to login.";
-                    password.setText("");
+                    passwordField.setText("");
                     System.out.println("Login failure");
                 } else {
                     System.out.println("Login success ");
                     // login successful. continue with app
                     // TODO
-                    test();
+                    toMainPanel();
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+                alert.showAndWait();
             } catch (Exception e) {
-                errorMessage = "Unable to login: server Error";
+                Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+                alert.showAndWait();
                 e.printStackTrace();
-            } finally {
-                System.out.println(errorMessage);
-                setError(errorMessage);
             }
         }
     }
 
-    //    when register link clicked -> load the REGISTER scene
-    public void registerButtonClicked() throws IOException {
-
-        Scene scene = loginButton.getScene();
-        VBox root = FXMLLoader.load(getClass().getResource("../views/MainPanel.fxml"));
-        scene.getStylesheets().add(getClass().getResource("/assets/css/login.css").toExternalForm());
-        scene.setRoot(root);
-        System.out.println("MainPanel.fxml opened");
-    }
-
-    //    check weather the email is empty or not
+    //    check weather the emailField is empty or not
     private boolean validate() {
-        if (!email.getText().equals("") && email.getText() != null &&
-                !password.getText().equals("") && password.getText() != null
+        if (!emailField.getText().equals("") && emailField.getText() != null &&
+                !passwordField.getText().equals("") && passwordField.getText() != null
                 ) {
             System.out.println("validated");
             return true;
@@ -85,31 +77,20 @@ public class LoginController implements Initializable {
     }
 
     private boolean login() throws SQLException {
-        DBConnection conn = new DBConnection();
-            String sql = "SELECT user_id FROM users WHERE email = ? AND password = ? AND role = 1";
-            ResultSet rs = conn.loginUser(sql, email.getText(), MD5.getHash(password.getText()));
+            ResultSet rs = conn.loginUser(emailField.getText(), MD5.getHash(passwordField.getText()));
 
             // counting the resultSet
-            int rowcount = 0;
+            int rowCount = 0;
             if (rs.last()) {
-                rowcount = rs.getRow();
+                rowCount = rs.getRow();
                 rs.beforeFirst(); // not rs.first() because the rs.next() below will move on, missing the first element
             }
 
             // return true if logged in
-            return rowcount == 1;
+            return rowCount == 1;
     }
 
-    private void setError(String msg) {
-        error.setText(msg);
-        error.setVisible(true);
-    }
-
-    private void clearError() {
-        error.setVisible(false);
-    }
-
-    @FXML private void test () throws IOException {
+    @FXML private void toMainPanel () throws IOException {
         Scene scene = loginButton.getScene();
         VBox root = FXMLLoader.load(getClass().getResource("/views/MainPanel.fxml"));
         scene.setRoot(root);

@@ -1,8 +1,6 @@
 package db;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -61,5 +59,21 @@ public class DbSingleton {
     }
     public static Connection getConnection() {
         return connection;
+    }
+
+    public ResultSet loginUser (String username, String password) {
+        try {
+            String sql = "SELECT user_id FROM users WHERE email = ? AND password = ? AND role = 1";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            System.out.println(stmt.toString());
+
+            return stmt.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

@@ -8,13 +8,13 @@
     -fx-line-spacing: 1.5em;
 }
 .button {
-    fx-font-weight: bolder;
+    -fx-font-weight: bolder;
     -fx-text-alignment: center;
     -fx-border-width: 1px;
     -fx-padding: .6em 1.2em;
     -fx-font-size: 1em;
     -fx-line-spacing: 1.5em;
-    fx-border-radius: 0.25em;
+    -fx-border-radius: 0;
 }
 
 .main-menu-icon {
@@ -44,9 +44,10 @@
     -fx-alignment: CENTER;
     -fx-padding: 0.5em;
 }
-#loginButton, #registerButton {
-   -fx-background-color: #1944ad;
+#loginButton {
+   -fx-background-color: #2a55ad;
     -fx-text-fill: #f4f4f4;
+    -fx-border-radius: 0px;
 }
 
 .label {
@@ -56,7 +57,7 @@
 #titleLabel {
     /*-fx-font-weight: 800;*/
     -fx-font-size: 2.5em;
-    -fx-font-weight: 500;
+    -fx-font-weight: 800;
     -fx-line-spacing: 1.2;
     -fx-padding: 0.5em;
     /*-fx-font-size: 34px;*/
@@ -91,13 +92,16 @@
     -fx-font-weight: 400;
     -fx-padding: 3px 7px;
     -fx-font-size: 15px;
-    -fx-border-radius: 2px;
+    -fx-border-radius: 0px;
 }
 
 .btn-primary {
     -fx-text-fill: #fff;
     -fx-background-color: #007bff;
     -fx-border-color: #007bff;
+}
+#emailField, #passwordField {
+    -fx-max-width: 300px;
 }
 .faculty-button {
     -fx-background-image: url('/assets/img/1.png');

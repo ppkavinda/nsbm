@@ -7,9 +7,13 @@
 <?import javafx.scene.text.*?>
 <?import java.lang.String?>
 
+<?import java.net.URL?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="881.0" prefWidth="1058.0" xmlns="http://javafx.com/javafx/8"
       fx:controller="controllers.ug.UgDetailsDialogController">
+    <stylesheets>
+        <URL value="@../assets/css/login.css" />
+    </stylesheets>
     <children>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
             <children>

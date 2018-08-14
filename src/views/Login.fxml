@@ -1,48 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import java.net.URL?>
 
-<?import javafx.scene.text.Text?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" xmlns="http://javafx.com/javafx/8"
-      fx:controller="controllers.LoginController">
-    <Text fx:id="titleLabel" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="NSBM Green University" textOrigin="CENTER" HBox.hgrow="ALWAYS" />
-    <Text text="Login here"/>
-
-    <GridPane alignment="CENTER" hgap="10.0" vgap="8">
-        <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-        </padding>
-        <columnConstraints>
-            <ColumnConstraints/>
-            <ColumnConstraints/>
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints/>
-            <RowConstraints/>
-            <RowConstraints/>
-            <RowConstraints/>
-            <RowConstraints/>
-        </rowConstraints>
-        <Label minWidth="-Infinity" text="Email"/>
-        <TextField fx:id="email" GridPane.columnIndex="1"/>
-
-        <Label minWidth="-Infinity" text="Password" GridPane.rowIndex="2"/>
-        <PasswordField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-        <Label fx:id="error" style="-fx-text-fill: red;" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-
-        <HBox prefHeight="100.0" prefWidth="200.0" spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonClicked" text="Login"/>
-            <Label alignment="CENTER" prefHeight="32.0" prefWidth="15.0" text="or"/>
-            <Hyperlink fx:id="registerLink" alignment="CENTER_RIGHT" onAction="#registerButtonClicked"
-                       text="Register"/>
-            <Button GridPane.rowIndex="0" GridPane.columnIndex="8" text="test" onAction="#test"/>
-        </HBox>
-    </GridPane>
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+    <stylesheets>
+        <URL value="@../assets/css/login.css" />
+    </stylesheets>
+   <children>
+      <VBox alignment="CENTER" prefHeight="110.0" prefWidth="600.0">
+         <children>
+            <Text fx:id="titleLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="NSBM: Green University" />
+            <Label fx:id="error" text="Label" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="168.0" prefWidth="600.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="27.0" prefWidth="600.0">
+               <children>
+                  <TextField fx:id="emailField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="311.0" promptText="Email">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="49.0" prefWidth="600.0">
+               <children>
+                  <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="311.0" promptText="Password">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </PasswordField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="25.0" prefWidth="600.0">
+               <children>
+                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonClicked" prefHeight="39.0" prefWidth="300.0" text="Login">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button mnemonicParsing="false" onAction="#toMainPanel" text="Button" />
+   </children>
 </VBox>

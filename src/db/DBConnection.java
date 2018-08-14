@@ -31,20 +31,4 @@ public class DBConnection {
 
         }
     }
-
-    public ResultSet loginUser (String sql, String username, String password) {
-        try {
-            PreparedStatement stmt = connect().prepareStatement(sql);
-            stmt.setString(1, username);
-            stmt.setString(2, password);
-            System.out.println(stmt.toString());
-
-            ResultSet rs = stmt.executeQuery();
-            return rs;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 }
