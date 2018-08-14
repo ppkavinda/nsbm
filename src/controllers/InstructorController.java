@@ -35,7 +35,7 @@ public class InstructorController implements Initializable {
 
     private Instructor instructor = new Instructor();
     private Practicle practicle = new Practicle();
-    private int addButtonClick;
+    private boolean addButtonClicked;
     private Instructor selectedRow;
 
     @Override
@@ -48,14 +48,12 @@ public class InstructorController implements Initializable {
         Scene scene = mainMenuButton.getScene();
         VBox root = FXMLLoader.load(getClass().getResource("/views/MainPanel.fxml"));
         scene.setRoot(root);
-
     }
 
     @FXML
     private void getSelectedRow() {
         selectedRow = instructorTable.getSelectionModel().getSelectedItem();
     }
-
 
     @FXML   //  add **Practicle
     private void addLecture () {
@@ -76,7 +74,6 @@ public class InstructorController implements Initializable {
         } catch (NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Please save the Instructor first", ButtonType.OK);
             alert.showAndWait();
-
         }
     }
 
@@ -92,26 +89,24 @@ public class InstructorController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a Practical!", ButtonType.OK);
             alert.showAndWait();
         }
-
     }
 
     //    detail view
     @FXML
     private void lecButtonClicked () {
-        configList(addButtonClick==1);
-        configLecBox(addButtonClick==1);
+        configList(addButtonClicked);
+        configLecBox(addButtonClicked);
         toPrac();
     }
     @FXML
     private void saveButtonClicked() {
-        if (addButtonClick == 1) {
+        if (addButtonClicked) {
             try {
                 System.out.println("addButton");
                 selectedRow.setInstructor_id(addLecturer());
             } catch (NullPointerException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
                 alert.showAndWait();
-
             }
         } else {
             editLecturer();
@@ -142,7 +137,7 @@ public class InstructorController implements Initializable {
     private void editButtonClicked() {
         System.out.println("Edit Button Clicked");
         try {
-            addButtonClick = 0;
+            addButtonClicked = false;
             passwordField.setDisable(true);
             setInputs(selectedRow);
             toDetails();
@@ -156,7 +151,7 @@ public class InstructorController implements Initializable {
     private void addButtonClicked() {
         System.out.println("Add Button Clicked");
         passwordField.setDisable(false);
-        addButtonClick = 1;
+        addButtonClicked = true;
         toDetails();
     }
 
@@ -233,7 +228,7 @@ public class InstructorController implements Initializable {
     private void configList (boolean newInstructor) {
         ResultSet rs;
         if (newInstructor) {
-            rs = instructor.getPracticles(0);
+            rs = instructor.getPracticles(0);   // 0, because new instructor is not assigned to any practical
         } else {
             rs = instructor.getPracticles(selectedRow.getInstructor_id());
         }

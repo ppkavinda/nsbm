@@ -1,40 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controllers.LecHallController">
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="1107.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LecHallController">
     <children>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
             <children>
-                <Label fx:id="titleLabel" text="Lecture Halls"/>
+                <Label fx:id="titleLabel" text="Lecture Halls" />
             </children>
         </HBox>
-        <HBox alignment="CENTER" prefHeight="232.0" prefWidth="600.0">
+        <HBox alignment="CENTER" prefHeight="545.0" prefWidth="1107.0">
             <children>
-                <TableView fx:id="lecHallTable" onMouseClicked="#getSelectedRow" prefWidth="383.0">
+                <TableView fx:id="lecHallTable" onMouseClicked="#getSelectedRow" prefHeight="301.0" prefWidth="1097.0" HBox.hgrow="ALWAYS">
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                     </columnResizePolicy>
                     <columns>
                         <TableColumn prefWidth="75.0" text="ID">
                             <cellValueFactory>
-                                <PropertyValueFactory property="hall_id"/>
+                                <PropertyValueFactory property="hall_id" />
                             </cellValueFactory>
                         </TableColumn>
                         <TableColumn prefWidth="75.0" text="Name">
                             <cellValueFactory>
-                                <PropertyValueFactory property="name"/>
+                                <PropertyValueFactory property="name" />
                             </cellValueFactory>
                         </TableColumn>
                     </columns>
                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </HBox.margin>
                 </TableView>
             </children>
@@ -43,42 +45,44 @@
             <children>
                 <TextField fx:id="nameField">
                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </HBox.margin>
                 </TextField>
-                <Button fx:id="addButton" onAction="#addHall" mnemonicParsing="false" text="Add">
+                <Button fx:id="addButton" mnemonicParsing="false" onAction="#addHall" text="Add">
                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </HBox.margin>
                 </Button>
-                <Button fx:id="editButton" onAction="#editHall" mnemonicParsing="false" text="Edit">
+                <Button fx:id="editButton" mnemonicParsing="false" onAction="#editHall" text="Edit">
                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </HBox.margin>
                 </Button>
-                <Button fx:id="removeButton" onAction="#removeHall" mnemonicParsing="false" text="Remove">
+                <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeHall" text="Remove">
                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </HBox.margin>
                 </Button>
             </children>
         </HBox>
-        <HBox prefHeight="100.0" prefWidth="200.0">
+        <HBox prefHeight="104.0" prefWidth="1097.0">
             <VBox.margin>
                 <Insets left="10.0" />
             </VBox.margin>
-            <Button fx:id="mainMenuButton" onAction="#toMainPanel" mnemonicParsing="false" text="Main Menu">
-                <HBox.margin>
-                    <Insets />
-                </HBox.margin>
-                <graphic>
-                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../assets/img/012.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
+           <children>
+               <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#toMainPanel" text="Main Menu">
+                   <HBox.margin>
+                       <Insets />
+                   </HBox.margin>
+                   <graphic>
+                       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                               <Image url="@../assets/img/012.png" />
+                           </image>
+                       </ImageView>
+                   </graphic>
+               </Button>
+           </children>
         </HBox>
     </children>
 </VBox>

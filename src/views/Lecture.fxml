@@ -1,48 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LectureController">
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="910.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LectureController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label fx:id="titleLabel" text="Lectures" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="370.0" prefWidth="799.0">
+      <HBox alignment="CENTER" prefHeight="547.0" prefWidth="1064.0">
          <children>
-            <TableView fx:id="lectureTable" onMouseClicked="#getSelectedRow" prefHeight="140.0" prefWidth="799.0" HBox.hgrow="ALWAYS">
+            <TableView fx:id="lectureTable" onMouseClicked="#getSelectedRow" prefHeight="392.0" prefWidth="1064.0" HBox.hgrow="ALWAYS">
                 <columnResizePolicy>
                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                 </columnResizePolicy>
               <columns>
-                <TableColumn prefWidth="75.0" text="ID" >
+                <TableColumn prefWidth="75.0" text="ID">
                     <cellValueFactory>
-                        <PropertyValueFactory property="lecture_id"/>
+                        <PropertyValueFactory property="lecture_id" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="75.0" text="Start Time" >
+                <TableColumn prefWidth="75.0" text="Start Time">
                     <cellValueFactory>
-                        <PropertyValueFactory property="start_time"/>
+                        <PropertyValueFactory property="start_time" />
                     </cellValueFactory>
                 </TableColumn>
-                  <TableColumn prefWidth="75.0" text="End Time" >
+                  <TableColumn prefWidth="75.0" text="End Time">
                       <cellValueFactory>
-                          <PropertyValueFactory property="end_time"/>
+                          <PropertyValueFactory property="end_time" />
                       </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="75.0" text="Location" >
+                  <TableColumn prefWidth="75.0" text="Location">
                       <cellValueFactory>
-                          <PropertyValueFactory property="lec_hall"/>
+                          <PropertyValueFactory property="lec_hall" />
                       </cellValueFactory>
                   </TableColumn>
-                  <TableColumn prefWidth="75.0" text="Subject" >
+                  <TableColumn prefWidth="75.0" text="Subject">
                       <cellValueFactory>
-                          <PropertyValueFactory property="subject"/>
+                          <PropertyValueFactory property="subject" />
                       </cellValueFactory>
                   </TableColumn>
               </columns>
@@ -75,17 +78,17 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="addButton" onAction="#addLecture" mnemonicParsing="false" text="Add">
+            <Button fx:id="addButton" mnemonicParsing="false" onAction="#addLecture" text="Add">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="editButton" onAction="#editLecture" mnemonicParsing="false" text="Edit">
+            <Button fx:id="editButton" mnemonicParsing="false" onAction="#editLecture" text="Edit">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="removeButton" onAction="#removeLecture" mnemonicParsing="false" text="Remove">
+            <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeLecture" text="Remove">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
@@ -96,18 +99,20 @@
            <VBox.margin>
                <Insets left="10.0" />
            </VBox.margin>
-           <Button fx:id="mainMenuButton" onAction="#toMainPanel" mnemonicParsing="false" text="Main Menu">
-               <HBox.margin>
-                   <Insets />
-               </HBox.margin>
-               <graphic>
-                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                       <image>
-                           <Image url="@../assets/img/012.png" />
-                       </image>
-                   </ImageView>
-               </graphic>
-           </Button>
+          <children>
+              <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#toMainPanel" text="Main Menu">
+                  <HBox.margin>
+                      <Insets />
+                  </HBox.margin>
+                  <graphic>
+                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../assets/img/012.png" />
+                          </image>
+                      </ImageView>
+                  </graphic>
+              </Button>
+          </children>
        </HBox>
    </children>
 </VBox>

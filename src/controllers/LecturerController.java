@@ -72,7 +72,8 @@ public class LecturerController implements Initializable {
             }
 
         } catch (SQLException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Lecture Already allocated!", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            e.printStackTrace();
             alert.showAndWait();
         } catch (NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Please save the Lecture first", ButtonType.OK);

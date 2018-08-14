@@ -38,7 +38,7 @@ public class Lecturer {
     }
 
     public void removeLecture(int staff_id, int lecture_id) {
-        String sql = "DELETE FROM `lecturer_subject` WHERE `lecturer_subject`.`staff_id` = ? AND `lecturer_subject`.`lec_id` = ?";
+        String sql = "DELETE FROM `lecturer_lec` WHERE `lecturer_lec`.`staff_id` = ? AND `lecturer_lec`.`lec_id` = ?";
 
         try {
             stmt = conn.prepareStatement(sql);
@@ -84,7 +84,7 @@ public class Lecturer {
     }
 
     public void addLecture (int staff_id, int lec_id) throws SQLException {
-        String sql = "INSERT INTO `lecturer_subject` (`staff_id`, `lec_id`) VALUES (?, ?);";
+        String sql = "INSERT INTO `lecturer_lec` (`staff_id`, `lec_id`) VALUES (?, ?);";
 
             stmt = conn.prepareStatement(sql);
             stmt.setInt(2, lec_id);
@@ -137,11 +137,11 @@ public class Lecturer {
     }
 
     public ResultSet getUnallocatedLectures (int staff_id) {
-        String sql = "SELECT * FROM lecturer_subject, lecture, subject, lec_hall " +
-                "WHERE lecturer_subject.lec_id = lecture.lecture_id " +
-                "AND lecture.subject_code = subject.subject_code " +
-                "AND lec_hall.hall_id = lecture.hall_id " +
-                "AND lecturer_subject.staff_id != ?";
+        String sql = "SELECT * FROM lecture " +
+                "INNER JOIN lec_hall ON lec_hall.hall_id = lecture.hall_id " +
+                "INNER JOIN subject ON subject.subject_code = lecture.hall_id " +
+                "WHERE lecture.lecture_id NOT IN" +
+                " (SELECT lecturer_lec.lec_id FROM lecturer_lec WHERE lecturer_lec.staff_id = ?)";
 
         try {
             stmt = conn.prepareStatement(sql);
@@ -155,11 +155,11 @@ public class Lecturer {
     }
 
     public ResultSet getLectures (int staff_id) {
-        String sql = "SELECT * FROM lecturer_subject, lecture, subject, lec_hall " +
-                "WHERE lecturer_subject.lec_id = lecture.lecture_id " +
+        String sql = "SELECT * FROM lecturer_lec, lecture, subject, lec_hall " +
+                "WHERE lecturer_lec.lec_id = lecture.lecture_id " +
                 "AND lecture.subject_code = subject.subject_code " +
                 "AND lec_hall.hall_id = lecture.hall_id " +
-                "AND lecturer_subject.staff_id = ?";
+                "AND lecturer_lec.staff_id = ?";
 
         System.out.println(sql);
 

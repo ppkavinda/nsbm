@@ -130,11 +130,11 @@ public class Instructor {
         return (int) instructor_id;
     }
     public ResultSet getUnallocatedPracticles (int instructor_id) {
-        String sql = "SELECT * FROM instructor_practicle, practicle, subject, lab " +
-                "WHERE practicle.subject_code = subject.subject_code " +
-                "AND instructor_practicle.practicle_id = practicle.practicle_id " +
-                "AND lab.lab_id = practicle.lab " +
-                "AND instructor_practicle.staff_id != ?";
+        String sql = "SELECT * FROM practicle " +
+                " INNER JOIN lab ON lab.lab_id = practicle.lab " +
+                " INNER JOIN subject ON subject.subject_code = practicle.subject_code" +
+                " WHERE practicle.practicle_id NOT IN" +
+                "  (SELECT instructor_practicle.practicle_id FROM instructor_practicle WHERE instructor_practicle.staff_id = ?)";
 
         try {
             stmt = conn.prepareStatement(sql);

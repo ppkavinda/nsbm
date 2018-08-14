@@ -24,7 +24,7 @@
           <children>
               <VBox fx:id="pgList" prefHeight="200.0" prefWidth="100.0">
                  <children>
-                     <HBox alignment="CENTER" prefHeight="428.0" prefWidth="1125.0">
+                     <HBox alignment="CENTER" prefHeight="696.0" prefWidth="1125.0">
                         <children>
                             <TableView fx:id="pgTable" onMouseClicked="#editSelectedRow" prefHeight="428.0" prefWidth="1055.0" HBox.hgrow="ALWAYS">
                                 <columnResizePolicy>

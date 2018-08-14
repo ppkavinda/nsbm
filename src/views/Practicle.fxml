@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.cell.*?>
 <?import javafx.geometry.*?>
@@ -9,17 +10,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
-
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PracticleController">
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="849.0" prefWidth="1236.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PracticleController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Text fx:id="titleLabel" lineSpacing="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Praticles" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="309.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="590.0" prefWidth="1236.0">
          <children>
             <TableView fx:id="practicleTable" onMouseClicked="#getSelectedRow" prefHeight="100.0" prefWidth="388.0" HBox.hgrow="ALWAYS">
                 <columnResizePolicy>
@@ -102,18 +103,20 @@
            <VBox.margin>
                <Insets left="10.0" />
            </VBox.margin>
-           <Button fx:id="mainMenuButton" onAction="#toMainPanel" mnemonicParsing="false" text="Main Menu">
-               <HBox.margin>
-                   <Insets />
-               </HBox.margin>
-               <graphic>
-                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                       <image>
-                           <Image url="@../assets/img/012.png" />
-                       </image>
-                   </ImageView>
-               </graphic>
-           </Button>
+          <children>
+              <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#toMainPanel" text="Main Menu">
+                  <HBox.margin>
+                      <Insets />
+                  </HBox.margin>
+                  <graphic>
+                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../assets/img/012.png" />
+                          </image>
+                      </ImageView>
+                  </graphic>
+              </Button>
+          </children>
        </HBox>
    </children>
 </VBox>
