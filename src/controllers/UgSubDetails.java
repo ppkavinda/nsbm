@@ -1,5 +1,6 @@
 package controllers;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,46 +17,61 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UgSubDetails {
+    private SimpleIntegerProperty sem1TotalCredits = new SimpleIntegerProperty(0);
+    private SimpleIntegerProperty sem2TotalCredits = new SimpleIntegerProperty(0);
 
-    public void sem1SubButtonClicked(ActionEvent actionEvent) {
+    public int getSem1TotalCredits() {
+        return sem1TotalCredits.get();
     }
 
-    public void sem1RemoveButtonClicked(ActionEvent actionEvent) {
+    public SimpleIntegerProperty sem1TotalCreditsProperty() {
+        return sem1TotalCredits;
     }
 
-    public void sem2SubButtonClicked(ActionEvent actionEvent) {
+    public void setSem1TotalCredits(int sem1TotalCredits) {
+        this.sem1TotalCredits.set(sem1TotalCredits);
     }
 
-    public void sem2RemoveButtonClicked(ActionEvent actionEvent) {
+    public int getSem2TotalCredits() {
+        return sem2TotalCredits.get();
     }
 
-    //    SUBJECT SELECT VIEW ************************
-//    @FXML
-//    private void registerButtonClicked() {
-////        if credits not enough: display error msg
-//        if (Integer.valueOf(sem1CreditsLabel.getText()) > 30 && Integer.valueOf(sem2CreditsLabel.getText()) > 30) {
-//            errorLabel.setText("Error: Not Enough credits for Semester");
-//        } else {
-//            ObservableList<Subject> data = sem1SubList.getItems();
-//            ObservableList<Subject> data2 = sem2SubList.getItems();
-////            insert UG into DB
-//            try {
-//                int sid = saveStudent();
-////            insert subject into table
-////                data2.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
-////                data.forEach(sub -> st.addSubject(sub.getSubject_code(), sid));
-//
-//            } catch (NullPointerException e) {
-//                Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input. Please fill all fields correctly!", ButtonType.OK);
-//                alert.showAndWait();
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//
-//            data.forEach(sub -> System.out.println(sub.getName()));
-//        }
-//    }
+    public SimpleIntegerProperty sem2TotalCreditsProperty() {
+        return sem2TotalCredits;
+    }
 
+    public void setSem2TotalCredits(int sem2TotalCredits) {
+        this.sem2TotalCredits.set(sem2TotalCredits);
+    }
+
+//    save selected subject
+    void subAdd (Subject sub, Undergraduate ug) {
+        ug.addSubject(sub.getSubject_code(), ug.getStudent_id());
+
+//        increment the total credit label value
+        if (sub.getSem() == 1) {
+            sem1TotalCredits.setValue(sem1TotalCredits.add(sub.getCredits()).getValue());
+        } else {
+            sem2TotalCredits.setValue(sem2TotalCredits.add(sub.getCredits()).getValue());
+        }
+
+        System.out.println("Subject selected.");
+    }
+
+//    de-select selected subject
+    void subRemove (Subject sub, Undergraduate ug) {
+        ug.removeSubject(sub.getSubject_code(), ug.getStudent_id());
+
+//        decrement the total credit label value
+        if (sub.getSem() == 1) {
+            sem1TotalCredits.setValue(sem1TotalCredits.subtract(sub.getCredits()).getValue());
+        } else {
+            sem2TotalCredits.setValue(sem2TotalCredits.subtract(sub.getCredits()).getValue());
+        }
+        System.out.println("subject de-selected.");
+    }
+
+//    add selectable subjects into subject (initialize) ComboBox
     void configSubBox (ComboBox<Subject> box1, ComboBox<Subject> box2, ResultSet rs) throws SQLException {
         ObservableList<Subject> data1 = box1.getItems();
         ObservableList<Subject> data2 = box2.getItems();
@@ -99,12 +115,15 @@ public class UgSubDetails {
         }
     }
 
-//    add subjects into Subject ListViews
-void configSubList(ListView<Subject> listView1, ListView<Subject> listView2, ResultSet rs) throws SQLException {
+//    add subjects into Subject (initialize) ListViews
+    void configSubList(ListView<Subject> listView1, ListView<Subject> listView2, ResultSet rs) throws SQLException {
         ObservableList<Subject> data1 = listView1.getItems();
         ObservableList<Subject> data2 = listView2.getItems();
         while (rs.next()) {
             if (rs.getInt("sem") == 1) {
+//                increment the total credit label
+                sem1TotalCredits.setValue(sem1TotalCredits.add(rs.getInt("credits")).getValue());
+
                 data1.add(new Subject(
                         rs.getInt("subject_code"),
                         rs.getInt("credits"),
@@ -122,6 +141,9 @@ void configSubList(ListView<Subject> listView1, ListView<Subject> listView2, Res
                         rs.getString("type")
                 ));
             } else {
+//                increment total credit label
+                sem2TotalCredits.setValue(sem2TotalCredits.add(rs.getInt("credits")).getValue());
+
                 data2.add(new Subject(
                         rs.getInt("subject_code"),
                         rs.getInt("credits"),

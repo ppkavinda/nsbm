@@ -2,6 +2,7 @@ package controllers;
 
 import helpers.MD5;
 import helpers.Validate;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,7 +38,7 @@ public class UgDetailsFormController implements Initializable {
     @FXML private ListView<Subject> sem1SubList;
     @FXML private ListView<Subject> sem2SubList;
     @FXML private TableView<Undergraduate> ugTable;
-    @FXML private Text sem1CreditsLabel;
+    @FXML private Label sem1CreditsLabel;
     @FXML private Text sem2CreditsLabel;
     @FXML private TextField sub1Field;
     @FXML private TextField sub3Field;
@@ -67,6 +68,8 @@ public class UgDetailsFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        sem1CreditsLabel.textProperty().bind(ugSubDetails.sem1TotalCreditsProperty().asString());
+        sem2CreditsLabel.textProperty().bind(ugSubDetails.sem2TotalCreditsProperty().asString());
         faculty.configFacultyBox(facultyBox);
         course.configCourseBox(courseBox);
     }
@@ -84,7 +87,54 @@ public class UgDetailsFormController implements Initializable {
         }
     }
 
-//    cancel all and close Dialog box
+//    add a subject into semester 1 subject LISTVIEW and  remove it from semester 1 subject COMBO BOX
+    public void sem1SubButtonClicked(ActionEvent actionEvent) {
+        Subject sub = sem1SubBox.getSelectionModel().getSelectedItem();
+        addSubject(sub, sem1SubBox.getItems(), sem1SubList.getItems());
+    }
+
+//    remove subject from semester 1 subject LISTVIEW and add it to semester 1 subject COMBO BOX
+    public void sem1RemoveButtonClicked(ActionEvent actionEvent) {
+        Subject sub = sem1SubList.getSelectionModel().getSelectedItem();
+        removeSubject(sub, sem1SubList.getItems(), sem1SubBox.getItems());
+    }
+
+//    add a subject into semester 2 subject LISTVIEW and remove it from semester 2 subject COMBO BOX
+    public void sem2SubButtonClicked(ActionEvent actionEvent) {
+        Subject sub = sem2SubBox.getSelectionModel().getSelectedItem();
+        addSubject(sub, sem2SubBox.getItems(), sem2SubList.getItems());
+    }
+
+//    remove a subject from semester 2 subject LISTVIEW. and add it to semester 2 subject COMBO BOX
+    public void sem2RemoveButtonClicked(ActionEvent actionEvent) {
+        Subject sub = sem2SubList.getSelectionModel().getSelectedItem();
+        removeSubject(sub, sem2SubList.getItems(), sem2SubBox.getItems());
+    }
+
+//    add a subject selected by a student. (add a row to student_subject table)
+    private void addSubject (Subject sub, ObservableList<Subject> items, ObservableList<Subject> items2) {
+        if (sub != null) {
+            ugSubDetails.subAdd(sub, this.ug);
+            items.remove(sub);
+            items2.add(sub);
+        }
+    }
+
+//    remove a subject selected by a student. (delete row from Student_subject table)
+    private void removeSubject(Subject sub, ObservableList<Subject> items, ObservableList<Subject> items2) {
+        if (sub != null) {
+            if (sub.getCompulsory() == 1) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Cannot remove Compulsory subjects.", ButtonType.OK);
+                alert.showAndWait();
+            } else {
+                ugSubDetails.subRemove(sub, this.ug);
+                items.remove(sub);
+                items2.add(sub);
+            }
+        }
+    }
+
+    //    cancel all and close Dialog box
     @FXML
     private void cancelButtonClicked(ActionEvent actionEvent) {
         Stage stage = (Stage) cancelButton.getScene().getWindow();

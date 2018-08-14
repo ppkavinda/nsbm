@@ -104,13 +104,23 @@ public class Student {
         return null;
     }
 
+    public void removeSubject (int sub_id, int student_id) {
+        String sql = "DELETE FROM `student_subject` WHERE `student_subject`.`student_id` = ? AND `student_subject`.`subject_code` = ?";
+        System.out.println(sql + " sub: " + sub_id + " id: " + student_id);
+        setParams(student_id, sub_id, sql);
+    }
+
     public void addSubject (int sub_id, int student_id) {
         String sql = "INSERT INTO `student_subject` (`student_id`, `subject_code`) VALUES (?, ?);";
         System.out.println(sub_id + " " + student_id);
+        setParams(student_id, sub_id, sql);
+    }
+
+    private void setParams(int sub_id, int student_id, String sql) {
         try {
             stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, student_id);
-            stmt.setInt(2, sub_id);
+            stmt.setInt(1, sub_id);
+            stmt.setInt(2, student_id);
             stmt.executeUpdate();
             stmt.close();
 
