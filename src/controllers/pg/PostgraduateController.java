@@ -97,6 +97,7 @@ public class PostgraduateController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/PgDetailsDialog.fxml"));
 
         Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setMaximized(true);
         stage.initModality(Modality.APPLICATION_MODAL);
 
         try {

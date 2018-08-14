@@ -31,7 +31,8 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        error.setVisible(false);
+        emailField.setText("admin@admin.com");
+        passwordField.setText("admin");
     }
 
     //    when login button clicked -> validate emailField and attempt to login
@@ -46,6 +47,8 @@ public class LoginController implements Initializable {
                 if (!login()) {
                     // fail login. setting error message
                     passwordField.setText("");
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Credentials!", ButtonType.OK);
+                    alert.showAndWait();
                     System.out.println("Login failure");
                 } else {
                     System.out.println("Login success ");
@@ -78,7 +81,6 @@ public class LoginController implements Initializable {
 
     private boolean login() throws SQLException {
             ResultSet rs = conn.loginUser(emailField.getText(), MD5.getHash(passwordField.getText()));
-
             // counting the resultSet
             int rowCount = 0;
             if (rs.last()) {
@@ -90,7 +92,7 @@ public class LoginController implements Initializable {
             return rowCount == 1;
     }
 
-    @FXML private void toMainPanel () throws IOException {
+    private void toMainPanel () throws IOException {
         Scene scene = loginButton.getScene();
         VBox root = FXMLLoader.load(getClass().getResource("/views/MainPanel.fxml"));
         scene.setRoot(root);

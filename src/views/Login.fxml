@@ -18,14 +18,13 @@
       <VBox alignment="CENTER" prefHeight="110.0" prefWidth="600.0">
          <children>
             <Text fx:id="titleLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="NSBM: Green University" />
-            <Label fx:id="error" text="Label" />
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="168.0" prefWidth="600.0">
+      <VBox alignment="CENTER" prefHeight="212.0" prefWidth="600.0">
          <children>
             <HBox alignment="CENTER" prefHeight="27.0" prefWidth="600.0">
                <children>
-                  <TextField fx:id="emailField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="311.0" promptText="Email">
+                  <TextField fx:id="emailField" prefHeight="48.0" prefWidth="400.0" promptText="Email">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
@@ -34,24 +33,26 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="49.0" prefWidth="600.0">
                <children>
-                  <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="311.0" promptText="Password">
+                  <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="48.0" prefWidth="400.0" promptText="Password">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </PasswordField>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="25.0" prefWidth="600.0">
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0">
                <children>
-                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonClicked" prefHeight="39.0" prefWidth="300.0" text="Login">
+                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonClicked" prefHeight="57.0" prefWidth="400.0" text="Login">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
                   </Button>
                </children>
             </HBox>
          </children>
       </VBox>
-      <Button mnemonicParsing="false" onAction="#toMainPanel" text="Button" />
    </children>
 </VBox>

@@ -236,7 +236,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="112.0" prefWidth="1058.0">
                             <children>
-                                <Button fx:id="selectSubjectsButton" mnemonicParsing="false"
+                                <Button fx:id="selectSubjectsButton" mnemonicParsing="false" styleClass="editButton"
                                         onAction="#selectSubjectButtonClicked" text="Register and Select Subjects"/>
                                 <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonClicked"
                                         text="Cancel">
@@ -279,14 +279,14 @@
                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                                                     </HBox.margin>
                                                 </ComboBox>
-                                                <Button fx:id="sem1AddButton" mnemonicParsing="false"
+                                                <Button fx:id="sem1AddButton" mnemonicParsing="false" styleClass="editButton"
                                                         onAction="#sem1SubButtonClicked" prefHeight="39.0"
                                                         prefWidth="130.0" text="Add">
                                                     <HBox.margin>
                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                                                     </HBox.margin>
                                                 </Button>
-                                                <Button fx:id="sem1RemoveButton" mnemonicParsing="false"
+                                                <Button fx:id="sem1RemoveButton" mnemonicParsing="false" styleClass="removeButton"
                                                         onAction="#sem1RemoveButtonClicked" prefHeight="39.0"
                                                         prefWidth="130.0" text="Remove">
                                                     <HBox.margin>
@@ -320,14 +320,14 @@
                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                                                     </HBox.margin>
                                                 </ComboBox>
-                                                <Button fx:id="sem2AddButton" mnemonicParsing="false"
+                                                <Button fx:id="sem2AddButton" mnemonicParsing="false" styleClass="editButton"
                                                         onAction="#sem2SubButtonClicked" prefHeight="39.0"
                                                         prefWidth="128.0" text="Add">
                                                     <HBox.margin>
                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                                                     </HBox.margin>
                                                 </Button>
-                                                <Button fx:id="sem2RemoveButton" mnemonicParsing="false"
+                                                <Button fx:id="sem2RemoveButton" mnemonicParsing="false" styleClass="removeButton"
                                                         onAction="#sem2RemoveButtonClicked" prefHeight="39.0"
                                                         prefWidth="128.0" text="Remove">
                                                     <HBox.margin>
@@ -346,7 +346,7 @@
                         <HBox alignment="CENTER" prefHeight="173.0" prefWidth="1125.0">
                             <children>
                                 <Button fx:id="subCancelButton" mnemonicParsing="false" onAction="#cancelButtonClicked"
-                                        text="Cancel">
+                                        text="Done">
                                     <HBox.margin>
                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                                     </HBox.margin>

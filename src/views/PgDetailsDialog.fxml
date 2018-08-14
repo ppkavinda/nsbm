@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import java.lang.*?>
 <?import javafx.collections.*?>
 <?import javafx.collections.FXCollections?>
@@ -8,8 +9,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.String?>
-
 <?import java.net.URL?>
+
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="881.0" prefWidth="1058.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.pg.PgDetailsDialogController">
     <stylesheets>
         <URL value="@../assets/css/login.css" />
@@ -24,7 +25,7 @@
             <children>
             <VBox fx:id="pgDetails" alignment="CENTER" prefHeight="621.0" prefWidth="1125.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="476.0" prefWidth="1125.0">
+                  <HBox alignment="CENTER" prefHeight="674.0" prefWidth="1058.0">
                      <children>
                         <GridPane alignment="CENTER" prefHeight="476.0" prefWidth="664.0">
                            <children>
@@ -182,7 +183,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="58.0" prefWidth="1244.0">
                      <children>
-                        <Button fx:id="selectSubjectsButton1" mnemonicParsing="false" onAction="#selectSubjectButtonClicked" text="Register and Select Subjects" />
+                        <Button fx:id="selectSubjectsButton1" mnemonicParsing="false" onAction="#selectSubjectButtonClicked" styleClass="editButton" text="Save and Select Subjects" />
                         <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonClicked" text="Cancel">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -221,12 +222,12 @@
                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                     </HBox.margin>
                                                 </ComboBox>
-                                                <Button fx:id="sem1AddButton" mnemonicParsing="false" onAction="#sem1SubButtonClicked" prefHeight="39.0" prefWidth="130.0" text="Add">
+                                                <Button fx:id="sem1AddButton" mnemonicParsing="false" onAction="#sem1SubButtonClicked" prefHeight="39.0" prefWidth="130.0" styleClass="editButton" text="Add">
                                                     <HBox.margin>
                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                     </HBox.margin>
                                                 </Button>
-                                                <Button fx:id="sem1RemoveButton" mnemonicParsing="false" onAction="#sem1RemoveButtonClicked" prefHeight="39.0" prefWidth="130.0" text="Remove">
+                                                <Button fx:id="sem1RemoveButton" mnemonicParsing="false" onAction="#sem1RemoveButtonClicked" prefHeight="39.0" prefWidth="130.0" styleClass="removeButton" text="Remove">
                                                     <HBox.margin>
                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                     </HBox.margin>
@@ -256,12 +257,12 @@
                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                     </HBox.margin>
                                                 </ComboBox>
-                                                <Button fx:id="sem2AddButton" mnemonicParsing="false" onAction="#sem2SubButtonClicked" prefHeight="39.0" prefWidth="128.0" text="Add">
+                                                <Button fx:id="sem2AddButton" mnemonicParsing="false" onAction="#sem2SubButtonClicked" prefHeight="39.0" prefWidth="128.0" styleClass="editButton" text="Add">
                                                     <HBox.margin>
                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                     </HBox.margin>
                                                 </Button>
-                                                <Button fx:id="sem2RemoveButton" mnemonicParsing="false" onAction="#sem2RemoveButtonClicked" prefHeight="39.0" prefWidth="128.0" text="Remove">
+                                                <Button fx:id="sem2RemoveButton" mnemonicParsing="false" onAction="#sem2RemoveButtonClicked" prefHeight="39.0" prefWidth="128.0" styleClass="removeButton" text="Remove">
                                                     <HBox.margin>
                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                     </HBox.margin>
@@ -277,7 +278,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="173.0" prefWidth="1125.0">
                             <children>
-                                <Button fx:id="subCancelButton" mnemonicParsing="false" onAction="#cancelButtonClicked" text="Cancel">
+                                <Button fx:id="subCancelButton" mnemonicParsing="false" onAction="#cancelButtonClicked" text="Done">
                                     <HBox.margin>
                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                     </HBox.margin>
@@ -287,101 +288,6 @@
                         <Label fx:id="errorLabel" textFill="RED" />
                     </children>
                 </VBox>
-            <VBox fx:id="selectSubView1" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="610.0" prefWidth="1125.0">
-                     <children>
-                        <VBox fx:id="sem1SubDetails1" alignment="BOTTOM_CENTER" prefHeight="312.0" prefWidth="452.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Semester 1" />
-                              <ListView fx:id="sem1SubList1" prefHeight="350.0" prefWidth="442.0">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                              </ListView>
-                              <HBox alignment="CENTER" prefHeight="54.0" prefWidth="452.0">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total Credits:" />
-                                    <Text fx:id="sem1CreditsLabel1" strokeType="OUTSIDE" strokeWidth="0.0">
-                                       <HBox.margin>
-                                          <Insets left="10.0" />
-                                       </HBox.margin>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="37.0" prefWidth="452.0">
-                                 <children>
-                                    <ComboBox fx:id="sem1SubBox1" prefHeight="31.0" prefWidth="195.0" promptText="Select Course">
-                                       <HBox.margin>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </HBox.margin>
-                                    </ComboBox>
-                                    <Button fx:id="sem1AddButton1" mnemonicParsing="false" onAction="#sem1SubButtonClicked" prefHeight="39.0" prefWidth="130.0" text="Add">
-                                       <HBox.margin>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <Button fx:id="sem1RemoveButton1" mnemonicParsing="false" onAction="#sem1RemoveButtonClicked" prefHeight="39.0" prefWidth="130.0" text="Remove">
-                                       <HBox.margin>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                        <VBox fx:id="sem2SubDetails1" alignment="BOTTOM_CENTER" prefHeight="312.0" prefWidth="452.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Semester 2" />
-                              <ListView fx:id="sem2SubList1" prefHeight="352.0" prefWidth="452.0" />
-                              <HBox alignment="CENTER" prefHeight="54.0" prefWidth="452.0">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total Credits:" />
-                                    <Text fx:id="sem2CreditsLabel1" strokeType="OUTSIDE" strokeWidth="0.0">
-                                       <HBox.margin>
-                                          <Insets left="10.0" />
-                                       </HBox.margin>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="49.0" prefWidth="452.0">
-                                 <children>
-                                    <ComboBox fx:id="sem2SubBox1" prefHeight="31.0" prefWidth="197.0" promptText="Select Course">
-                                       <HBox.margin>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </HBox.margin>
-                                    </ComboBox>
-                                    <Button fx:id="sem2AddButton1" mnemonicParsing="false" onAction="#sem2SubButtonClicked" prefHeight="39.0" prefWidth="128.0" text="Add">
-                                       <HBox.margin>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <Button fx:id="sem2RemoveButton1" mnemonicParsing="false" onAction="#sem2RemoveButtonClicked" prefHeight="39.0" prefWidth="128.0" text="Remove">
-                                       <HBox.margin>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </HBox.margin>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="173.0" prefWidth="1125.0">
-                     <children>
-                        <Button fx:id="subCancelButton1" mnemonicParsing="false" onAction="#cancelButtonClicked" text="Cancel">
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <Label fx:id="errorLabel1" textFill="RED" />
-               </children>
-            </VBox>
             </children>
         </StackPane>
     </children>

@@ -98,6 +98,7 @@ public class UndergraduateController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/UgDetailsDialog.fxml"));
 
         Stage stage = new Stage(StageStyle.DECORATED);
+        stage.setMaximized(true);
         stage.initModality(Modality.APPLICATION_MODAL);
 
         try {
