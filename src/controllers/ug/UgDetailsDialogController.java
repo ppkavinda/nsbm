@@ -1,8 +1,7 @@
-package controllers;
+package controllers.ug;
 
 import helpers.MD5;
 import helpers.Validate;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,12 +21,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-public class UgDetailsFormController implements Initializable {
+public class UgDetailsDialogController implements Initializable {
     @FXML private Button cancelButton;
-    @FXML private Button mainMenuButton;
-    @FXML private Button saveButton;
     @FXML private Button selectSubjectsButton;
-    @FXML private Button subRegisterButton;
     @FXML private ComboBox<Subject> sem2SubBox;
     @FXML private ComboBox<Subject> sem1SubBox;
     @FXML private ComboBox<Faculty> facultyBox;
@@ -37,7 +33,6 @@ public class UgDetailsFormController implements Initializable {
     @FXML private Label errorLabel;
     @FXML private ListView<Subject> sem1SubList;
     @FXML private ListView<Subject> sem2SubList;
-    @FXML private TableView<Undergraduate> ugTable;
     @FXML private Label sem1CreditsLabel;
     @FXML private Text sem2CreditsLabel;
     @FXML private TextField sub1Field;
@@ -52,12 +47,10 @@ public class UgDetailsFormController implements Initializable {
     @FXML private TextField addressField1;
     @FXML private TextField addressField2;
     @FXML private TextField teleField;
-    @FXML private VBox ugList;
     @FXML private VBox ugDetails;
     @FXML private VBox selectSubView;
     @FXML private VBox sem2SubDetails;
     @FXML private VBox sem1SubDetails;
-    @FXML private Label labl;
 
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private boolean addButtonClicked;

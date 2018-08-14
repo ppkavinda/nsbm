@@ -1,7 +1,6 @@
 package models;
 
 import com.mysql.jdbc.Statement;
-import db.DBConnection;
 import db.DbSingleton;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -46,7 +45,7 @@ public class Postgraduate extends Student {
 
 //    CONSTRUCTORS, GETTERS & SETTERS
 
-    public void update(String email, String fname, String lname, String address1, String address2, String telephone, Date dob, String gender, int fac_id, int course_id, String qualification_type, String institute, int year_of_completion, int user_id) {
+    public int update(String email, String fname, String lname, String address1, String address2, String telephone, Date dob, String gender, int fac_id, int course_id, String qualification_type, String institute, int year_of_completion, int user_id) {
         String sql1 = "UPDATE `users` SET `email` = ? WHERE `users`.`user_id` = ?;";
 
         String sql2 = "UPDATE `postgraduate` SET `qualification_type` = ?, `institute` = ?, `year_of_completion` = ? " +
@@ -72,6 +71,7 @@ public class Postgraduate extends Student {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return user_id;
     }
 
     public int add(String email, String password, int role, String fname, String lname, String address1, String address2, String telephone, Date dob, String gender, int fac_id, int course_id, String qualification_type, String institute, int year_of_completion) {

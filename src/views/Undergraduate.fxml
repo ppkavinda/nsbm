@@ -9,7 +9,7 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
       minWidth="-Infinity" xmlns="http://javafx.com/javafx/8"
-      fx:controller="controllers.UndergraduateController">
+      fx:controller="controllers.ug.UndergraduateController">
     <children>
         <HBox alignment="CENTER" prefHeight="80.0" prefWidth="1125.0">
             <children>

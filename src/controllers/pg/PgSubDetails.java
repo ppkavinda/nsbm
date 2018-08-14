@@ -1,22 +1,16 @@
-package controllers;
+package controllers.pg;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
-import models.Course;
-import models.Faculty;
-import models.Subject;
-import models.Undergraduate;
+import models.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UgSubDetails {
+public class PgSubDetails {
     private SimpleIntegerProperty sem1TotalCredits = new SimpleIntegerProperty(0);
     private SimpleIntegerProperty sem2TotalCredits = new SimpleIntegerProperty(0);
 
@@ -44,9 +38,11 @@ public class UgSubDetails {
         this.sem2TotalCredits.set(sem2TotalCredits);
     }
 
-//    save selected subject
-    void subAdd (Subject sub, Undergraduate ug) {
-        ug.addSubject(sub.getSubject_code(), ug.getStudent_id());
+
+
+    //    save selected subject
+    void subAdd (Subject sub, Postgraduate pg) {
+        pg.addSubject(sub.getSubject_code(), pg.getStudent_id());
 
 //        increment the total credit label value
         if (sub.getSem() == 1) {
@@ -58,9 +54,9 @@ public class UgSubDetails {
         System.out.println("Subject selected.");
     }
 
-//    de-select selected subject
-    void subRemove (Subject sub, Undergraduate ug) {
-        ug.removeSubject(sub.getSubject_code(), ug.getStudent_id());
+    //    de-select selected subject
+    void subRemove (Subject sub, Postgraduate pg) {
+        pg.removeSubject(sub.getSubject_code(), pg.getStudent_id());
 
 //        decrement the total credit label value
         if (sub.getSem() == 1) {
@@ -71,7 +67,7 @@ public class UgSubDetails {
         System.out.println("subject de-selected.");
     }
 
-//    add selectable subjects into subject (initialize) ComboBox
+    //    add selectable subjects into subject (initialize) ComboBox
     void configSubBox (ComboBox<Subject> box1, ComboBox<Subject> box2, ResultSet rs) throws SQLException {
         ObservableList<Subject> data1 = box1.getItems();
         ObservableList<Subject> data2 = box2.getItems();
@@ -115,7 +111,7 @@ public class UgSubDetails {
         }
     }
 
-//    add subjects into Subject (initialize) ListViews
+    //    add subjects into Subject (initialize) ListViews
     void configSubList(ListView<Subject> listView1, ListView<Subject> listView2, ResultSet rs) throws SQLException {
         ObservableList<Subject> data1 = listView1.getItems();
         ObservableList<Subject> data2 = listView2.getItems();

@@ -1,4 +1,4 @@
-package controllers;
+package controllers.pg;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -16,27 +15,26 @@ import models.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-public class UndergraduateController implements Initializable {
-    @FXML private Button mainMenuButton;
-    @FXML private TableView<Undergraduate> ugTable;
+public class PostgraduateController implements Initializable {
 
-    private Undergraduate ug = new Undergraduate();
-    private UgTable ugt = new UgTable();
+    @FXML private Button mainMenuButton;
+    @FXML private TableView<Postgraduate> pgTable;
+
+    private Postgraduate pg = new Postgraduate();
+    private PgTable pgt = new PgTable();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            ugt.drawTable(ugTable);
+            pgt.drawTable(pgTable);
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
         }
     }
 
-//    goto the main panel
     @FXML
     private void toMainPanel() throws IOException {
         Scene scene = mainMenuButton.getScene();
@@ -44,28 +42,27 @@ public class UndergraduateController implements Initializable {
         scene.setRoot(root);
     }
 
-//    get the current selected row
     @FXML
-    private Undergraduate getSelectedRow() {
-        return ugTable.getSelectionModel().getSelectedItem();
+    private Postgraduate getSelectedRow() {
+        return pgTable.getSelectionModel().getSelectedItem();
     }
 
-//    remove selected UG
+    //    remove selected UG
     @FXML
     private void removeButtonClicked() {
         try {
-            ug.remove(getSelectedRow().getStudent_id());
-        } catch (NullPointerException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a Student", ButtonType.OK);
-            alert.showAndWait();
+            pg.remove(getSelectedRow().getStudent_id());
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
+        } catch (NullPointerException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a Student", ButtonType.OK);
+            alert.showAndWait();
         }
-        ugt.refreshTable(ugTable);
+        pgt.refreshTable(pgTable);
     }
 
-//    trigger edit DialogBox if double click detected on a table row
+    //    trigger edit DialogBox if double click detected on a table row
     @FXML
     private void editSelectedRow(MouseEvent mouseEvent) {
         if (mouseEvent.getClickCount() == 2 && getSelectedRow() != null) {
@@ -73,31 +70,31 @@ public class UndergraduateController implements Initializable {
         }
     }
 
-//    trigger edit DialogBox
+    //    trigger edit DialogBox
     @FXML
     private void editButtonClicked() {
         System.out.println("Edit Button Clicked");
-        Undergraduate ug = getSelectedRow();
-        if (ug == null) {
+        Postgraduate pg = getSelectedRow();
+        if (pg == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a Student", ButtonType.OK);
             alert.showAndWait();
         } else {
-            showDetailsDialog(ug);
-            ugt.refreshTable(ugTable);
+            showDetailsDialog(pg);
+            pgt.refreshTable(pgTable);
         }
     }
 
-//    trigger add DialogBox
+    //    trigger add DialogBox
     @FXML
     private void addButtonClicked() {
         System.out.println("Add Button Clicked");
         showDetailsDialog(null);   // null,  because it is a new student registration
-        ugt.refreshTable(ugTable);
+        pgt.refreshTable(pgTable);
     }
 
-//    when add or edit button clicked - open up a dialog box with a form to register students
-    private void showDetailsDialog(Undergraduate ug) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/UgDetailsForm.fxml"));
+    //    when add or edit button clicked - open up a dialog box with a form to register students
+    private void showDetailsDialog(Postgraduate pg) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/PgDetailsDialog.fxml"));
 
         Stage stage = new Stage(StageStyle.DECORATED);
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -113,10 +110,11 @@ public class UndergraduateController implements Initializable {
         }
 
 //      calling the setup method of the controller of dialog box FXML
-        UgDetailsFormController controller = loader.getController();
-        System.out.println(ug);
-        controller.initData(ug);
+        PgDetailsDialogController controller = loader.getController();
+        System.out.println(pg);
+        controller.initData(pg);
         stage.showAndWait();
 
     }
+
 }

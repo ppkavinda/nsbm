@@ -1,4 +1,4 @@
-package controllers;
+package controllers.ug;
 
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;

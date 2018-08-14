@@ -1,23 +1,31 @@
-package controllers;
+package controllers.pg;
 
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
 import models.Course;
 import models.Faculty;
 import models.Postgraduate;
+import models.Undergraduate;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PgTableController {
+public class PgTable {
     private Postgraduate pg = new Postgraduate();
 
     protected void refreshTable(TableView<Postgraduate> pgTable) {
         pgTable.getItems().clear();
-        drawTable(pgTable);
+        try {
+            drawTable(pgTable);
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Cannot Add Undergraduate!", ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
-    protected void drawTable(TableView<Postgraduate> pgTable) {
+    protected void drawTable(TableView<Postgraduate> pgTable) throws SQLException {
         ResultSet rs = pg.get();
         try {
             ObservableList<Postgraduate> data = pgTable.getItems();
@@ -51,6 +59,8 @@ public class PgTableController {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new SQLException("Cannot load the table.!");
+
         }
     }
 }
